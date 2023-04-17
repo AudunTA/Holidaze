@@ -6,8 +6,7 @@ function HeroSection() {
   return (
     <>
       <HeroContainer>
-        <HeroBanner className="background-img" />
-        <Header />
+        <Header className="header-e" />
       </HeroContainer>
     </>
   );

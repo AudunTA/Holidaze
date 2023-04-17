@@ -1,0 +1,47 @@
+<svg width="1920" height="12" viewBox="0 0 1920 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_104_300)">
+<mask id="mask0_104_300" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="243" y="0" width="1341" height="4">
+<path d="M1583.28 4L243.28 4V0L1583.28 0V4Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0_104_300)">
+<g filter="url(#filter0_f_104_300)">
+<path d="M1463.28 1L363.28 1V-1L1463.28 -1V1Z" fill="url(#paint0_linear_104_300)"/>
+</g>
+</g>
+<mask id="mask1_104_300" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="580" y="0" width="1340" height="12">
+<path d="M1920 12L580 12V0L1920 0V12Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask1_104_300)">
+<g filter="url(#filter1_f_104_300)">
+<path d="M1800 1L700 1V-1L1800 -1V1Z" fill="url(#paint1_linear_104_300)"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_104_300" x="362.28" y="-2" width="1102" height="4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_104_300"/>
+</filter>
+<filter id="filter1_f_104_300" x="691" y="-10" width="1118" height="20" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4.5" result="effect1_foregroundBlur_104_300"/>
+</filter>
+<linearGradient id="paint0_linear_104_300" x1="1463.28" y1="1" x2="363.28" y2="1" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A78BFA" stop-opacity="0"/>
+<stop offset="0.323" stop-color="#A78BFA"/>
+<stop offset="0.672" stop-color="#EC4899" stop-opacity="0.3"/>
+<stop offset="1" stop-color="#EC4899" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_104_300" x1="1800" y1="1" x2="700" y2="1" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A78BFA" stop-opacity="0"/>
+<stop offset="0.323" stop-color="#A78BFA"/>
+<stop offset="0.672" stop-color="#EC4899" stop-opacity="0.3"/>
+<stop offset="1" stop-color="#EC4899" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_104_300">
+<rect width="1920" height="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>
