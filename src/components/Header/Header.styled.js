@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
+  margin: auto;
   display: flex;
   justify-content: space-between;
   max-width: var(--max-width);

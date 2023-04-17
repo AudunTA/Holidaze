@@ -6,12 +6,22 @@
   font-family: NeuweltRegular;
   src: url(./assets/fonts/Neuwelt-Regular.ttf);
 }
+@font-face {
+  font-family: NeuweltBold;
+  src: url(./assets/fonts/Neuwelt-Bold.ttf);
+}
 p {
   font-family: NeuweltRegular;
 }
-
+input {
+  font-family: NeuweltLight;
+}
+h1 {
+  font-family: NeuweltBold;
+}
 body {
   margin: 0;
+  height: 2000px;
 }
 
 .color-border {
