@@ -1,0 +1,11 @@
+@font-face {
+  font-family: NeuweltLight;
+  src: url(./assets/fonts/Neuwelt-Light.ttf);
+}
+@font-face {
+  font-family: NeuweltRegular;
+  src: url(./assets/fonts/Neuwelt-Regular.ttf);
+}
+p {
+  font-family: NeuweltRegular;
+}
