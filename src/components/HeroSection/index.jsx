@@ -5,7 +5,7 @@ function HeroSection() {
   return (
     <>
       <HeroContainer>
-        <Header className="header-e" />
+        <Header />
         <div className="hero-description">
           <div className="top-hero">
             <p>292 Venues</p>
