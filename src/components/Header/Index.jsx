@@ -12,6 +12,8 @@ import ze from "../../assets/images/ZE.png";
 
 //import button style
 import { PrimaryButton } from "../../styles/Buttons.styled.js";
+// SignUp modal import
+import SignUp from "../SignUp/index.jsx";
 function Header() {
   return (
     <div>
@@ -42,6 +44,7 @@ function Header() {
               />
             </svg>
           </PrimaryButton>
+          <SignUp />
         </NavContainer>
       </HeaderContainer>
     </div>

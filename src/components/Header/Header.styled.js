@@ -21,6 +21,7 @@ const LogoContainer = styled.div`
 const NavContainer = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
   .nav-margin {
     margin-right: 15px;
   }
