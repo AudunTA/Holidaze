@@ -7,9 +7,12 @@ const PrimaryButton = styled.div`
   padding-right: 15px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: var(--secondary-border-radius);
   font-size: 15px;
   color: white;
+  text-align: center;
+  font-family: NeuweltRegular;
   cursor: pointer;
   .arrow-down {
     width: 15px;
