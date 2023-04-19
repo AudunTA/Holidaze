@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 import {
   HeaderContainer,
   LogoContainer,
@@ -15,6 +15,11 @@ import { PrimaryButton } from "../../styles/Buttons.styled.js";
 // SignUp modal import
 import SignUp from "../SignUp/index.jsx";
 function Header() {
+  const [showModal, setShowModal] = useState(true);
+
+  const handleModalStatus = () => {
+    setShowModal(!showModal);
+  };
   return (
     <div>
       <HeaderContainer>
@@ -26,7 +31,7 @@ function Header() {
         <NavContainer>
           <p className="nav-margin">Venues</p>
           <p className="nav-margin">Contact</p>
-          <PrimaryButton>
+          <PrimaryButton onClick={handleModalStatus}>
             <p>Sign Up</p>
 
             <svg
@@ -43,7 +48,7 @@ function Header() {
               />
             </svg>
           </PrimaryButton>
-          <SignUp />
+          {showModal ? <SignUp /> : ""}
         </NavContainer>
       </HeaderContainer>
     </div>
