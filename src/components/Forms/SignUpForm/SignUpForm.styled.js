@@ -38,6 +38,12 @@ const FormSignUp = styled.form`
       margin-right: 10px;
     }
   }
+  .error-message {
+    font-size: 13px;
+    color: var(--text-color-error);
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
 `;
 
 export { FormSignUp };

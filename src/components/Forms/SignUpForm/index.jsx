@@ -4,6 +4,11 @@ import { FormSignUp } from "./SignUpForm.styled";
 import ReactSwitch from "react-switch";
 import { useState } from "react";
 import { handleRegister } from "../../API/register";
+import {
+  emailInputValidation,
+  userNameValidation,
+  passwordValidation,
+} from "./FormValidation/inputValidation";
 function SingUpForm() {
   //Input states
   const [email, setEmail] = useState();
@@ -31,18 +36,32 @@ function SingUpForm() {
   const handleManagerChange = (val) => {
     setCheckedManager(val);
   };
-  const userValidation = () => {
-    if (email.length < 5) {
-      setErrorEmail(true);
+  //Sending user input to be validated before the API post request for registrer.
+  const handleRegistrer = () => {
+    //Sending userinputs to be validated
+    //Response will eighter be empty if successful or contain the error message.
+    const emailValidationResponse = emailInputValidation(email);
+    const userNameValidationResponse = userNameValidation(userName);
+    const passwordValidationResponse = passwordValidation(password);
+    //if response returns error
+    if (emailValidationResponse) {
+      //setting the error to the response
+      setErrorEmail(emailValidationResponse);
     } else {
-      setErrorEmail(false);
+      //clearing the error if no errors are found, this is important as if the user attempts more inputs the error will clear if validated.
+      setErrorEmail("");
     }
-    if (userName.length < 5) {
-      setErrorUserName(true);
+
+    if (userNameValidationResponse) {
+      setErrorUserName(userNameValidationResponse);
     } else {
-      setErrorEmail(false);
+      setErrorUserName("");
     }
-    handleRegister(email, userName, password, avatar, checkedManager);
+    if (passwordValidationResponse) {
+      setErrorPassword(passwordValidationResponse);
+    } else {
+      setErrorPassword("");
+    }
   };
   return (
     <FormSignUp>
@@ -53,11 +72,11 @@ function SingUpForm() {
       <p>already have an account? Log In</p>
       <div className="signUp-inputs">
         <input placeholder="Email" onChange={onEmailChange}></input>
-        {errorEmail ? <p>Error</p> : ""}
+        {errorEmail ? <p className="error-message">{errorEmail}</p> : ""}
         <input placeholder="Username" onChange={onUserNameChange}></input>
-        {errorUserName ? <p>Error</p> : ""}
+        {errorUserName ? <p className="error-message">{errorUserName}</p> : ""}
         <input placeholder="Password" onChange={onPasswordChange}></input>
-        {errorPassword ? <p>Error</p> : ""}
+        {errorPassword ? <p className="error-message">{errorPassword}</p> : ""}
         <input
           placeholder="Avatar (optional)"
           onChange={onAvatarChange}
@@ -76,7 +95,7 @@ function SingUpForm() {
         />
       </div>
 
-      <PrimaryButton onClick={userValidation}> Sign Up </PrimaryButton>
+      <PrimaryButton onClick={handleRegistrer}> Sign Up </PrimaryButton>
     </FormSignUp>
   );
 }
