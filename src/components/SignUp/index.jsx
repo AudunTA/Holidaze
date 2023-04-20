@@ -3,6 +3,7 @@ import { SignUpModal } from "./SignUp.styled";
 import { useState } from "react";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import SingUpForm from "../Forms/SignUpForm";
+import LogInForm from "../Forms/LogInForm";
 
 function SignUp() {
   const [active, setActive] = useState(false);
@@ -22,7 +23,9 @@ function SignUp() {
           <p>Sign Up</p>
         </div>
       </div>
-      <div className="content-modal">{!active ? <SingUpForm /> : "Nice"}</div>
+      <div className="content-modal">
+        {!active ? <SingUpForm /> : <LogInForm />}
+      </div>
     </SignUpModal>
   );
 }

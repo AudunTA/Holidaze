@@ -17,7 +17,6 @@ export function userNameValidation(userInput) {
     } else {
       return "Name cannot be greater than 20 characters";
     }
-    return;
   } else {
     return "Please enter a username";
   }

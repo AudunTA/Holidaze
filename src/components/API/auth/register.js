@@ -1,4 +1,4 @@
-import { baseURL } from "./baseURL";
+import { baseURL } from "../baseURL";
 const endpoint = "/auth/register";
 export async function registerUser(
   email,
@@ -6,7 +6,7 @@ export async function registerUser(
   password,
   avatar,
   checkedManager,
-  apiErrors
+  msgApi
 ) {
   console.log(email, userName, password, avatar, checkedManager);
 
@@ -29,7 +29,9 @@ export async function registerUser(
   console.log(json.errors);
   if (!request.ok) {
     for (let i = 0; i < json.errors.length; i++) {
-      apiErrors(json.errors[i].message);
+      msgApi(json.errors[i].message);
     }
+  } else {
+    msgApi("User Successfully created");
   }
 }

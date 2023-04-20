@@ -1,9 +1,9 @@
 import React from "react";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
-import { FormSignUp } from "./SignUpForm.styled";
+import { FormSignUp, FormInput } from "./SignUpForm.styled";
 import ReactSwitch from "react-switch";
 import { useState } from "react";
-import { registerUser } from "../../API/register";
+import { registerUser } from "../../API/auth/register";
 import {
   emailInputValidation,
   userNameValidation,
@@ -20,7 +20,8 @@ function SingUpForm() {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorUserName, setErrorUserName] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-  const [errorApi, setErrorApi] = useState("");
+  const [responseApi, setResponseApi] = useState("");
+  const [apiStatus, setApiStatus] = useState(false);
   const onEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -45,48 +46,49 @@ function SingUpForm() {
     const userNameValidationResponse = userNameValidation(userName);
     const passwordValidationResponse = passwordValidation(password);
     //if response returns error
-    let validEmail = false;
-    let validUserName = false;
-    let validPassword = false;
+
     if (emailValidationResponse) {
       //setting the error to the response
       setErrorEmail(emailValidationResponse);
     } else {
       //clearing the error if no errors are found, this is important as if the user attempts more inputs the error will clear if validated.
       setErrorEmail("");
-      validEmail = true;
     }
 
     if (userNameValidationResponse) {
       setErrorUserName(userNameValidationResponse);
     } else {
       setErrorUserName("");
-      validUserName = true;
     }
     if (passwordValidationResponse) {
       setErrorPassword(passwordValidationResponse);
     } else {
       setErrorPassword("");
-      validPassword = true;
     }
     if (errorEmail) {
       console.log("HELLO");
     }
     console.log("test:", errorEmail, errorUserName, errorPassword);
-    if (validEmail && validUserName && validPassword) {
+    //checking if errors are clear, if userinput also checks if input fields are blank
+    if (
+      !errorUserName &&
+      !errorEmail &&
+      !errorPassword &&
+      email.length > 1 &&
+      password.length > 1 &&
+      userName.length > 1
+    ) {
       console.log("test2", email, userName, password);
-      registerUser(
-        email,
-        userName,
-        password,
-        avatar,
-        checkedManager,
-        apiErrors
-      );
+      registerUser(email, userName, password, avatar, checkedManager, msgApi);
     }
   };
-  const apiErrors = (error) => {
-    setErrorApi(error);
+  const msgApi = (msg) => {
+    setResponseApi(msg);
+    if (msg === "User Successfully created") {
+      setApiStatus(true);
+    } else {
+      setApiStatus(false);
+    }
   };
   return (
     <FormSignUp>
@@ -96,17 +98,29 @@ function SingUpForm() {
       </p>
       <p>already have an account? Log In</p>
       <div className="signUp-inputs">
-        <input placeholder="Email" onChange={onEmailChange}></input>
+        <FormInput placeholder="Email" onChange={onEmailChange}></FormInput>
         {errorEmail ? <p className="error-message">{errorEmail}</p> : ""}
-        <input placeholder="Username" onChange={onUserNameChange}></input>
+        <FormInput
+          placeholder="Username"
+          onChange={onUserNameChange}
+        ></FormInput>
         {errorUserName ? <p className="error-message">{errorUserName}</p> : ""}
-        <input placeholder="Password" onChange={onPasswordChange}></input>
+        <FormInput
+          placeholder="Password"
+          onChange={onPasswordChange}
+        ></FormInput>
         {errorPassword ? <p className="error-message">{errorPassword}</p> : ""}
-        <input
+        <FormInput
           placeholder="Avatar (optional)"
           onChange={onAvatarChange}
-        ></input>
-        {errorApi ? <p className="error-message">{errorApi}</p> : ""}
+        ></FormInput>
+        {responseApi ? (
+          <p className={apiStatus ? "success-message" : "error-message"}>
+            {responseApi}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
       <div className="manager-account">
         <p>Manager Account</p>

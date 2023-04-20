@@ -11,16 +11,7 @@ const FormSignUp = styled.form`
     display: flex;
     flex-direction: column;
   }
-  input {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid var(--text-color-light);
-  }
+
   .manager-account {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -44,6 +35,23 @@ const FormSignUp = styled.form`
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
+  .success-message {
+    font-size: 15px;
+    font-family: NeuweltRegular;
+    color: var(--text-color-sucess);
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
 `;
 
-export { FormSignUp };
+const FormInput = styled.input`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--text-color-light);
+`;
+export { FormSignUp, FormInput };
