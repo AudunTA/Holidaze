@@ -29,7 +29,10 @@ function Header() {
     }
   };
   useEffect(() => {
-    document.addEventListener("storage", checkUserStatus());
+    window.onstorage = (event) => {
+      checkUserStatus();
+    };
+    checkUserStatus();
   }, []);
   return (
     <div>
@@ -40,7 +43,7 @@ function Header() {
           <img src={ze} className="ze"></img>
         </LogoContainer>
         {isUserLoggedIn ? (
-          <p>lol</p>
+          <p>LOGGED IN</p>
         ) : (
           <NavContainer>
             <PrimaryButton onClick={handleModalStatus}>

@@ -24,6 +24,6 @@ export async function logInUser(email, password, handleResponseLogIn) {
     localStorage.setItem("email", json.email);
     localStorage.setItem("accessToken", json.accessToken);
     localStorage.setItem("venueManager", json.venueManager);
-    console.log("inne");
+    window.dispatchEvent(new Event("storage"));
   }
 }
