@@ -7,16 +7,27 @@ const FilterContainer = styled.div`
   border-radius: var(--main-border-radius);
 `;
 const Filter = styled.div`
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  min-height: 40px;
   padding: 10px;
+  background-color: ${(props) =>
+    props.active ? "var(--text-color-highlight)" : ""};
   border-bottom: 1px solid var(--border-color);
-  .plus-icon {
+  .filter-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .icon-filter {
+    cursor: pointer;
     width: 20px;
     height: 20px;
     color: var(--btn-color-primary);
+  }
+  .content-filter {
+    display: inline-block;
+  }
+  :hover {
+    background-color: var(--text-color-highlight);
   }
 `;
 
