@@ -11,11 +11,23 @@ const SignUpModal = styled.div`
   border-radius: var(--main-border-radius);
 
   .options-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
     background-color: var(--text-color-highlight);
+    .triangle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -15px;
+      right: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+
+      border-bottom: 15px solid black;
+    }
 
     .btn-LogIn {
       cursor: pointer;

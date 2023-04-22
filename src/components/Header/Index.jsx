@@ -17,6 +17,7 @@ import SignUp from "../SignUp/index.jsx";
 function Header() {
   const [showModal, setShowModal] = useState(true);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userName, setUserName] = useState();
   const handleModalStatus = () => {
     setShowModal(!showModal);
   };
@@ -34,6 +35,9 @@ function Header() {
     };
     checkUserStatus();
   }, []);
+  useEffect(() => {
+    setUserName(localStorage.getItem("username"));
+  }, [isUserLoggedIn]);
   return (
     <div>
       <HeaderContainer>
@@ -43,7 +47,24 @@ function Header() {
           <img src={ze} className="ze"></img>
         </LogoContainer>
         {isUserLoggedIn ? (
-          <p>LOGGED IN</p>
+          <NavContainer>
+            <PrimaryButton>
+              <p>{userName}</p>
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="white"
+                className="arrow-down"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </PrimaryButton>
+          </NavContainer>
         ) : (
           <NavContainer>
             <PrimaryButton onClick={handleModalStatus}>

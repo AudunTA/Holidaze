@@ -22,6 +22,7 @@ export async function logInUser(email, password, handleResponseLogIn) {
     console.log(json);
     localStorage.setItem("username", json.name);
     localStorage.setItem("email", json.email);
+    localStorage.setItem("avatar", json.avatar);
     localStorage.setItem("accessToken", json.accessToken);
     localStorage.setItem("venueManager", json.venueManager);
     window.dispatchEvent(new Event("storage"));
