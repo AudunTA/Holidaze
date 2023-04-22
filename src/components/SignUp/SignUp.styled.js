@@ -9,6 +9,7 @@ const SignUpModal = styled.div`
   border: 1px solid var(--border-color);
   background-color: white;
   border-radius: var(--main-border-radius);
+  box-shadow: 0px 2px 3px rgba(255, 0, 0, 0.08);
 
   .options-container {
     position: relative;
