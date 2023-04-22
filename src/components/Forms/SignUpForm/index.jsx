@@ -1,6 +1,6 @@
 import React from "react";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
-import { FormSignUp, FormInput } from "./SignUpForm.styled";
+import { FormSignUp } from "./SignUpForm.styled";
 import ReactSwitch from "react-switch";
 import { useState } from "react";
 import { registerUser } from "../../API/auth/register";
@@ -9,6 +9,7 @@ import {
   userNameValidation,
   passwordValidation,
 } from "../FormValidation/inputValidation";
+import { FormInput } from "./SignUpForm.styled";
 function SingUpForm() {
   //Input states
   const [email, setEmail] = useState("");
@@ -20,8 +21,7 @@ function SingUpForm() {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorUserName, setErrorUserName] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-  const [responseApi, setResponseApi] = useState("");
-  const [apiStatus, setApiStatus] = useState(false);
+  const [errorApi, setErrorApi] = useState("");
   const onEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -46,49 +46,51 @@ function SingUpForm() {
     const userNameValidationResponse = userNameValidation(userName);
     const passwordValidationResponse = passwordValidation(password);
     //if response returns error
-
+    let validEmail = false;
+    let validUserName = false;
+    let validPassword = false;
     if (emailValidationResponse) {
       //setting the error to the response
       setErrorEmail(emailValidationResponse);
     } else {
       //clearing the error if no errors are found, this is important as if the user attempts more inputs the error will clear if validated.
       setErrorEmail("");
+      validEmail = true;
     }
 
     if (userNameValidationResponse) {
       setErrorUserName(userNameValidationResponse);
     } else {
       setErrorUserName("");
+      validUserName = true;
     }
     if (passwordValidationResponse) {
       setErrorPassword(passwordValidationResponse);
     } else {
       setErrorPassword("");
+      validPassword = true;
     }
     if (errorEmail) {
       console.log("HELLO");
     }
     console.log("test:", errorEmail, errorUserName, errorPassword);
-    //checking if errors are clear, if userinput also checks if input fields are blank
-    if (
-      !errorUserName &&
-      !errorEmail &&
-      !errorPassword &&
-      email.length > 1 &&
-      password.length > 1 &&
-      userName.length > 1
-    ) {
+    if (validEmail && validUserName && validPassword) {
       console.log("test2", email, userName, password);
-      registerUser(email, userName, password, avatar, checkedManager, msgApi);
+      //Now the inputs are validated and i send it to the registerUser function
+      //i also send the apiError as a prop so i can display the error from this module to the user interface.
+      registerUser(
+        email,
+        userName,
+        password,
+        avatar,
+        checkedManager,
+        apiErrors
+      );
     }
   };
-  const msgApi = (msg) => {
-    setResponseApi(msg);
-    if (msg === "User Successfully created") {
-      setApiStatus(true);
-    } else {
-      setApiStatus(false);
-    }
+  //api error that is sent as a prop to the api method.
+  const apiErrors = (error) => {
+    setErrorApi(error);
   };
   return (
     <FormSignUp>
@@ -114,19 +116,15 @@ function SingUpForm() {
           placeholder="Avatar (optional)"
           onChange={onAvatarChange}
         ></FormInput>
-        {responseApi ? (
-          <p className={apiStatus ? "success-message" : "error-message"}>
-            {responseApi}
-          </p>
-        ) : (
-          ""
-        )}
+        {errorApi ? <p className="error-message">{errorApi}</p> : ""}
       </div>
       <div className="manager-account">
         <p>Manager Account</p>
         <ReactSwitch
           className="manager-switch"
           onColor="#B1D1FD"
+          height={20}
+          width={40}
           onHandleColor="#4896ff"
           checkedIcon={false}
           uncheckedIcon={false}

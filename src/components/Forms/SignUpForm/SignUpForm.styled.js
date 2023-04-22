@@ -15,6 +15,7 @@ const FormSignUp = styled.form`
   .manager-account {
     margin-top: 10px;
     margin-bottom: 10px;
+    height: 32px;
     border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -23,6 +24,8 @@ const FormSignUp = styled.form`
     border-radius: var(--main-border-radius);
     p {
       color: var(--text-main-color);
+      margin-block-start: 0em;
+      margin-block-end: 0em;
       margin-left: 10px;
     }
     .manager-switch {
