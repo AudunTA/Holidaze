@@ -25,5 +25,11 @@ const NavContainer = styled.div`
   .nav-margin {
     margin-right: 15px;
   }
+  .avatar-img {
+    width: 23px;
+    height: 23px;
+    border-radius: 67%;
+    margin-right: 5px;
+  }
 `;
 export { HeaderContainer, LogoContainer, NavContainer };

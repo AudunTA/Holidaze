@@ -9,17 +9,37 @@ import {
 import holi from "../../assets/images/HOLID.png";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import ze from "../../assets/images/ZE.png";
+// default avatar
 
 //import button style
 import { PrimaryButton } from "../../styles/Buttons.styled.js";
 // SignUp modal import
 import SignUp from "../SignUp/index.jsx";
+//User menu import
+import UserMenu from "../UserMenu/index.jsx";
 function Header() {
+  //show modal states
+  //default is true so if user is not logged in the signup modal will be shown as default
   const [showModal, setShowModal] = useState(true);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  //logged in state
+
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  //for manageing logged in user information
+
   const [userName, setUserName] = useState();
+  const [avatar, setAvatar] = useState();
+
+  //modal visability handeling
+
   const handleModalStatus = () => {
     setShowModal(!showModal);
+  };
+
+  const handleUserMenuStatus = () => {
+    setShowUserMenu(!showUserMenu);
+    console.log("nice");
   };
   const checkUserStatus = () => {
     const token = localStorage.getItem("accessToken");
@@ -35,8 +55,11 @@ function Header() {
     };
     checkUserStatus();
   }, []);
+
+  //if user is logged in I retrive data from local storage and set it into the states
   useEffect(() => {
     setUserName(localStorage.getItem("username"));
+    setAvatar(localStorage.getItem("avatar"));
   }, [isUserLoggedIn]);
   return (
     <div>
@@ -48,7 +71,11 @@ function Header() {
         </LogoContainer>
         {isUserLoggedIn ? (
           <NavContainer>
-            <PrimaryButton>
+            <PrimaryButton onClick={handleUserMenuStatus}>
+              <img
+                src={avatar !== null ? avatar : avatar}
+                className="avatar-img"
+              ></img>
               <p>{userName}</p>
               <svg
                 fill="none"
@@ -64,6 +91,7 @@ function Header() {
                 />
               </svg>
             </PrimaryButton>
+            {showUserMenu ? <UserMenu /> : ""}
           </NavContainer>
         ) : (
           <NavContainer>
