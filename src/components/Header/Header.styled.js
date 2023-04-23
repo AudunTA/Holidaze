@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
-  margin: 10px auto;
   display: flex;
+  margin: auto;
   justify-content: space-between;
   max-width: var(--max-width);
+  padding-top: 10px;
 `;
 
 const LogoContainer = styled.div`

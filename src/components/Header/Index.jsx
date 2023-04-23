@@ -62,61 +62,59 @@ function Header() {
     setAvatar(localStorage.getItem("avatar"));
   }, [isUserLoggedIn]);
   return (
-    <div>
-      <HeaderContainer>
-        <LogoContainer>
-          <img src={holi}></img>
-          <Logo className="logo-a" />
-          <img src={ze} className="ze"></img>
-        </LogoContainer>
-        {isUserLoggedIn ? (
-          <NavContainer>
-            <PrimaryButton onClick={handleUserMenuStatus}>
-              <img
-                src={avatar !== null ? avatar : avatar}
-                className="avatar-img"
-              ></img>
-              <p>{userName}</p>
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="arrow-down"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </PrimaryButton>
-            {showUserMenu ? <UserMenu /> : ""}
-          </NavContainer>
-        ) : (
-          <NavContainer>
-            <PrimaryButton onClick={handleModalStatus}>
-              <p>Sign Up</p>
+    <HeaderContainer>
+      <LogoContainer>
+        <img src={holi}></img>
+        <Logo className="logo-a" />
+        <img src={ze} className="ze"></img>
+      </LogoContainer>
+      {isUserLoggedIn ? (
+        <NavContainer>
+          <PrimaryButton onClick={handleUserMenuStatus}>
+            <img
+              src={avatar !== null ? avatar : avatar}
+              className="avatar-img"
+            ></img>
+            <p>{userName}</p>
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="white"
+              className="arrow-down"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </PrimaryButton>
+          {showUserMenu ? <UserMenu /> : ""}
+        </NavContainer>
+      ) : (
+        <NavContainer>
+          <PrimaryButton onClick={handleModalStatus}>
+            <p>Sign Up</p>
 
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="arrow-down"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </PrimaryButton>
-            {showModal ? <SignUp /> : ""}
-          </NavContainer>
-        )}
-      </HeaderContainer>
-    </div>
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="white"
+              className="arrow-down"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </PrimaryButton>
+          {showModal ? <SignUp /> : ""}
+        </NavContainer>
+      )}
+    </HeaderContainer>
   );
 }
 

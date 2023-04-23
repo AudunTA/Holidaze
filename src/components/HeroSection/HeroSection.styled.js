@@ -9,6 +9,7 @@ const HeroContainer = styled.div`
     margin: 75px auto;
     p {
       color: var(--text-color-light);
+      font-family: NeuweltLight;
     }
     h1 {
       color: var(--text-color-dark);

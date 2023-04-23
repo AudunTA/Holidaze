@@ -3,8 +3,10 @@ import styled from "styled-components";
 const SearchBarContainer = styled.div`
   position: sticky;
   top: 0px;
+  z-index: 2;
   height: 72px;
   width: 100%;
+  background-color: white;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow);
 
