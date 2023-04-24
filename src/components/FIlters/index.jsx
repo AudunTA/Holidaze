@@ -4,7 +4,8 @@ import { ReactComponent as PlusIcon } from "../../assets/images/plusIcon.svg";
 import { ReactComponent as MinusIcon } from "../../assets/images/minusIcon.svg";
 import SmoothCollapse from "react-smooth-collapse";
 import Slider from "@mui/material/Slider";
-
+import { Button } from "@mui/material";
+import { CalendarPicker } from "@material-ui/lab";
 import { useState } from "react";
 function Filters() {
   const [expandPrice, setExpandPrice] = useState(false);
@@ -29,8 +30,9 @@ function Filters() {
   };
   return (
     <FilterContainer>
-      <p>test</p>
-
+      <Button>test</Button>
+      <p>test2</p>
+      <CalendarPicker />
       <Filter active={expandPrice}>
         <div className="filter-top">
           <p>Price</p>
