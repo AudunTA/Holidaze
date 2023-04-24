@@ -6,6 +6,7 @@ import SmoothCollapse from "react-smooth-collapse";
 import { useState } from "react";
 import Price from "./Price";
 import Guests from "./Guests";
+import Amenities from "./Amenities";
 function Filters() {
   //Expand states
   const [expandPrice, setExpandPrice] = useState(false);
@@ -44,7 +45,7 @@ function Filters() {
       heading: "Amenities",
       action: handleExpandAmenities,
       show: expandAmenities,
-      component: <Guests />,
+      component: <Amenities />,
     },
     {
       heading: "Guests",

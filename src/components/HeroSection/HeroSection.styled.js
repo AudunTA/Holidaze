@@ -2,10 +2,15 @@ import styled from "styled-components";
 
 const HeroContainer = styled.div`
   height: 390px;
-
-  .hero-description {
+  .wrapper-hero {
+    height: 100%;
+    margin: auto;
     max-width: var(--max-width);
-    margin: 75px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hero-description {
     p {
       color: var(--text-color-light);
       font-family: NeuweltLight;
@@ -25,4 +30,5 @@ const HeroContainer = styled.div`
     }
   }
 `;
+
 export { HeroContainer };
