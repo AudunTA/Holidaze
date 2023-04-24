@@ -8,8 +8,8 @@ const SignUpModal = styled.div`
   top: 50px;
   border: 1px solid #e2e8f0;
   border-color: hsla(0, 0%, 100%, 0.1);
-  background-color: hsla(0, 0%, 100%, 0.05);
-  border-radius: 1rem;
+  background-color: var(--solid-dark-color);
+  border-radius: var(--main-border-radius);
   backdrop-filter: blur(24px);
 
   .options-container {
@@ -42,7 +42,7 @@ const SignUpModal = styled.div`
       border-right: ${(props) =>
         props.active ? "1px solid var(--border-color)" : ""};
       background-color: ${(props) =>
-        props.active ? "var(--background-color)" : "none"};
+        props.active ? "var(--solid-dark-color)" : "none"};
       border-top-right-radius: ${(props) => (props.active ? "7px" : "0px")};
     }
 
@@ -56,7 +56,7 @@ const SignUpModal = styled.div`
       border-left: ${(props) =>
         props.active ? "none" : "1px solid var(--border-color)"};
       background-color: ${(props) =>
-        props.active ? "none" : "var(--background-color)"};
+        props.active ? "none" : "var(--solid-dark-color)"};
       border-top-right-radius: var(--main-border-radius);
       border-top-left-radius: ${(props) => (props.active ? "0px" : "7px")};
     }

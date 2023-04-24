@@ -1,16 +1,19 @@
 import styled from "styled-components";
 
 const FilterContainer = styled.div`
-  height: 100vh;
   width: 250px;
   border: 1px solid #e2e8f0;
   border-color: hsla(0, 0%, 100%, 0.1);
   background-color: hsla(0, 0%, 100%, 0.05);
   border-radius: var(--main-border-radius);
   backdrop-filter: blur(24px);
+  .btn-filter {
+    margin: 15px;
+    font-size: 13px;
+  }
 `;
 const Filter = styled.div`
-  min-height: 40px;
+  min-height: 30px;
   padding: 10px;
   background-color: ${(props) =>
     props.active ? "var(--text-color-highlight)" : ""};

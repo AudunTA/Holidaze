@@ -13,7 +13,7 @@ function SearchBar() {
               strokeWidth={1.5}
               stroke="currentColor"
               className="w-6 h-6 search-icon"
-              color="#97a0b2"
+              color="#FFFFFF"
             >
               <path
                 strokeLinecap="round"
@@ -29,7 +29,7 @@ function SearchBar() {
             strokeWidth={1.5}
             stroke="currentColor"
             className="w-6 h-6 filter-icon"
-            color="#97a0b2"
+            color="#FFFFFF"
           >
             <path
               strokeLinecap="round"
@@ -38,8 +38,8 @@ function SearchBar() {
             />
           </svg>
         </div>
+        <ColorBorder className="color-border" />
       </SearchBarContainer>
-      <ColorBorder className="color-border" />
     </>
   );
 }

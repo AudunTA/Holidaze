@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PrimaryButton = styled.div`
-  background-color: rgb(30 41 59/1);
+  background-color: var(--btn-color-primary);
   height: 32px;
   padding-left: 15px;
   padding-right: 15px;

@@ -5,8 +5,9 @@
   --text-color-main: #ffffff;
   --text-color-light: #f9f9fa;
   --btn-color-primary: #6479f2;
-  --btn-color-secondary: #b1d1fd;
+  --btn-color-secondary: #7b94d6;
   --border: #e2e8f0;
+  --solid-dark-color: rgb(30 41 59/1);
   --border-color: hsla(0, 0%, 100%, 0.1);
   --background-color: hsla(0, 0%, 100%, 0.05);
   --text-color-highlight: hsla(0, 0%, 100%, 0.1);

@@ -7,6 +7,7 @@ import { useState } from "react";
 import Price from "./Price";
 import Guests from "./Guests";
 import Amenities from "./Amenities";
+import { PrimaryButton } from "../../styles/Buttons.styled";
 function Filters() {
   //Expand states
   const [expandPrice, setExpandPrice] = useState(false);
@@ -74,6 +75,9 @@ function Filters() {
           </Filter>
         );
       })}
+      <PrimaryButton className="btn-filter">
+        <p>Apply Filters</p>
+      </PrimaryButton>
     </FilterContainer>
   );
 }

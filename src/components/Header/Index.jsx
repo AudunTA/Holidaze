@@ -22,17 +22,15 @@ function Header() {
   //default is true so if user is not logged in the signup modal will be shown as default
   const [showModal, setShowModal] = useState(true);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  //logged in state
 
+  //logged in state
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   //for manageing logged in user information
-
   const [userName, setUserName] = useState();
   const [avatar, setAvatar] = useState();
 
   //modal visability handeling
-
   const handleModalStatus = () => {
     setShowModal(!showModal);
   };
@@ -68,52 +66,56 @@ function Header() {
         <Logo className="logo-a" />
         <img src={ze} className="ze"></img>
       </LogoContainer>
-      {isUserLoggedIn ? (
-        <NavContainer>
-          <PrimaryButton onClick={handleUserMenuStatus}>
-            <img
-              src={avatar !== null ? avatar : avatar}
-              className="avatar-img"
-            ></img>
-            <p>{userName}</p>
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="white"
-              className="arrow-down"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </PrimaryButton>
-          {showUserMenu ? <UserMenu /> : ""}
-        </NavContainer>
-      ) : (
-        <NavContainer>
-          <PrimaryButton onClick={handleModalStatus}>
-            <p>Sign Up</p>
+      <NavContainer>
+        <p className="nav-item">Venues</p>
+        <p className="nav-item">Contact</p>
+        {isUserLoggedIn ? (
+          <>
+            <PrimaryButton onClick={handleUserMenuStatus}>
+              <img
+                src={avatar !== null ? avatar : avatar}
+                className="avatar-img"
+              ></img>
+              <p>{userName}</p>
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="white"
+                className="arrow-down"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </PrimaryButton>
+            {showUserMenu ? <UserMenu /> : ""}
+          </>
+        ) : (
+          <>
+            <PrimaryButton onClick={handleModalStatus}>
+              <p>Sign Up</p>
 
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="white"
-              className="arrow-down"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </PrimaryButton>
-          {showModal ? <SignUp /> : ""}
-        </NavContainer>
-      )}
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="white"
+                className="arrow-down"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </PrimaryButton>
+            {showModal ? <SignUp /> : ""}
+          </>
+        )}
+      </NavContainer>
     </HeaderContainer>
   );
 }

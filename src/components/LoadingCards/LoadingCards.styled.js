@@ -4,7 +4,7 @@ const LoadingContainer = styled.div`
   flex: 1;
   margin-left: 15px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   max-height: 350px;
   grid-gap: 15px;
 `;

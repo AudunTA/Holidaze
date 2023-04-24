@@ -4,7 +4,7 @@ const SearchBarContainer = styled.div`
   position: sticky;
   top: 0px;
   z-index: 2;
-  height: 72px;
+  height: 40px;
   width: 100%;
   border: 1px solid var(--border);
   border-color: var(--border-color);
@@ -28,20 +28,28 @@ const SearchBarContainer = styled.div`
     width: 20px;
     height: 20px;
   }
+  .color-border {
+    position: absolute;
+    top: 140px;
+    width: 100vw;
+  }
 `;
 
 const SearchInput = styled.div`
   display: flex;
   align-items: center;
   flex: 1;
-  height: 50px;
-
+  height: 30px;
   input {
     outline: none;
     height: 100%;
     border: none;
     flex: 1;
+    color: var(--text-color-main);
     background-color: transparent;
+    ::placeholder {
+      color: var(--text-color-main);
+    }
   }
 `;
 export { SearchBarContainer, SearchInput };

@@ -23,8 +23,11 @@ const NavContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  .nav-margin {
-    margin-right: 15px;
+  .nav-item {
+    margin-right: 20px;
+    color: var(--text-color-main);
+    font-size: 13px;
+    font-family: NeuweltLight;
   }
   .avatar-img {
     width: 23px;
