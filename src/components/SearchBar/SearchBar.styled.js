@@ -15,10 +15,13 @@ const SearchBarContainer = styled.div`
     margin: auto;
     max-width: var(--max-width);
     height: 100%;
-    width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media only screen and (max-width: 1250px) {
+      margin: 0 15px;
+    }
   }
   .search-icon {
     width: 20px;

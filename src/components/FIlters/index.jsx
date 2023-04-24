@@ -57,27 +57,29 @@ function Filters() {
   ];
   return (
     <FilterContainer>
-      {filters.map((ele) => {
-        console.log("INNE");
-        return (
-          <Filter active={ele.show} key={ele.heading}>
-            <div className="filter-top">
-              <p>{ele.heading}</p>
-              {ele.show ? (
-                <MinusIcon className="icon-filter" onClick={ele.action} />
-              ) : (
-                <PlusIcon className="icon-filter" onClick={ele.action} />
-              )}
-            </div>
-            <SmoothCollapse expanded={ele.show} className="content-filter">
-              {ele.component}
-            </SmoothCollapse>
-          </Filter>
-        );
-      })}
-      <PrimaryButton className="btn-filter">
-        <p>Apply Filters</p>
-      </PrimaryButton>
+      <div className="border-wrapper">
+        {filters.map((ele) => {
+          console.log("INNE");
+          return (
+            <Filter active={ele.show} key={ele.heading}>
+              <div className="filter-top">
+                <p>{ele.heading}</p>
+                {ele.show ? (
+                  <MinusIcon className="icon-filter" onClick={ele.action} />
+                ) : (
+                  <PlusIcon className="icon-filter" onClick={ele.action} />
+                )}
+              </div>
+              <SmoothCollapse expanded={ele.show} className="content-filter">
+                {ele.component}
+              </SmoothCollapse>
+            </Filter>
+          );
+        })}
+        <PrimaryButton className="btn-filter">
+          <p>Apply Filters</p>
+        </PrimaryButton>
+      </div>
     </FilterContainer>
   );
 }

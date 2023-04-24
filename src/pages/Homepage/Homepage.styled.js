@@ -4,6 +4,9 @@ const MainContainer = styled.div`
   margin: 15px auto;
   max-width: var(--max-width);
   display: flex;
+  @media only screen and (max-width: 1250px) {
+    margin: 15px;
+  }
 `;
 const TestDiv = styled.div`
   margin: 15px auto;

@@ -29,6 +29,9 @@ const HeroContainer = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 1250px) {
+    margin: 0 15px;
+  }
 `;
 
 export { HeroContainer };
