@@ -2,7 +2,7 @@ import React from "react";
 
 import HeroSection from "../../components/HeroSection";
 import SearchBar from "../../components/SearchBar";
-import Filters from "../../components/FIlters";
+import Filters from "../../components/Filters";
 import { MainContainer, TestDiv } from "./Homepage.styled";
 import LoadingCards from "../../components/LoadingCards";
 function Homepage() {

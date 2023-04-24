@@ -4,7 +4,7 @@ import { ReactComponent as PlusIcon } from "../../assets/images/plusIcon.svg";
 import { ReactComponent as MinusIcon } from "../../assets/images/minusIcon.svg";
 import SmoothCollapse from "react-smooth-collapse";
 import Slider from "@mui/material/Slider";
-import { DateRangeCalendar } from "@mui/x-date-pickers-pro/DateRangeCalendar";
+
 import { useState } from "react";
 function Filters() {
   const [expandPrice, setExpandPrice] = useState(false);
@@ -30,7 +30,7 @@ function Filters() {
   return (
     <FilterContainer>
       <p>test</p>
-      <DateRangeCalendar></DateRangeCalendar>
+
       <Filter active={expandPrice}>
         <div className="filter-top">
           <p>Price</p>
