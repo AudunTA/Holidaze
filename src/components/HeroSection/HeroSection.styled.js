@@ -11,7 +11,7 @@ const HeroContainer = styled.div`
       font-family: NeuweltLight;
     }
     h1 {
-      color: var(--text-color-dark);
+      color: var(--text-color-main);
       font-size: 36px;
       line-height: 40px;
       margin-block-start: 0em;

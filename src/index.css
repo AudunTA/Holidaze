@@ -1,7 +1,8 @@
 /* root variables for easy access and changes */
 :root {
   /*colors */
-  --text-color-dark: #ffffff;
+  --background-color: rgb(15 23 42/ 0.9);
+  --text-color-main: #ffffff;
   --text-color-light: #f9f9fa;
   --btn-color-primary: #6479f2;
   --btn-color-secondary: #b1d1fd;

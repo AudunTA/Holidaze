@@ -23,6 +23,7 @@ const FormSignUp = styled.form`
     border-color: var(--border-color);
     background-color: var(--background-color);
     backdrop-filter: var(--backdrop-filter);
+    color: var(--text-color-main);
 
     p {
       color: var(--text-main-color);

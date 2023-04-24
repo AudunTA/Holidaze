@@ -21,7 +21,7 @@ h1 {
 }
 body {
   margin: 0;
-  background-color: #292443;
+  background-color: rgb(15 23 42/ 0.9);
 }
 
 .color-border {

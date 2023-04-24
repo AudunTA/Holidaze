@@ -7,17 +7,23 @@ function LoadingCards({ number }) {
   const cards = [];
   for (let i = 0; i < number; i++) {
     cards.push(
-      <Card>
+      <Card key={i}>
         <Skeleton
           style={{ width: "auto" }}
+          baseColor="var(--background-color)"
+          highlightColor="hsla(0, 0%, 100%, 0.1)"
           className="skeleton-loading-image"
         ></Skeleton>
         <Skeleton
           style={{ width: "auto" }}
+          baseColor="var(--background-color)"
+          highlightColor="hsla(0, 0%, 100%, 0.1)"
           className="skeleton-loading-heading"
         ></Skeleton>
         <Skeleton
           style={{ width: "auto" }}
+          baseColor="var(--background-color)"
+          highlightColor="hsla(0, 0%, 100%, 0.1)"
           className="skeleton-loading-text"
         ></Skeleton>
       </Card>

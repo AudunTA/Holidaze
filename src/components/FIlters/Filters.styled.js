@@ -15,10 +15,17 @@ const Filter = styled.div`
   background-color: ${(props) =>
     props.active ? "var(--text-color-highlight)" : ""};
   border-bottom: 1px solid var(--border-color);
+  color: var(--text-color-main);
   .filter-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .range-slider {
+    input {
+      width: 100%;
+      height: 30px;
+    }
   }
   .icon-filter {
     cursor: pointer;
@@ -27,7 +34,6 @@ const Filter = styled.div`
     color: var(--btn-color-primary);
   }
   .content-filter {
-    display: inline-block;
   }
   :hover {
     background-color: var(--text-color-highlight);

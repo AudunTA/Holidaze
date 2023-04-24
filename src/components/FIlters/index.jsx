@@ -3,12 +3,17 @@ import { FilterContainer, Filter } from "./Filters.styled";
 import { ReactComponent as PlusIcon } from "../../assets/images/plusIcon.svg";
 import { ReactComponent as MinusIcon } from "../../assets/images/minusIcon.svg";
 import SmoothCollapse from "react-smooth-collapse";
+import Slider from "@mui/material/Slider";
 import { useState } from "react";
 function Filters() {
   const [expandPrice, setExpandPrice] = useState(false);
   const [expandGuests, setExpandGuests] = useState(false);
   const [expandAmenities, setExpandAmenities] = useState(false);
   const [expandDate, setExpandDate] = useState(false);
+  const [value, setValue] = React.useState([20, 37]);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const handleExpandPrice = () => {
     setExpandPrice(!expandPrice);
   };
@@ -33,7 +38,7 @@ function Filters() {
           )}
         </div>
         <SmoothCollapse expanded={expandPrice} className="content-filter">
-          this is the Price expand
+          <Slider />
         </SmoothCollapse>
       </Filter>
 
