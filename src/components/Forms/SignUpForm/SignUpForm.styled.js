@@ -16,12 +16,14 @@ const FormSignUp = styled.form`
     margin-top: 10px;
     margin-bottom: 10px;
     height: 32px;
-    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--text-color-highlight);
-    border-radius: var(--main-border-radius);
+    border: 1px solid var(--border);
+    border-color: var(--border-color);
+    background-color: var(--background-color);
+    backdrop-filter: var(--backdrop-filter);
+
     p {
       color: var(--text-main-color);
       margin-block-start: 0em;
@@ -55,6 +57,7 @@ const FormInput = styled.input`
   margin-bottom: 10px;
   outline: none;
   border: none;
+  background-color: transparent;
   border-bottom: 1px solid var(--text-color-light);
 `;
 export { FormSignUp, FormInput };

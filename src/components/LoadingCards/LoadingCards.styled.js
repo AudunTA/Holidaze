@@ -9,9 +9,11 @@ const LoadingContainer = styled.div`
   grid-gap: 15px;
 `;
 const Card = styled.div`
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
+  border-color: var(--border-color);
+  background-color: var(--background-color);
   border-radius: var(--main-border-radius);
-  box-shadow: 0px 2px 3px rgba(255, 0, 0, 0.08);
+  backdrop-filter: var(--backdrop-filter);
   .skeleton-loading-image {
     margin: 15px;
     margin-bottom: 0;

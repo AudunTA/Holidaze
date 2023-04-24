@@ -1,18 +1,21 @@
 /* root variables for easy access and changes */
 :root {
   /*colors */
-  --text-color-dark: #39373d;
-  --text-color-light: #97a0b2;
-  --btn-color-primary: #4896ff;
+  --text-color-dark: #ffffff;
+  --text-color-light: #f9f9fa;
+  --btn-color-primary: #6479f2;
   --btn-color-secondary: #b1d1fd;
-  --border-color: #e4e4e7;
-  --text-color-highlight: #eef1f8;
+  --border: #e2e8f0;
+  --border-color: hsla(0, 0%, 100%, 0.1);
+  --background-color: hsla(0, 0%, 100%, 0.05);
+  --text-color-highlight: hsla(0, 0%, 100%, 0.1);
   --text-color-error: #b24e46;
   --text-color-sucess: #4bb543;
+  --backdrop-filter: blur(24px);
 
   /*others*/
   --shadow: 0px 2px 3px rgba(255, 0, 0, 0.08);
-  --main-border-radius: 7px;
+  --main-border-radius: 1rem;
   --secondary-border-radius: 4px;
   --max-width: 1200px;
 }

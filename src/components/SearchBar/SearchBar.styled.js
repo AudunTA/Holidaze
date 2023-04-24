@@ -6,9 +6,10 @@ const SearchBarContainer = styled.div`
   z-index: 2;
   height: 72px;
   width: 100%;
-  background-color: white;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  border-color: var(--border-color);
+  background-color: var(--background-color);
+  backdrop-filter: var(--backdrop-filter);
 
   .max-width {
     margin: auto;
@@ -34,13 +35,13 @@ const SearchInput = styled.div`
   align-items: center;
   flex: 1;
   height: 50px;
-  color: var(--text-color-light);
+
   input {
     outline: none;
     height: 100%;
     border: none;
     flex: 1;
-    color: var(--text-color-light);
+    background-color: transparent;
   }
 `;
 export { SearchBarContainer, SearchInput };

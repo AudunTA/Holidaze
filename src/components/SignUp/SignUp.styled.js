@@ -6,10 +6,11 @@ const SignUpModal = styled.div`
 
   right: 0;
   top: 50px;
-  border: 1px solid var(--border-color);
-  background-color: white;
-  border-radius: var(--main-border-radius);
-  box-shadow: 0px 2px 3px rgba(255, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-color: hsla(0, 0%, 100%, 0.1);
+  background-color: hsla(0, 0%, 100%, 0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(24px);
 
   .options-container {
     position: relative;
