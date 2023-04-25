@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../../assets/images/logo.svg";
-import { IllustrationContainer } from "./HeroIllustration.styled";
 import myImage from "../../../assets/images/logo3d.png";
+import { IllustrationContainer } from "./HeroIllustration.styled";
 function HeroIllustration() {
   return (
     <IllustrationContainer>
@@ -14,7 +14,7 @@ function HeroIllustration() {
       <div className="illustration-horizontal layer-seven"></div>
       <div className="illustration-horizontal layer-eight"></div>
       <div className="logo-container">
-        <img src={myImage} className="logo"></img>
+        <Logo className="logo" />
       </div>
     </IllustrationContainer>
   );
