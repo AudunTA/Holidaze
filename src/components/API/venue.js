@@ -1,11 +1,11 @@
+// venue.js
 import { baseURL } from "./baseURL";
-import { useSelector, useDispatch } from "react-redux";
 import { addVenues } from "../../features/venues/venueSlice";
-async function venueApi() {
-  const endpoint = "/venues?_owner=true&bookings=true";
+
+export async function venueApi(dispatch) {
+  const endpoint = "/venues?_owner=true&bookings=true&limit=10";
   try {
     console.log(baseURL + endpoint);
-    const dispatch = useDispatch();
     const response = await fetch(baseURL + endpoint);
     const json = await response.json();
     console.log(json);
@@ -14,5 +14,3 @@ async function venueApi() {
     console.log(e);
   }
 }
-
-export default venueApi;
