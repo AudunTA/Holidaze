@@ -5,6 +5,7 @@ import {
   LogoContainer,
   NavContainer,
 } from "./Header.styled.js";
+import { useDispatch, useSelector } from "react-redux";
 //Logo imports
 import holi from "../../assets/images/HOLID.png";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
@@ -34,7 +35,11 @@ function Header() {
   const handleModalStatus = () => {
     setShowModal(!showModal);
   };
-
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.venues);
+  const logStore = () => {
+    console.log(state);
+  };
   const handleUserMenuStatus = () => {
     setShowUserMenu(!showUserMenu);
     console.log("nice");
@@ -67,6 +72,9 @@ function Header() {
         <img src={ze} className="ze"></img>
       </LogoContainer>
       <NavContainer>
+        <PrimaryButton className="nav-item" onClick={logStore}>
+          <p>Log store</p>
+        </PrimaryButton>
         <p className="nav-item">Venues</p>
         <p className="nav-item">Contact</p>
         {isUserLoggedIn ? (

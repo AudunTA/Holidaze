@@ -14,7 +14,7 @@ function Homepage() {
       <SearchBar />
       <MainContainer>
         <Filters />
-        {loader ? <LoadingCards number={9} /> : ""}
+        {loader ? <LoadingCards number={1} /> : ""}
       </MainContainer>
     </div>
   );
