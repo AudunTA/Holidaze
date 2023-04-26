@@ -4,7 +4,7 @@ const FormSignUp = styled.form`
   width: 100%;
   p {
     font-family: NeuweltLight;
-    color: var(--text-color-light);
+    color: var(--text-color-main);
   }
   .signUp-inputs {
     width: 100%;
@@ -26,7 +26,7 @@ const FormSignUp = styled.form`
     color: var(--text-color-main);
 
     p {
-      color: var(--text-main-color);
+      color: var(--text-color-main);
       margin-block-start: 0em;
       margin-block-end: 0em;
       margin-left: 10px;
@@ -59,6 +59,10 @@ const FormInput = styled.input`
   outline: none;
   border: none;
   background-color: transparent;
-  border-bottom: 1px solid var(--text-color-light);
+  color: var(--text-color-main);
+  border-bottom: 1px solid var(--text-color-main);
+  ::placeholder {
+    color: var(--text-color-light);
+  }
 `;
 export { FormSignUp, FormInput };
