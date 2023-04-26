@@ -15,7 +15,6 @@ const DisplayCard = styled(Card)`
   }
   .card-heading {
     margin: 0 15px;
-    height: 30px;
     display: flex;
     color: var(--text-color-main);
     font-family: NeuweltLight;
@@ -23,9 +22,14 @@ const DisplayCard = styled(Card)`
     font-weight: 400;
   }
   .card-text {
-    margin: 0 15px;
-    height: 20px;
+    margin: 5px 15px;
     display: flex;
+    color: var(--text-color-light);
+  }
+  .btn-seeMore {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 3px;
   }
 `;
 export { DisplayCard };

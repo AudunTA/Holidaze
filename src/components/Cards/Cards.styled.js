@@ -16,6 +16,9 @@ const Card = styled.div`
   }
   .card-right {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 15px;
     margin-left: 0;
   }
