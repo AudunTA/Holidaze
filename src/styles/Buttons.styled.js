@@ -13,7 +13,7 @@ const PrimaryButton = styled.div`
   font-size: 15px;
   color: white;
   text-align: center;
-  font-family: NeuweltRegular;
+  font-family: NeuweltLight;
   cursor: pointer;
   .arrow-down {
     width: 15px;

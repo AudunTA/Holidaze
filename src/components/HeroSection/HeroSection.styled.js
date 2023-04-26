@@ -33,7 +33,7 @@ const HeroContainer = styled.div`
       align-items: center;
     }
     .icon-hero {
-      margin-right: 15px;
+      margin-right: 16px;
       color: var(--text-color-light);
       cursor: pointer;
     }

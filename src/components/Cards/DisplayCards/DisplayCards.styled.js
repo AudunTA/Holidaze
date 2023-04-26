@@ -17,14 +17,14 @@ const DisplayCard = styled(Card)`
     margin: 0 15px;
     display: flex;
     color: var(--text-color-main);
-    font-family: NeuweltLight;
+    font-family: NeuweltRegular;
     font-size: 20px;
     font-weight: 400;
   }
   .card-text {
     margin: 5px 15px;
     display: flex;
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text-color-light);
   }
   .btn-seeMore {
