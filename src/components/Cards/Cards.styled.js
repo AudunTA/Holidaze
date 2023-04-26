@@ -20,7 +20,6 @@ const Card = styled.div`
     flex-direction: column;
     justify-content: space-between;
     margin: 15px;
-    margin-left: 0;
   }
   :hover {
     transition: 0.3s;
@@ -37,6 +36,12 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 1fr;
   grid-gap: 15px;
+  @media only screen and (max-width: 1050px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media only screen and (max-width: 800px) {
+    margin-left: 0;
+  }
 `;
 
 export { Card, CardContainer };

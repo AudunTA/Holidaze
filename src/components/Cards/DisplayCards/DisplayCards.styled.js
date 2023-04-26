@@ -3,7 +3,7 @@ import styled from "styled-components";
 const DisplayCard = styled(Card)`
   .card-image {
     max-height: 180px;
-    max-width: 190px;
+
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -18,12 +18,13 @@ const DisplayCard = styled(Card)`
     display: flex;
     color: var(--text-color-main);
     font-family: NeuweltLight;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
   }
   .card-text {
     margin: 5px 15px;
     display: flex;
+    font-size: 15px;
     color: var(--text-color-light);
   }
   .btn-seeMore {

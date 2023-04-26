@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 const FilterContainer = styled.div`
   width: 250px;
-
+  margin-bottom: 15px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
   .border-wrapper {
     border: 1px solid #e2e8f0;
     border-color: hsla(0, 0%, 100%, 0.1);
