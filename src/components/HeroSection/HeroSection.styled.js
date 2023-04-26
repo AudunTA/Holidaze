@@ -28,6 +28,15 @@ const HeroContainer = styled.div`
         margin-right: 10px;
       }
     }
+    .bottom-hero {
+      display: flex;
+      align-items: center;
+    }
+    .icon-hero {
+      margin-right: 15px;
+      color: var(--text-color-light);
+      cursor: pointer;
+    }
   }
   @media only screen and (max-width: 1250px) {
     margin: 0 15px;
