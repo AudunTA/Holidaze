@@ -8,6 +8,9 @@ const ProfileContainer = styled.div`
   border-color: var(--border-color);
   background-color: var(--background-color);
   backdrop-filter: var(--backdrop-filter);
+  .top-section-profile {
+    display: flex;
+  }
   .light-text {
     color: var(--text-color-light);
     font-size: 13px;

@@ -21,7 +21,7 @@ function Profile() {
               {state.profile.venueManager ? (
                 <p className="light-text">Manager</p>
               ) : (
-                <p className="light-text"></p>
+                <p className="light-text">Customer</p>
               )}
               <p>{state.profile.name}</p>
             </div>
