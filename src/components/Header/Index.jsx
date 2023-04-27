@@ -5,13 +5,12 @@ import {
   LogoContainer,
   NavContainer,
 } from "./Header.styled.js";
+import { profileApi } from "../API/profile.js";
 import { useDispatch, useSelector } from "react-redux";
 //Logo imports
 import holi from "../../assets/images/HOLID.png";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import ze from "../../assets/images/ZE.png";
-// default avatar
-
 //import button style
 import { PrimaryButton } from "../../styles/Buttons.styled.js";
 // SignUp modal import
@@ -23,7 +22,6 @@ function Header() {
   //default is true so if user is not logged in the signup modal will be shown as default
   const [showModal, setShowModal] = useState(true);
   const [showUserMenu, setShowUserMenu] = useState(false);
-
   //logged in state
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
@@ -37,8 +35,12 @@ function Header() {
   };
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
+  const profileState = useSelector((state) => state.profile);
   const logStore = () => {
+    console.log(profileState);
     console.log(state);
+    console.log("username: ", userName);
+    console.log(isUserLoggedIn);
   };
   const handleUserMenuStatus = () => {
     setShowUserMenu(!showUserMenu);
@@ -48,6 +50,15 @@ function Header() {
     const token = localStorage.getItem("accessToken");
     if (token) {
       setIsUserLoggedIn(true);
+      console.log(userName);
+      setUserName(localStorage.getItem("username"));
+      setAvatar(localStorage.getItem("avatar"));
+      profileApi({
+        userName,
+        method: "GET",
+        accessToken: token,
+        dispatch,
+      });
     } else {
       setIsUserLoggedIn(false);
     }
@@ -60,10 +71,7 @@ function Header() {
   }, []);
 
   //if user is logged in I retrive data from local storage and set it into the states
-  useEffect(() => {
-    setUserName(localStorage.getItem("username"));
-    setAvatar(localStorage.getItem("avatar"));
-  }, [isUserLoggedIn]);
+
   return (
     <HeaderContainer>
       <LogoContainer>

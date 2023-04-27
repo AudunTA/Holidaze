@@ -9,6 +9,7 @@ export const venueSlice = createSlice({
   initialState,
   reducers: {
     addVenues(state, action) {
+      console.log("INNE I ADD VENUES");
       state.venues = action.payload;
     },
     logState(state) {

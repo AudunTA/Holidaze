@@ -6,7 +6,7 @@ import { PrimaryButton } from "../../../styles/Buttons.styled";
 function DisplayCards() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
-  console.log("STATEEEE", state);
+  //console.log("STATEEEE", state);
   return (
     <CardContainer>
       {state.venues.slice(0, 9).map((ele) => {

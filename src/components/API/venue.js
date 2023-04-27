@@ -10,6 +10,7 @@ export async function venueApi(dispatch) {
     const json = await response.json();
     console.log(json);
     dispatch(addVenues(json));
+    console.log(dispatch);
   } catch (e) {
     console.log(e);
   }

@@ -20,8 +20,8 @@ function Homepage() {
   }, []);
 
   useEffect(() => {
-    console.log("state ", state.venues);
-    console.log(loader);
+    //console.log("state ", state.venues);
+    //console.log(loader);
     if (state.venues.length > 1) {
       setLoader(false);
     }

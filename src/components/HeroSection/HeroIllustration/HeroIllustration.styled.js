@@ -7,6 +7,7 @@ const IllustrationContainer = styled.div`
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
   position: relative;
+  --pixel-border: 2px;
   .illustration-horizontal {
     position: absolute;
     background: linear-gradient(
@@ -31,14 +32,14 @@ const IllustrationContainer = styled.div`
     left: -100px;
     top: -1px;
     right: 0;
-    height: 1px;
+    height: var(--pixel-border);
     width: 400px;
   }
   .layer-two {
     left: -100px;
     bottom: -1px;
     right: 0;
-    height: 1px;
+    height: var(--pixel-border);
     width: 400px;
   }
   .layer-three {
@@ -46,39 +47,39 @@ const IllustrationContainer = styled.div`
     bottom: -100px;
     right: 0;
     height: 400px;
-    width: 1px;
+    width: var(--pixel-border);
   }
   .layer-four {
     bottom: -100px;
     right: -1px;
     height: 400px;
-    width: 1px;
+    width: var(--pixel-border);
   }
   .layer-five {
     bottom: -100px;
     right: -15px;
     height: 600px;
-    width: 1px;
+    width: var(--pixel-border);
   }
   .layer-six {
     left: -15px;
     bottom: -100px;
     right: 0;
     height: 600px;
-    width: 1px;
+    width: var(--pixel-border);
   }
   .layer-seven {
     left: -100vw;
     top: -15px;
     right: 0;
-    height: 1px;
+    height: var(--pixel-border);
     width: 200vw;
   }
   .layer-eight {
     left: -100vw;
     bottom: -15px;
     right: 0;
-    height: 1px;
+    height: var(--pixel-border);
     width: 200vw;
   }
   .logo-container {
