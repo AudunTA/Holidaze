@@ -2,10 +2,6 @@ import styled from "styled-components";
 
 const FormSignUp = styled.form`
   width: 100%;
-  p {
-    font-family: NeuweltLight;
-    color: var(--text-color-main);
-  }
   .signUp-inputs {
     width: 100%;
     display: flex;
@@ -25,14 +21,11 @@ const FormSignUp = styled.form`
     backdrop-filter: var(--backdrop-filter);
     color: var(--text-color-main);
 
-    p {
-      color: var(--text-color-main);
-      margin-block-start: 0em;
-      margin-block-end: 0em;
-      margin-left: 10px;
-    }
     .manager-switch {
       margin-right: 10px;
+    }
+    .manager-margin {
+      margin-left: 10px;
     }
   }
   .error-message {

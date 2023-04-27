@@ -2,7 +2,7 @@ import React from "react";
 import { Checkbox } from "@mui/material";
 function Guests() {
   return (
-    <div>
+    <div className="">
       <Checkbox className="check-box" style={{ color: "white" }}></Checkbox>
       <p>Parking</p>
     </div>

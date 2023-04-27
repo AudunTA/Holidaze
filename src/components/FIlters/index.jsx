@@ -8,6 +8,7 @@ import Price from "./Price";
 import Guests from "./Guests";
 import Amenities from "./Amenities";
 import { PrimaryButton } from "../../styles/Buttons.styled";
+import * as S from "../../styles/Text.styled";
 function Filters() {
   //Expand states
   const [expandPrice, setExpandPrice] = useState(false);
@@ -63,7 +64,7 @@ function Filters() {
           return (
             <Filter active={ele.show} key={ele.heading}>
               <div className="filter-top">
-                <p>{ele.heading}</p>
+                <S.TextWhite>{ele.heading}</S.TextWhite>
                 {ele.show ? (
                   <MinusIcon className="icon-filter" onClick={ele.action} />
                 ) : (

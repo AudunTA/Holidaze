@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import SingUpForm from "../Forms/SignUpForm";
 import LogInForm from "../Forms/LogInForm";
-
+import * as S from "../../styles/Text.styled";
 function SignUp() {
   const [active, setActive] = useState(false);
   const handleLogInTabClick = () => {
@@ -17,10 +17,10 @@ function SignUp() {
     <SignUpModal active={active}>
       <div className="options-container">
         <div className="btn-LogIn" onClick={handleLogInTabClick}>
-          <p>Log In</p>
+          <S.TextWhite>Log In</S.TextWhite>
         </div>
         <div className="btn-SignUp" onClick={handleSignUpTabClick}>
-          <p>Sign Up</p>
+          <S.TextWhite>Sign Up</S.TextWhite>
         </div>
       </div>
       <div className="content-modal">

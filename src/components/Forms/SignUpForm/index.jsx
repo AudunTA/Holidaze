@@ -9,7 +9,9 @@ import {
   userNameValidation,
   passwordValidation,
 } from "../FormValidation/inputValidation";
+import * as S from "../../../styles/Text.styled";
 import { FormInput } from "./SignUpForm.styled";
+
 function SingUpForm() {
   //Input states
   const [email, setEmail] = useState("");
@@ -94,32 +96,32 @@ function SingUpForm() {
   };
   return (
     <FormSignUp>
-      <p>
+      <S.TextWhite>
         Please Sign Up to make bookings or make a manager account to be able to
         list your venues.
-      </p>
-      <p>already have an account? Log In</p>
+      </S.TextWhite>
+      <S.TextWhite>already have an account? Log In</S.TextWhite>
       <div className="signUp-inputs">
         <FormInput placeholder="Email" onChange={onEmailChange}></FormInput>
-        {errorEmail ? <p className="error-message">{errorEmail}</p> : ""}
+        {errorEmail ? <S.TextError>{errorEmail}</S.TextError> : ""}
         <FormInput
           placeholder="Username"
           onChange={onUserNameChange}
         ></FormInput>
-        {errorUserName ? <p className="error-message">{errorUserName}</p> : ""}
+        {errorUserName ? <S.TextError>{errorUserName}</S.TextError> : ""}
         <FormInput
           placeholder="Password"
           onChange={onPasswordChange}
         ></FormInput>
-        {errorPassword ? <p className="error-message">{errorPassword}</p> : ""}
+        {errorPassword ? <S.TextError>{errorPassword}</S.TextError> : ""}
         <FormInput
           placeholder="Avatar (optional)"
           onChange={onAvatarChange}
         ></FormInput>
-        {errorApi ? <p className="error-message">{errorApi}</p> : ""}
+        {errorApi ? <S.TextError>{errorApi}</S.TextError> : ""}
       </div>
       <div className="manager-account">
-        <p>Manager Account</p>
+        <S.SubHeading className="manager-margin">Manager Account</S.SubHeading>
         <ReactSwitch
           className="manager-switch"
           onColor="#B1D1FD"

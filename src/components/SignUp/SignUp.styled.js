@@ -27,13 +27,12 @@ const SignUpModal = styled.div`
       right: 0;
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
-
       border-bottom: 15px solid black;
     }
 
     .btn-LogIn {
       cursor: pointer;
-      padding: 0 90px;
+      padding: 0 60px;
       white-space: nowrap;
       color: var(--text-color-main);
       border-bottom: ${(props) =>
@@ -43,11 +42,15 @@ const SignUpModal = styled.div`
         props.active ? "1px solid var(--border-color)" : ""};
       background-color: ${(props) => (props.active ? "#292929" : "none")};
       border-top-right-radius: ${(props) => (props.active ? "7px" : "0px")};
+      p {
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+      }
     }
 
     .btn-SignUp {
       cursor: pointer;
-      padding: 0 90px;
+      padding: 0 60px;
       white-space: nowrap;
       color: var(--text-color-main);
       border-bottom: ${(props) =>
@@ -57,6 +60,10 @@ const SignUpModal = styled.div`
       background-color: ${(props) => (props.active ? "none" : "#292929")};
       border-top-right-radius: var(--main-border-radius);
       border-top-left-radius: ${(props) => (props.active ? "0px" : "7px")};
+      p {
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+      }
     }
   }
   .content-modal {

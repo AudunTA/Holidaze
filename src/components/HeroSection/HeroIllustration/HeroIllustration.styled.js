@@ -7,7 +7,7 @@ const IllustrationContainer = styled.div`
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
   position: relative;
-  --pixel-border: 2px;
+  --pixel-border: 1px;
   .illustration-horizontal {
     position: absolute;
     background: linear-gradient(

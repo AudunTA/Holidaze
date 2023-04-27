@@ -19,8 +19,7 @@ const FilterContainer = styled.div`
   }
 `;
 const Filter = styled.div`
-  min-height: 30px;
-  padding: 10px;
+  padding: 15px;
   background-color: ${(props) =>
     props.active ? "var(--text-color-highlight)" : ""};
   border-bottom: 1px solid var(--border-color);

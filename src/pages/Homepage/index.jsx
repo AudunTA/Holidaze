@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import HeroSection from "../../components/HeroSection";
 import SearchBar from "../../components/SearchBar";
 import Filters from "../../components/Filters";
-import { MainContainer, TestDiv } from "./Homepage.styled";
+import { MainContainer } from "./Homepage.styled";
 import LoadingCards from "../../components/Cards/LoadingCards";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
