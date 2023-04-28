@@ -17,6 +17,7 @@ import { PrimaryButton } from "../../styles/Buttons.styled.js";
 import SignUp from "../SignUp/index.jsx";
 //User menu import
 import UserMenu from "../UserMenu/index.jsx";
+import { Link } from "react-router-dom";
 function Header() {
   //show modal states
   //default is true so if user is not logged in the signup modal will be shown as default
@@ -111,23 +112,25 @@ function Header() {
           </>
         ) : (
           <>
-            <PrimaryButton onClick={handleModalStatus}>
-              <p>Sign Up</p>
+            <Link to="/Signup">
+              <PrimaryButton onClick={handleModalStatus}>
+                <p>Sign Up</p>
 
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="arrow-down"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </PrimaryButton>
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="white"
+                  className="arrow-down"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </PrimaryButton>
+            </Link>
             {showModal ? <SignUp /> : ""}
           </>
         )}

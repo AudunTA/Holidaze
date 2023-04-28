@@ -1,6 +1,7 @@
 import { Card } from "../Cards.styled";
 import styled from "styled-components";
 const DisplayCard = styled(Card)`
+  height: 100%;
   .card-image {
     max-height: 180px;
 
