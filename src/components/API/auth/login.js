@@ -1,7 +1,12 @@
 import { baseURL } from "../baseURL";
 const endpoint = "/auth/login";
-
-export async function logInUser(email, password, handleResponseLogIn) {
+import { profileApi } from "../profile";
+export async function logInUser(
+  email,
+  password,
+  handleResponseLogIn,
+  dispatch
+) {
   const logInInformation = {
     email: email,
     password: password,
@@ -20,11 +25,22 @@ export async function logInUser(email, password, handleResponseLogIn) {
     handleResponseLogIn(json.errors[0].message);
   } else {
     console.log(json);
-    localStorage.setItem("username", json.name);
-    localStorage.setItem("email", json.email);
-    localStorage.setItem("avatar", json.avatar);
-    localStorage.setItem("accessToken", json.accessToken);
-    localStorage.setItem("venueManager", json.venueManager);
+    const username = json.name;
+    const email = json.email;
+    const avatar = json.avatar;
+    const accessToken = json.accessToken;
+    const venueManager = json.venueManager;
+    localStorage.setItem("username", username);
+    localStorage.setItem("email", email);
+    localStorage.setItem("avatar", avatar);
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("venueManager", venueManager);
     window.dispatchEvent(new Event("storage"));
+    profileApi({
+      username,
+      method: "GET",
+      accessToken: accessToken,
+      dispatch,
+    });
   }
 }

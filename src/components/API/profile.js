@@ -1,8 +1,8 @@
 import { baseURL } from "./baseURL";
 import { addProfile } from "../../features/profile/profileSlice";
 
-async function profileApi({ userName, method, accessToken, dispatch }) {
-  const endpoint = `/profiles/${userName}?_bookings=true&_venues=true`;
+async function profileApi({ username, method, accessToken, dispatch }) {
+  const endpoint = `/profiles/${username}?_bookings=true&_venues=true`;
   const options = {
     method: `${method}`,
     headers: {

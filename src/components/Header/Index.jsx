@@ -33,7 +33,6 @@ function Header() {
   const handleModalStatus = () => {
     setShowModal(!showModal);
   };
-  const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
   const profileState = useSelector((state) => state.profile);
   const logStore = () => {
@@ -46,28 +45,29 @@ function Header() {
     setShowUserMenu(!showUserMenu);
     console.log("nice");
   };
-  const checkUserStatus = () => {
-    const token = localStorage.getItem("accessToken");
-    if (token) {
-      setIsUserLoggedIn(true);
-      console.log(userName);
-      setUserName(localStorage.getItem("username"));
-      setAvatar(localStorage.getItem("avatar"));
-      profileApi({
-        userName,
-        method: "GET",
-        accessToken: token,
-        dispatch,
-      });
-    } else {
-      setIsUserLoggedIn(false);
-    }
-  };
   useEffect(() => {
-    window.onstorage = (event) => {
-      checkUserStatus();
+    const checkUserStatus = () => {
+      const token = localStorage.getItem("accessToken");
+      if (token) {
+        setIsUserLoggedIn(true);
+        const avatar = localStorage.getItem("avatar");
+        const useName = localStorage.getItem("username");
+        setAvatar(avatar);
+        setUserName(useName);
+      } else {
+        setIsUserLoggedIn(false);
+      }
     };
+
     checkUserStatus();
+
+    // add event listener for storage event
+    window.addEventListener("storage", checkUserStatus);
+
+    // remove event listener on cleanup
+    return () => {
+      window.removeEventListener("storage", checkUserStatus);
+    };
   }, []);
 
   //if user is logged in I retrive data from local storage and set it into the states

@@ -4,7 +4,9 @@ import { FormLogIn } from "./LogInForm.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
 import { FormInput } from "../SignUpForm/SignUpForm.styled";
 import { logInUser } from "../../API/auth/login";
+import { useDispatch } from "react-redux";
 function LogInForm() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [responseLogIn, setResponseLogIn] = useState("");
@@ -18,7 +20,7 @@ function LogInForm() {
     setResponseLogIn(msg);
   };
   const handleLogIn = () => {
-    logInUser(email, password, handleResponseLogIn);
+    logInUser(email, password, handleResponseLogIn, dispatch);
   };
   return (
     <FormLogIn>
