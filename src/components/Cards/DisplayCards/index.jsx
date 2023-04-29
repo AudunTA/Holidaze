@@ -13,8 +13,8 @@ function DisplayCards() {
     <CardContainer>
       {state.venues.slice(0, 9).map((ele) => {
         return (
-          <Link to={`/Venue?id=${ele.id}`}>
-            <DisplayCard key={ele.id}>
+          <Link to={`/Venue?id=${ele.id}`} key={ele.id}>
+            <DisplayCard>
               <div className="card-left">
                 <img src={ele.media[0]} className="card-image"></img>
               </div>
