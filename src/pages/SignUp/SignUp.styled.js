@@ -147,5 +147,9 @@ const SignUpContainer = styled.div`
     }
   }
 `;
+const BackGroundImg = styled.img`
+  z-index: -1;
+  position: absolute;
+`;
 
-export { SignUpContainer };
+export { SignUpContainer, BackGroundImg };

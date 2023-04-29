@@ -1,5 +1,5 @@
 import React from "react";
-import { SignUpContainer } from "./SignUp.styled";
+import { SignUpContainer, BackGroundImg } from "./SignUp.styled";
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import Header from "../../components/Header/Index";
@@ -8,6 +8,7 @@ import * as S from "../../styles/Text.styled";
 import LogInForm from "../../components/Forms/LogInForm";
 import SingUpForm from "../../components/Forms/SignUpForm";
 import { MarginWrapper } from "../../styles/Layout.styled";
+import background from "../../assets/images/tile_background.png";
 function SignUp() {
   const [active, setActive] = useState(false);
   const handleLogInTabClick = () => {
@@ -18,6 +19,7 @@ function SignUp() {
   };
   return (
     <>
+      <BackGroundImg src={background}></BackGroundImg>
       <Header />
       <SignUpContainer active={active}>
         <MarginWrapper>
