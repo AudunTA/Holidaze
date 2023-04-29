@@ -5,6 +5,9 @@ import { CardContainer } from "../Cards.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
 import * as S from "../../../styles/Text.styled";
 import { Link } from "react-router-dom";
+//icons
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import StarRateIcon from "@mui/icons-material/StarRate";
 function DisplayCards() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
@@ -20,7 +23,14 @@ function DisplayCards() {
               </div>
               <div className="card-right">
                 <div className="info">
-                  <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
+                  <div className="info-top">
+                    <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
+                    <div className="star-rating">
+                      <StarRateIcon className="icon-star" />
+                      <S.TextWhite>{ele.rating}.0</S.TextWhite>
+                    </div>
+                  </div>
+
                   <S.TextGrey>
                     {ele.location.city !== "Unknown"
                       ? ele.location.city.slice(0, 40)
@@ -28,7 +38,7 @@ function DisplayCards() {
                   </S.TextGrey>
                 </div>
                 <PrimaryButton>
-                  <S.TextWhite>See More</S.TextWhite>
+                  <S.TextWhite>${ele.price} per night</S.TextWhite>
                 </PrimaryButton>
               </div>
             </DisplayCard>

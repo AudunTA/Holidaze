@@ -33,5 +33,17 @@ const DisplayCard = styled(Card)`
     margin-left: 15px;
     margin-bottom: 3px;
   }
+  .icon-star {
+    color: #f3b200;
+    font-size: 15px;
+  }
+  .info-top {
+    display: flex;
+    justify-content: space-between;
+    .star-rating {
+      display: flex;
+      align-items: center;
+    }
+  }
 `;
 export { DisplayCard };
