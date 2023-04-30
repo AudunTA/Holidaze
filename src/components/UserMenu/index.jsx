@@ -1,16 +1,22 @@
 import React from "react";
 import { UserMenuModal, NavOption, NavLink } from "./UserMenu.styled";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 //icons
-
 import LogoutIcon from "@mui/icons-material/Logout";
 import NoteIcon from "@mui/icons-material/Note";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+
+//auth signout
+import { useSignOut } from "react-auth-kit";
+//router-dom
+import { useNavigate } from "react-router-dom";
 function UserMenu() {
+  const signOut = useSignOut();
+  const navigate = useNavigate();
   const handleLogOut = () => {
-    localStorage.clear();
-    window.dispatchEvent(new Event("storage"));
+    signOut();
+    navigate("/Signup");
   };
   return (
     <UserMenuModal>

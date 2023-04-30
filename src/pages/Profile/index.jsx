@@ -22,7 +22,11 @@ import CreateVenue from "../../components/Settings/CreateVenue";
 import { profileApi } from "../../components/API/profile";
 import { useDispatch } from "react-redux";
 
+//auth-kit
+import { useAuthUser } from "react-auth-kit";
+
 function Profile() {
+  const auth = useAuthUser();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.profile);
   console.log(state);
@@ -33,11 +37,8 @@ function Profile() {
   const [isManager, setIsManager] = useState(false);
 
   useEffect(() => {
-    const username = localStorage.getItem("username");
-    const token = localStorage.getItem("accessToken");
-
-    if (username) {
-      console.log(username);
+    if (auth()) {
+      console.log(auth().username);
       profileApi({
         username,
         method: "GET",

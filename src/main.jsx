@@ -9,12 +9,15 @@ import {
 } from "react-router-dom";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import { AuthProvider } from "react-auth-kit";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    <AuthProvider authType="localstorage" authName="_auth">
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </AuthProvider>
   </React.StrictMode>
 );

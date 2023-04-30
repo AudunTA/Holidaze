@@ -4,9 +4,11 @@ import { FormLogIn } from "./LogInForm.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
 import { FormInput } from "../SignUpForm/SignUpForm.styled";
 import { UserInput } from "../../../styles/Inputs.styled";
-import { logInUser } from "../../API/auth/login";
+import { useLogInUser } from "../../API/auth/login";
 import { useDispatch } from "react-redux";
 function LogInForm() {
+  const logInUser = useLogInUser();
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

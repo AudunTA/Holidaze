@@ -13,55 +13,48 @@ import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import ze from "../../assets/images/ZE.png";
 //import button style
 import { PrimaryButton } from "../../styles/Buttons.styled.js";
-// SignUp modal import
-import SignUp from "../SignUp/index.jsx";
+//material ui icons
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 //User menu import
 import UserMenu from "../UserMenu/index.jsx";
 import { Link } from "react-router-dom";
+//auth-kit
+import { useAuthUser, withAuthHeader } from "react-auth-kit";
+
 function Header() {
   //show modal states
   //default is true so if user is not logged in the signup modal will be shown as default
-  const [showModal, setShowModal] = useState(true);
   const [showUserMenu, setShowUserMenu] = useState(false);
   //logged in state
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-
   //for manageing logged in user information
-  const [userName, setUserName] = useState();
-  const [avatar, setAvatar] = useState();
 
-  //modal visability handeling
-  const handleModalStatus = () => {
-    setShowModal(!showModal);
-  };
-  const state = useSelector((state) => state.venues);
-  const profileState = useSelector((state) => state.profile);
+  const [avatar, setAvatar] = useState();
+  const [usrName, setUsrName] = useState();
+
+  const auth = useAuthUser();
+  const authHeader = withAuthHeader();
+  //Development log states
   const logStore = () => {
-    console.log(profileState);
-    console.log(state);
-    console.log("username: ", userName);
+    console.log("auth: ", auth().username);
+    console.log("auth header: ", authHeader());
     console.log(isUserLoggedIn);
   };
   const handleUserMenuStatus = () => {
     setShowUserMenu(!showUserMenu);
-    console.log("nice");
   };
   useEffect(() => {
     const checkUserStatus = () => {
-      const token = localStorage.getItem("accessToken");
-      if (token) {
+      if (auth()) {
         setIsUserLoggedIn(true);
-        const avatar = localStorage.getItem("avatar");
-        const useName = localStorage.getItem("username");
-        setAvatar(avatar);
-        setUserName(useName);
+        setAvatar(auth().avatar);
+        setUsrName(auth().username);
       } else {
         setIsUserLoggedIn(false);
       }
     };
 
     checkUserStatus();
-
     // add event listener for storage event
     window.addEventListener("storage", checkUserStatus);
 
@@ -93,45 +86,18 @@ function Header() {
                 src={avatar !== null ? avatar : avatar}
                 className="avatar-img"
               ></img>
-              <p>{userName}</p>
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="white"
-                className="arrow-down"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
+              <p>{usrName}</p>
+              <ArrowRightIcon className="arrow-icon" />
             </PrimaryButton>
             {showUserMenu ? <UserMenu /> : ""}
           </>
         ) : (
           <>
             <Link to="/Signup">
-              <PrimaryButton onClick={handleModalStatus}>
+              <PrimaryButton>
                 <p>Sign Up</p>
-
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                  stroke="white"
-                  className="arrow-down"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
               </PrimaryButton>
             </Link>
-            {showModal ? <SignUp /> : ""}
           </>
         )}
       </NavContainer>

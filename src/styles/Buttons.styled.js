@@ -15,10 +15,10 @@ const PrimaryButton = styled.div`
   text-align: center;
   font-family: NeuweltLight;
   cursor: pointer;
-  .arrow-down {
-    width: 15px;
-    height: 15px;
-    margin-left: 5px;
+  P {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-family: NeuweltLight;
   }
 `;
 

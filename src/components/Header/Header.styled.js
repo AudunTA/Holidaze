@@ -35,5 +35,8 @@ const NavContainer = styled.div`
     border-radius: 67%;
     margin-right: 5px;
   }
+  .arrow-icon {
+    font-size: 18px;
+  }
 `;
 export { HeaderContainer, LogoContainer, NavContainer };
