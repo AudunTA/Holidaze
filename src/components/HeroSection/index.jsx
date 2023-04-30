@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Header";
 import { HeroContainer } from "./HeroSection.styled";
 import HeroIllustration from "./HeroIllustration";
 import InstagramIcon from "@mui/icons-material/Instagram";
