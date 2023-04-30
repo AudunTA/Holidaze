@@ -40,9 +40,9 @@ function Profile() {
     if (auth()) {
       console.log(auth().username);
       profileApi({
-        username,
+        username: auth().username,
         method: "GET",
-        accessToken: token,
+        accessToken: auth().token,
         dispatch,
       });
     }

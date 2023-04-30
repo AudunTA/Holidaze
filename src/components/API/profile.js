@@ -13,10 +13,10 @@ async function profileApi({ username, method, accessToken, dispatch }) {
   try {
     const response = await fetch(baseURL + endpoint, options);
     const json = await response.json();
+    console.log(json);
     if (!response.ok) {
       throw Error;
     } else {
-      console.log("Inneeeeeeeeeeeee");
       dispatch(addProfile(json));
     }
   } catch (e) {}
