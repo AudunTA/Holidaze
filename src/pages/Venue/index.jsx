@@ -12,9 +12,10 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 function Venue() {
+  let params = useParams();
   const [venue, setVenue] = useState();
   const [loader, setLoader] = useState(true);
-
+  const [bookings, setBookings] = useState([]);
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -22,16 +23,23 @@ function Venue() {
       key: "selection",
     },
   ]);
-  const disabledDates = [new Date("2023-05-01"), new Date("2023-05-02")];
-  let params = useParams();
-  console.log(params.id);
+  const [disabledDates, setDisabledDates] = useState([]);
+
   useEffect(() => {
     const fetchVenue = async () => {
       const response = await singleVenue(params.id);
       setVenue(response);
+      const dates = response.bookings.map(
+        (booking) => new Date(booking.dateFrom.slice(0, 10))
+      );
+      setDisabledDates([...disabledDates, ...dates]);
     };
     fetchVenue();
   }, [params.id]);
+
+  const handleLog = () => {
+    console.log(disabledDates);
+  };
 
   return (
     <>
@@ -52,7 +60,7 @@ function Venue() {
                 ranges={state}
                 disabledDates={disabledDates}
               />
-              <PrimaryButton>
+              <PrimaryButton onClick={handleLog}>
                 <p>Book Now</p>
               </PrimaryButton>
             </InfoSection>
