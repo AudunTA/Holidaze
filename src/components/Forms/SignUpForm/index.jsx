@@ -11,7 +11,7 @@ import {
 } from "../FormValidation/inputValidation";
 import * as S from "../../../styles/Text.styled";
 import { FormInput } from "./SignUpForm.styled";
-
+import { UserInput } from "../../../styles/Inputs.styled";
 function SingUpForm() {
   //Input states
   const [email, setEmail] = useState("");
@@ -102,22 +102,22 @@ function SingUpForm() {
       </S.TextWhite>
       <S.TextWhite>already have an account? Log In</S.TextWhite>
       <div className="signUp-inputs">
-        <FormInput placeholder="Email" onChange={onEmailChange}></FormInput>
+        <UserInput placeholder="Email" onChange={onEmailChange}></UserInput>
         {errorEmail ? <S.TextError>{errorEmail}</S.TextError> : ""}
-        <FormInput
+        <UserInput
           placeholder="Username"
           onChange={onUserNameChange}
-        ></FormInput>
+        ></UserInput>
         {errorUserName ? <S.TextError>{errorUserName}</S.TextError> : ""}
-        <FormInput
+        <UserInput
           placeholder="Password"
           onChange={onPasswordChange}
-        ></FormInput>
+        ></UserInput>
         {errorPassword ? <S.TextError>{errorPassword}</S.TextError> : ""}
-        <FormInput
+        <UserInput
           placeholder="Avatar (optional)"
           onChange={onAvatarChange}
-        ></FormInput>
+        ></UserInput>
         {errorApi ? <S.TextError>{errorApi}</S.TextError> : ""}
       </div>
       <div className="manager-account">

@@ -22,4 +22,9 @@ async function profileApi({ username, method, accessToken, dispatch }) {
   } catch (e) {}
 }
 
-export { profileApi };
+async function changeAvatar({ username, newAvatar }) {
+  try {
+    console.log("TEST");
+  } catch {}
+}
+export { profileApi, changeAvatar };

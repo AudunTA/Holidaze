@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FormLogIn } from "./LogInForm.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
 import { FormInput } from "../SignUpForm/SignUpForm.styled";
+import { UserInput } from "../../../styles/Inputs.styled";
 import { logInUser } from "../../API/auth/login";
 import { useDispatch } from "react-redux";
 function LogInForm() {
@@ -25,13 +26,13 @@ function LogInForm() {
   return (
     <FormLogIn>
       <div className="logIn-inputs">
-        <FormInput placeholder="Email" onChange={onEmailChange}></FormInput>
-        <FormInput
+        <UserInput placeholder="Email" onChange={onEmailChange}></UserInput>
+        <UserInput
           placeholder="Password"
           onChange={onPasswordChange}
-        ></FormInput>
+        ></UserInput>
       </div>
-      {responseLogIn ? <p className="error-message">{responseLogIn}</p> : ""}
+      {responseLogIn ? <p className="error-success">{responseLogIn}</p> : ""}
       <PrimaryButton onClick={handleLogIn}>
         <p>Log In</p>
       </PrimaryButton>

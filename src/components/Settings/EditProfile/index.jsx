@@ -2,24 +2,26 @@ import React from "react";
 import { SettingContainer } from "../Settings.styled";
 import * as S from "../../../styles/Text.styled";
 import * as I from "../../../styles/Inputs.styled";
-import { TextField } from "@mui/material";
-import { ThemeProvider } from "@mui/material";
-import { Theme } from "../../../styles/Theme.styled";
-
+import { PrimaryButton } from "../../../styles/Buttons.styled";
+import { useState } from "react";
+import { changeAvatar } from "../../API/profile";
 function EditProfile() {
+  const [avatar, setAvatar] = useState("");
+
+  const onChangeAvatar = (event) => {
+    setAvatar(event.target.value);
+  };
+  const handleNewAvatar = () => {
+    changeAvatar(avatar);
+  };
   return (
     <SettingContainer>
-      <ThemeProvider theme={Theme}>
-        <TextField
-          className="TextField-profile"
-          helperText="change avatar? simply change the link and press confirm"
-          label="Avatar"
-          color="primary"
-          fullWidth
-          defaultValue="white"
-          focused
-        />
-      </ThemeProvider>
+      <I.UserInput
+        placeholder="Edit Avatar"
+        value={avatar}
+        onChange={onChangeAvatar}
+      ></I.UserInput>
+      <PrimaryButton onClick={handleNewAvatar}>Save Changes</PrimaryButton>
     </SettingContainer>
   );
 }

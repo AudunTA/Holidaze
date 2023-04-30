@@ -86,7 +86,7 @@ function Profile() {
   return (
     <>
       <Header />
-      <SearchBar />
+
       <ProfileContainer>
         <MarginWrapper>
           <div className="top-section-profile">

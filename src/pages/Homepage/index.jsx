@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { venueApi } from "../../components/API/venue";
 import DisplayCards from "../../components/Cards/DisplayCards";
-
+import Header from "../../components/Header/Index";
 function Homepage() {
   const [loader, setLoader] = useState(true);
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ function Homepage() {
 
   return (
     <div>
+      <Header />
       <HeroSection />
       <SearchBar />
       <MainContainer>

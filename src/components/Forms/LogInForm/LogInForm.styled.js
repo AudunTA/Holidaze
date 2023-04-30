@@ -12,6 +12,12 @@ const FormLogIn = styled.form`
     margin-block-start: 0em;
     margin-block-end: 1em;
   }
+  .message-success {
+    font-size: 13px;
+    color: var(--text-color-sucess);
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+  }
 `;
 
 export { FormLogIn };

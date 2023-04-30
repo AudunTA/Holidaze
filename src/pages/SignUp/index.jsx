@@ -19,7 +19,6 @@ function SignUp() {
   };
   return (
     <>
-      <BackGroundImg src={background}></BackGroundImg>
       <Header />
       <SignUpContainer active={active}>
         <MarginWrapper>

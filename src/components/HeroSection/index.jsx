@@ -11,7 +11,6 @@ function HeroSection() {
   return (
     <>
       <HeroContainer>
-        <Header />
         <div className="wrapper-hero">
           <div className="hero-description">
             <div className="top-hero">
