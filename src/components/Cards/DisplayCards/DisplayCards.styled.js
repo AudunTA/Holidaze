@@ -4,7 +4,6 @@ const DisplayCard = styled(Card)`
   height: 100%;
   .card-image {
     max-height: 180px;
-
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -14,6 +13,7 @@ const DisplayCard = styled(Card)`
     background-color: var(--background-color);
     backdrop-filter: var(--backdrop-filter);
   }
+
   .card-heading {
     margin: 0 15px;
     display: flex;
