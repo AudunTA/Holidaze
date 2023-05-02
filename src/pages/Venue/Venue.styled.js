@@ -2,6 +2,18 @@ import styled from "styled-components";
 
 const VenueLayOut = styled.div`
   display: flex;
+  .rdrDateDisplayWrapper {
+    background-color: orange;
+  }
+  .date-picker {
+    width: 100%;
+    background-color: blue;
+    color: black;
+    input {
+      color: orange;
+      background-color: black;
+    }
+  }
 `;
 const ImageSection = styled.div`
   flex: 1;

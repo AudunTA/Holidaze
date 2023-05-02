@@ -54,11 +54,13 @@ function Venue() {
               <p>{venue.description}</p>
 
               <DateRange
+                className="date-picker"
                 editableDateInputs={true}
                 onChange={(item) => setState([item.selection])}
                 moveRangeOnFirstSelection={false}
                 ranges={state}
                 disabledDates={disabledDates}
+                rangeColors={"yellow"}
               />
               <PrimaryButton onClick={handleLog}>
                 <p>Book Now</p>

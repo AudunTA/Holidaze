@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-const SettingContainer = styled.div`
-  background-color: var(--text-color-highlight);
-  padding: 15px;
-  padding-top: 0px;
-  padding-left: 30px;
-`;
-const VenueForm = styled.form``;
+const VenuesForm = styled.form``;
 
 const FormLabel = styled.label`
   font-family: NeuweltLight;
@@ -24,4 +18,4 @@ const GroupedInputs = styled.div`
     margin-left: 5px;
   }
 `;
-export { SettingContainer, VenueForm, FormLabel, GroupedInputs };
+export { VenuesForm, FormLabel, GroupedInputs };
