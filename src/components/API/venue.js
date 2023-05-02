@@ -1,7 +1,6 @@
 // venue.js
 import { baseURL } from "./baseURL";
 import { addVenues } from "../../features/venues/venueSlice";
-import { json } from "react-router-dom";
 
 export async function venueApi(dispatch) {
   const endpoint = "/venues?sort=created&limit=10&_owner=true&_bookings=true";
@@ -28,5 +27,25 @@ export async function singleVenue(id) {
     } else {
       throw Error;
     }
+  } catch (e) {}
+}
+
+export async function createVenueApi(method, accessToken, bodyObj) {
+  const endpoint = `/venues`;
+  console.log(bodyObj);
+  const options = {
+    method: `${method}`,
+    body: JSON.stringify(bodyObj),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  };
+  console.log(options);
+  try {
+    console.log(options);
+    const response = await fetch(baseURL + endpoint, options);
+    const json = await response.json();
+    console.log(json);
   } catch (e) {}
 }
