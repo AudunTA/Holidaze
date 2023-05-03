@@ -12,7 +12,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 function createData(venue, dateFrom, dateTo) {
-  return { venue, dateFrom, dateTo };
+  return {
+    venue,
+    dateFrom: dateFrom.slice(0, 10),
+    dateTo: dateTo.slice(0, 10),
+  };
 }
 
 function MyBookings() {
