@@ -5,18 +5,17 @@ import {
   LogoContainer,
   NavContainer,
 } from "./Header.styled.js";
-import { profileApi } from "../API/profile.js";
 import { useDispatch, useSelector } from "react-redux";
 //Logo imports
-import holi from "../../assets/images/HOLID.png";
-import { ReactComponent as Logo } from "../../assets/images/logo.svg";
-import ze from "../../assets/images/ZE.png";
+import holi from "../../../assets/images/HOLID.png";
+import { ReactComponent as Logo } from "../../../assets/images/logo.svg";
+import ze from "../../../assets/images/ZE.png";
 //import button style
-import { PrimaryButton } from "../../styles/Buttons.styled.js";
+import { PrimaryButton } from "../../../styles/Buttons.styled.js";
 //material ui icons
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 //User menu import
-import UserMenu from "../UserMenu/index.jsx";
+import UserMenu from "../../UserMenu/index.jsx";
 import { Link } from "react-router-dom";
 //auth-kit
 import { useAuthUser, withAuthHeader } from "react-auth-kit";

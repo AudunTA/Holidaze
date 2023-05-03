@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header/Index";
+import Header from "../../components/Layout/Header/Index";
 import { MarginWrapper, CenterContainer } from "../../styles/Layout.styled";
 import * as S from "../../styles/Text.styled";
 import { singleVenue } from "../../components/API/venue";
@@ -43,7 +43,6 @@ function Venue() {
 
   return (
     <>
-      <Header />
       <CenterContainer>
         {venue ? (
           <VenueLayOut>

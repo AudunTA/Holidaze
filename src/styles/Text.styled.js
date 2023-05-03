@@ -9,7 +9,7 @@ const Heading = styled.h1`
 
 const TextWhite = styled.p`
   font-family: NeuweltLight;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 20px;
   margin-block-start: 0em;
   margin-block-end: 0em;
@@ -17,7 +17,7 @@ const TextWhite = styled.p`
 `;
 const TextGrey = styled.p`
   font-family: NeuweltLight;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 20px;
   margin-block-start: 0em;
   margin-block-end: 0em;

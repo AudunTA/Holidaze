@@ -6,7 +6,7 @@ const UserInput = styled.input`
   height: 34px;
   width: 100%;
   outline: none;
-  border: 2px solid var(--text-color-highlight);
+  border: 2px solid var(--text-color-main);
   color: var(--main-text-color);
   background-color: var(--text-color-highlight);
   border-radius: var(--main-border-radius);
@@ -31,7 +31,7 @@ const UserTextArea = styled.textarea`
   height: 68px;
   width: 100%;
   outline: none;
-  border: 2px solid var(--text-color-highlight);
+  border: 2px solid var(--text-color-main);
   color: var(--main-text-color);
   background-color: var(--text-color-highlight);
   border-radius: var(--main-border-radius);

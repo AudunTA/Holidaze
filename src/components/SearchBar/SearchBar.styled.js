@@ -4,7 +4,7 @@ const SearchBarContainer = styled.div`
   position: sticky;
   top: 0px;
   z-index: 2;
-  height: 40px;
+  height: 30px;
   width: 100%;
   border: 1px solid var(--border);
   border-color: var(--border-color);
@@ -23,14 +23,6 @@ const SearchBarContainer = styled.div`
       margin: 0 15px;
     }
   }
-  .search-icon {
-    width: 20px;
-    height: 20px;
-  }
-  .filter-icon {
-    width: 20px;
-    height: 20px;
-  }
   .color-border {
     position: absolute;
     top: 140px;
@@ -38,21 +30,4 @@ const SearchBarContainer = styled.div`
   }
 `;
 
-const SearchInput = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 1;
-  height: 30px;
-  input {
-    outline: none;
-    height: 100%;
-    border: none;
-    flex: 1;
-    color: var(--text-color-main);
-    background-color: transparent;
-    ::placeholder {
-      color: var(--text-color-main);
-    }
-  }
-`;
-export { SearchBarContainer, SearchInput };
+export { SearchBarContainer };

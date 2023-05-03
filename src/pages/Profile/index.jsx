@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Header from "../../components/Header/Index";
 import SearchBar from "../../components/SearchBar";
 import {
   ProfileContainer,
@@ -86,8 +85,6 @@ function Profile() {
 
   return (
     <>
-      <Header />
-
       <ProfileContainer>
         <MarginWrapper>
           <div className="top-section-profile">

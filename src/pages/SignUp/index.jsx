@@ -2,7 +2,6 @@ import React from "react";
 import { SignUpContainer, BackGroundImg } from "./SignUp.styled";
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "../../styles/Buttons.styled";
-import Header from "../../components/Header/Index";
 import { useState } from "react";
 import * as S from "../../styles/Text.styled";
 import LogInForm from "../../components/Forms/LogInForm";
@@ -19,7 +18,6 @@ function SignUp() {
   };
   return (
     <>
-      <Header />
       <SignUpContainer active={active}>
         <MarginWrapper>
           <div className="illustration-horizontal layer-one"></div>
