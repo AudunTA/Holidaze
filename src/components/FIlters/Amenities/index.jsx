@@ -5,7 +5,7 @@ import {
   useQueryParam,
   NumberParam,
   withDefault,
-  ArrayParam,
+  ObjectParam,
 } from "use-query-params";
 
 function Amenities({ filterStatus }) {
@@ -14,23 +14,23 @@ function Amenities({ filterStatus }) {
   const [checkBreakfast, setCheckBreakfast] = useState(false);
   const [checkPets, setCheckPets] = useState(false);
 
-  const myFiltersParam = withDefault(ArrayParam, []);
+  const myFiltersParam = withDefault(ObjectParam, {});
   const [filters, setFilters] = useQueryParam("filters", myFiltersParam);
 
   useEffect(() => {
     // Add the checked filters to the URL parameter
-    const newFilters = [];
+    const newFilters = {};
     if (checkWifi) {
-      newFilters.push("wifi");
+      newFilters["wifi"] = true;
     }
     if (checkParking) {
-      newFilters.push("parking");
+      newFilters["parking"] = true;
     }
     if (checkBreakfast) {
-      newFilters.push("breakfast");
+      newFilters["breakfast"] = true;
     }
     if (checkPets) {
-      newFilters.push("pets");
+      newFilters["pets"] = true;
     }
     setFilters(newFilters);
   }, [filterStatus]);

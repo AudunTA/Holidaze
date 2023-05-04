@@ -1,6 +1,6 @@
 // venue.js
 import { baseURL } from "./baseURL";
-import { addVenues } from "../../features/venues/venueSlice";
+import { addVenues } from "../../features/venueSlice";
 
 export async function venueApi(dispatch) {
   const endpoint = "/venues?sort=created&limit=50&_owner=true&_bookings=true";

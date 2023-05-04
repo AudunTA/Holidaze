@@ -1,5 +1,5 @@
 import { baseURL } from "./baseURL";
-import { addProfile } from "../../features/profile/profileSlice";
+import { addProfile } from "../../features/profileSlice";
 
 async function profileApi({ username, method, accessToken, dispatch }) {
   const endpoint = `/profiles/${username}?_bookings=true&_venues=true`;
