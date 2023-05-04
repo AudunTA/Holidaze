@@ -7,10 +7,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import { ImageSection, InfoSection, VenueLayOut } from "./Venue.styled";
-
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
+
+import DateRangePicker from "../../components/DateRangePicker";
 function Venue() {
   let params = useParams();
   const [venue, setVenue] = useState();
@@ -19,7 +20,7 @@ function Venue() {
   const [state, setState] = useState([
     {
       startDate: new Date(),
-      endDate: null,
+      endDate: new Date(),
       key: "selection",
     },
   ]);
@@ -59,11 +60,11 @@ function Venue() {
                 moveRangeOnFirstSelection={false}
                 ranges={state}
                 disabledDates={disabledDates}
-                rangeColors={"yellow"}
               />
               <PrimaryButton onClick={handleLog}>
                 <p>Book Now</p>
               </PrimaryButton>
+              <DateRangePicker disabledDatesVenue={disabledDates} />
             </InfoSection>
           </VenueLayOut>
         ) : (

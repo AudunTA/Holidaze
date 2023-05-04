@@ -61,7 +61,7 @@ function Header() {
     return () => {
       window.removeEventListener("storage", checkUserStatus);
     };
-  }, []);
+  }, [auth]);
 
   //if user is logged in I retrive data from local storage and set it into the states
 

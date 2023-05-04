@@ -7,6 +7,7 @@ import { useState } from "react";
 import Price from "./Price";
 import Guests from "./Guests";
 import Amenities from "./Amenities";
+import Dates from "./Dates";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import * as S from "../../styles/Text.styled";
 function Filters() {
@@ -41,7 +42,7 @@ function Filters() {
       heading: "Dates",
       action: handleExpandDate,
       show: expandDate,
-      component: <Guests />,
+      component: <Dates />,
     },
     {
       heading: "Amenities",

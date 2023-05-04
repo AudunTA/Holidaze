@@ -3,15 +3,55 @@ import styled from "styled-components";
 const VenueLayOut = styled.div`
   display: flex;
   .rdrDateDisplayWrapper {
-    background-color: orange;
+    background-color: transparent;
+    .rdrDateInput {
+      background-color: var(--text-color-highlight);
+
+      input {
+        font-family: NeuweltLight;
+      }
+    }
   }
   .date-picker {
     width: 100%;
-    background-color: blue;
+    background-color: transparent;
     color: black;
     input {
-      color: orange;
-      background-color: black;
+      color: var(--text-color-main);
+      background-color: transparent;
+    }
+  }
+  .rdrMonthPicker {
+    option {
+      font-family: NeuweltLight;
+    }
+  }
+  .rdrWeekDay {
+    font-family: NeuweltLight;
+    color: var(--text-color-light);
+  }
+  .rdrMonthAndYearWrapper {
+    .rdrPprevButton {
+      border-radius: 66%;
+    }
+    .rdrNextButton {
+      border-radius: 66%;
+    }
+  }
+  .rdrDayNumber {
+    color: var(--text-color-main);
+    span {
+      font-size: 13px;
+      font-family: NeuweltLight;
+      color: var(--text-color-main);
+    }
+  }
+  .rdrDayDisabled {
+    background-color: var(--text-color-highlight);
+    .rdrDayNumber {
+      span {
+        color: var(--text-color-light);
+      }
     }
   }
 `;
