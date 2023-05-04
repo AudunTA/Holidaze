@@ -14,7 +14,7 @@ function DisplayCards() {
   //console.log("STATEEEE", state);
   return (
     <CardContainer>
-      {state.venues.slice(0, 9).map((ele) => {
+      {state.venues.slice(0, 50).map((ele) => {
         return (
           <Link to={`/Venue/${ele.id}`} key={ele.id}>
             <DisplayCard>

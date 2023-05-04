@@ -3,7 +3,7 @@ import { baseURL } from "./baseURL";
 import { addVenues } from "../../features/venues/venueSlice";
 
 export async function venueApi(dispatch) {
-  const endpoint = "/venues?sort=created&limit=10&_owner=true&_bookings=true";
+  const endpoint = "/venues?sort=created&limit=50&_owner=true&_bookings=true";
   try {
     console.log(baseURL + endpoint);
     const response = await fetch(baseURL + endpoint);

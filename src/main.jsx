@@ -10,6 +10,7 @@ import {
 import { store } from "./store";
 import { Provider } from "react-redux";
 import { AuthProvider } from "react-auth-kit";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider authType="localstorage" authName="_auth">

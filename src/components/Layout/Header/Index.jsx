@@ -76,7 +76,10 @@ function Header() {
         <PrimaryButton className="nav-item" onClick={logStore}>
           <p>Log store</p>
         </PrimaryButton>
-        <p className="nav-item">Venues</p>
+        <Link to="/Explore">
+          <p className="nav-item">Explore</p>
+        </Link>
+
         <p className="nav-item">Contact</p>
         {isUserLoggedIn ? (
           <>

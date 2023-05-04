@@ -17,6 +17,7 @@ function Filters() {
   const [expandAmenities, setExpandAmenities] = useState(false);
   const [expandDate, setExpandDate] = useState(false);
 
+  const [applyFilter, setApplyFilter] = useState(false);
   //expand functions
   const handleExpandPrice = () => {
     setExpandPrice(!expandPrice);
@@ -48,7 +49,7 @@ function Filters() {
       heading: "Amenities",
       action: handleExpandAmenities,
       show: expandAmenities,
-      component: <Amenities />,
+      component: <Amenities filterStatus={applyFilter} />,
     },
     {
       heading: "Guests",
@@ -78,7 +79,10 @@ function Filters() {
             </Filter>
           );
         })}
-        <PrimaryButton className="btn-filter">
+        <PrimaryButton
+          className="btn-filter"
+          onClick={() => setApplyFilter(true)}
+        >
           <p>Apply Filters</p>
         </PrimaryButton>
       </div>
