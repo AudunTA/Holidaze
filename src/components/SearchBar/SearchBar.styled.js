@@ -4,29 +4,24 @@ const SearchBarContainer = styled.div`
   position: sticky;
   top: 0px;
   z-index: 2;
-  height: 30px;
+  height: 56px;
   width: 100%;
+  max-width: 500px;
+  border-radius: 28px;
+  margin: auto;
   border: 1px solid var(--border);
-  border-color: var(--border-color);
-  background-color: var(--background-color);
   backdrop-filter: var(--backdrop-filter);
-
-  .max-width {
-    margin: auto;
-    max-width: var(--max-width);
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @media only screen and (max-width: 1250px) {
-      margin: 0 15px;
-    }
+  display: flex;
+  align-items: center;
+  .search-icon-container {
+    justify-content: space-between !important;
   }
-  .color-border {
-    position: absolute;
-    top: 140px;
-    width: 100vw;
+  #search-icon {
+    font-size: 20px;
+    padding: 8px;
+    color: var(--background-color);
+    border-radius: 66.7%;
+    background-color: var(--btn-color-secondary);
   }
 `;
 

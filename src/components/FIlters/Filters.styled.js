@@ -20,7 +20,7 @@ const Filter = styled.div`
   padding: 15px;
   background-color: ${(props) =>
     props.active ? "var(--text-color-highlight)" : ""};
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border);
   color: var(--text-color-main);
   .filter-top {
     display: flex;
