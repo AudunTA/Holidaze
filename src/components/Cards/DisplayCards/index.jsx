@@ -33,13 +33,12 @@ function DisplayCards() {
 
                   <S.TextGrey>
                     {ele.location.city !== "Unknown"
-                      ? ele.location.city.slice(0, 40)
-                      : ele.description.slice(0, 40)}{" "}
+                      ? ele.location.city.slice(0, 30)
+                      : ele.description.slice(0, 30)}{" "}
                   </S.TextGrey>
                 </div>
-                <PrimaryButton>
-                  <S.TextWhite>${ele.price} per night</S.TextWhite>
-                </PrimaryButton>
+
+                <S.TextWhite>${ele.price} per night</S.TextWhite>
               </div>
             </DisplayCard>
           </Link>
