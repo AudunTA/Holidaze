@@ -10,8 +10,10 @@ import { ImageSection, InfoSection, VenueLayOut } from "./Venue.styled";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-
+import dayjs from "dayjs";
 import DateRangePicker from "../../components/DateRangePicker";
+import { parseISO } from "date-fns";
+
 function Venue() {
   let params = useParams();
   const [venue, setVenue] = useState();
@@ -25,16 +27,26 @@ function Venue() {
     },
   ]);
   const [disabledDates, setDisabledDates] = useState([]);
+  const getDatesBetween = (dateFrom, dateTo) => {
+    const startDate = dayjs(dateFrom);
+    const endDate = dayjs(dateTo);
 
+    const diffDays = endDate.diff(startDate, "day");
+    console.log(diffDays);
+    for (let i = 0; i <= diffDays; i++) {
+      const date = startDate.add(i, "day");
+      setDisabledDates([...disabledDates, date.format("YYYY-MM-DD")]);
+    }
+  };
   useEffect(() => {
     const fetchVenue = async () => {
       const response = await singleVenue(params.id);
       setVenue(response);
-      const dates = response.bookings.map(
-        (booking) => new Date(booking.dateFrom)
-      );
-      setDisabledDates([...disabledDates, ...dates]);
+      response.bookings.map((booking) => {
+        //getDatesBetween(parseISO(booking.dateFrom), parseISO(booking.dateTo));
+      }, []);
     };
+
     fetchVenue();
   }, [params.id]);
 
