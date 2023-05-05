@@ -13,6 +13,8 @@ const LogoContainer = styled.div`
   align-items: center;
   .logo-a {
     margin-left: 3px;
+    width: 14px;
+    height: 14px;
   }
   .ze {
     margin-bottom: 1px;

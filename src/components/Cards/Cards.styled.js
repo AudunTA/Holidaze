@@ -11,11 +11,6 @@ const Card = styled.div`
     flex-direction: column;
     justify-content: space-between;
   }
-  :hover {
-    transition: 0.3s;
-    border: 1px solid var(--border);
-    backdrop-filter: var(--backdrop-filter);
-  }
 `;
 
 const CardContainer = styled.div`

@@ -4,7 +4,6 @@ const SignUpContainer = styled.div`
   margin: 100px auto;
   max-width: 400px;
   border: 1px solid var(--border);
-  border-color: var(--border-color);
   background-color: var(--background-color);
   backdrop-filter: var(--backdrop-filter);
   border-radius: var(--main-border-radius);
@@ -13,21 +12,21 @@ const SignUpContainer = styled.div`
   .illustration-horizontal {
     position: absolute;
     background: linear-gradient(
-      to right,
-      #262d3e 0%,
-      var(--border-color) 25%,
-      var(--border-color) 75%,
-      #262d3e 100%
+      180deg,
+      rgba(0, 0, 0, 0) 17.97%,
+      rgba(255, 255, 255, 0.1) 17.98%,
+      rgba(0, 0, 0, 0.1) 64.54%,
+      rgba(0, 0, 0, 0) 100%
     );
   }
   .illustration-vertical {
     position: absolute;
     background: linear-gradient(
-      to bottom,
-      #262d3e 0%,
-      var(--border-color) 25%,
-      var(--border-color) 75%,
-      #262d3e 100%
+      180deg,
+      rgba(0, 0, 0, 0) 17.97%,
+      rgba(0, 0, 0, 0.1) 24.67%,
+      rgba(0, 0, 0, 0.1) 91.22%,
+      rgba(0, 0, 0, 0) 100%
     );
   }
   .layer-one {

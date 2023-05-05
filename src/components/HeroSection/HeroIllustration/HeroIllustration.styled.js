@@ -4,28 +4,28 @@ const IllustrationContainer = styled.div`
   width: 200px;
   height: 200px;
   margin-right: 150px;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
+  background-color: var(--text-color-highlight);
+  border: 1px solid var(--border);
   position: relative;
   --pixel-border: 1px;
   .illustration-horizontal {
     position: absolute;
     background: linear-gradient(
-      to right,
-      #262d3e 0%,
-      var(--border-color) 25%,
-      var(--border-color) 75%,
-      #262d3e 100%
+      180deg,
+      rgba(0, 0, 0, 0) 17.97%,
+      rgba(255, 255, 255, 0.1) 17.98%,
+      rgba(0, 0, 0, 0.1) 64.54%,
+      rgba(0, 0, 0, 0) 100%
     );
   }
   .illustration-vertical {
     position: absolute;
     background: linear-gradient(
-      to bottom,
-      #262d3e 0%,
-      var(--border-color) 25%,
-      var(--border-color) 75%,
-      #262d3e 100%
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 24.67%,
+      rgba(0, 0, 0, 0.1) 70.22%,
+      rgba(0, 0, 0, 0) 100%
     );
   }
   .layer-one {
@@ -58,14 +58,14 @@ const IllustrationContainer = styled.div`
   .layer-five {
     bottom: -100px;
     right: -15px;
-    height: 600px;
+    height: 400px;
     width: var(--pixel-border);
   }
   .layer-six {
     left: -15px;
     bottom: -100px;
     right: 0;
-    height: 600px;
+    height: 400px;
     width: var(--pixel-border);
   }
   .layer-seven {
@@ -90,8 +90,6 @@ const IllustrationContainer = styled.div`
     justify-content: center;
   }
   .logo {
-    width: 120px;
-    height: 120px;
     object-fit: cover;
   }
 `;

@@ -5,7 +5,7 @@ const UserMenuModal = styled.div`
   width: 150px;
   right: 0;
   top: 50px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   background-color: var(--background-color);
   border-radius: var(--main-border-radius);
 `;

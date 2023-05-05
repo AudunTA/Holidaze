@@ -2,15 +2,15 @@
 :root {
   /*colors */
 
-  --text-color-main: #ffffff;
-  --text-color-light: rgb(148 163 184);
+  --text-color-main: #39373d;
+  --text-color-light: #97a0b2;
   --btn-color-primary: #7b94d6;
   --btn-color-secondary: #7b94d6;
-  --border: #e2e8f0;
+  --border: #e4e4e7;
   --solid-dark-color: rgb(30 41 59/1);
   --border-color: hsla(0, 0%, 100%, 0.1);
-  --background-color: #313848;
-  --text-color-highlight: hsla(0, 0%, 100%, 0.1);
+  --background-color: #ffffff;
+  --text-color-highlight: #eef1f8;
   --text-color-error: #b24e46;
   --text-color-sucess: #4bb543;
   --backdrop-filter: blur(24px);

@@ -5,7 +5,6 @@ const ProfileContainer = styled.div`
   max-width: 600px;
   border-radius: var(--main-border-radius);
   border: 1px solid var(--border);
-  border-color: var(--border-color);
   background-color: var(--background-color);
   backdrop-filter: var(--backdrop-filter);
   .top-section-profile {
@@ -35,7 +34,7 @@ const ButtonSettings = styled.div`
   border: none;
   background-color: ${(props) =>
     props.active ? "var(--text-color-highlight)" : ""};
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   transition: 0.15s;

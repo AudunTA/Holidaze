@@ -10,7 +10,7 @@ const DisplayCard = styled(Card)`
     width: 100%;
     border-radius: var(--main-border-radius);
     border: 1px solid var(--border);
-    border-color: var(--border-color);
+
     background-color: var(--background-color);
     backdrop-filter: var(--backdrop-filter);
   }

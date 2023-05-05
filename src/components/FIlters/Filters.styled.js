@@ -7,9 +7,7 @@ const FilterContainer = styled.div`
     width: 100%;
   }
   .border-wrapper {
-    border: 1px solid #e2e8f0;
-    border-color: hsla(0, 0%, 100%, 0.1);
-    background-color: hsla(0, 0%, 100%, 0.05);
+    border: 1px solid var(--border);
     border-radius: var(--main-border-radius);
     backdrop-filter: blur(24px);
   }
