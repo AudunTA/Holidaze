@@ -31,7 +31,7 @@ function Venue() {
       const response = await singleVenue(params.id);
       setVenue(response);
       const dates = response.bookings.map(
-        (booking) => new Date(booking.dateFrom.slice(0, 10))
+        (booking) => new Date(booking.dateFrom)
       );
       setDisabledDates([...disabledDates, ...dates]);
     };

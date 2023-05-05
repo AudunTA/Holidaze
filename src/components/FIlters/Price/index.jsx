@@ -1,93 +1,57 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Slider, { SliderThumb } from "@mui/material/Slider";
-import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import { FilterContainer } from "../Filters.styled";
+import React, { useState, useEffect } from "react";
+import { Stack, Typography, Slider, TextField } from "@mui/material";
+import { FilterMarginContainer } from "../Filters.styled";
+export default function App() {
+  const [minNum, setMinNum] = useState(0);
+  const [maxNum, setMaxNum] = useState(1000);
+  const minmin = 100;
+  const maxmax = 3000;
+  const [priceRangeValue, setPriceRangeValue] = useState([0, 1000]);
 
-const marks = [
-  {
-    value: 0,
-    label: "0°C",
-  },
-  {
-    value: 20,
-    label: "20°C",
-  },
-  {
-    value: 37,
-    label: "37°C",
-  },
-  {
-    value: 100,
-    label: "100°C",
-  },
-];
+  const handlePriceRangeChange = (event, newValue) => {
+    setMinNum(newValue[0]);
+    setMaxNum(newValue[1]);
+    setPriceRangeValue(newValue);
+  };
 
-function valuetext(value) {
-  return `${value}°C`;
-}
+  console.log(priceRangeValue);
 
-const AirbnbSlider = styled(Slider)(({ theme }) => ({
-  color: "var(--btn-color-secondary)",
-  height: 3,
-  padding: "13px 0",
-  "& .MuiSlider-thumb": {
-    height: 27,
-    width: 27,
-    backgroundColor: "#fff",
-    border: "1px solid currentColor",
-    "&:hover": {
-      boxShadow: "0 0 0 8px var(--text-color-highlight)",
-    },
-    "& .airbnb-bar": {
-      height: 9,
-      width: 1,
-      backgroundColor: "currentColor",
-      marginLeft: 1,
-      marginRight: 1,
-    },
-  },
-  "& .MuiSlider-track": {
-    height: 3,
-  },
-  "& .MuiSlider-rail": {
-    color: "#bfbfbf",
-    opacity: "dark",
-    height: 3,
-  },
-}));
-
-function AirbnbThumbComponent(props) {
-  const { children, ...other } = props;
   return (
-    <SliderThumb {...other}>
-      {children}
-      <span className="airbnb-bar" />
-      <span className="airbnb-bar" />
-      <span className="airbnb-bar" />
-    </SliderThumb>
-  );
-}
-
-AirbnbThumbComponent.propTypes = {
-  children: PropTypes.node,
-};
-
-export default function Price() {
-  return (
-    <FilterContainer>
-      <Typography gutterBottom>Airbnb</Typography>
-      <AirbnbSlider
-        aria-label="Always visible"
-        getAriaValueText={valuetext}
-        slots={{ thumb: AirbnbThumbComponent }}
-        valueLabelDisplay="on"
-        getAriaLabel={(index) =>
-          index === 0 ? "Minimum price" : "Maximum price"
-        }
-        defaultValue={[20, 40]}
+    <FilterMarginContainer>
+      <Slider
+        getAriaLabel={() => "Price range"}
+        value={priceRangeValue}
+        onChange={handlePriceRangeChange}
+        min={minmin}
+        max={maxmax}
       />
-    </FilterContainer>
+      <Stack direction="row" justifyContent="space-evenly" alignItems="center">
+        <TextField
+          label="min"
+          type="number"
+          variant="outlined"
+          InputLabelProps={{ shrink: true }}
+          sx={{ width: "90px" }}
+          value={minNum}
+          onChange={(e) => {
+            setMinNum(Number(e.target.value));
+            setPriceRangeValue([Number(e.target.value), priceRangeValue[1]]);
+          }}
+        />
+        <Typography>-</Typography>
+        <TextField
+          label="max"
+          type="number"
+          variant="outlined"
+          InputLabelProps={{ shrink: true }}
+          sx={{ width: "90px" }}
+          value={maxNum}
+          onChange={(e) => {
+            setMaxNum(Number(e.target.value));
+            setPriceRangeValue([priceRangeValue[0], Number(e.target.value)]);
+          }}
+        />
+      </Stack>
+    </FilterMarginContainer>
   );
 }

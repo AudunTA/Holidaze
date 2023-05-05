@@ -47,5 +47,8 @@ const Filter = styled.div`
     background-color: var(--text-color-highlight);
   }
 `;
+const FilterMarginContainer = styled.div`
+  margin: 10px;
+`;
 
-export { FilterContainer, Filter };
+export { FilterContainer, Filter, FilterMarginContainer };

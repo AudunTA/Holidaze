@@ -3,8 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   wifi: false,
   parking: false,
-  breakfast: false,
-  pets: false,
+  breakfast: true,
+  pets: true,
+  guests: "",
 };
 
 export const filterSlice = createSlice({
@@ -23,6 +24,9 @@ export const filterSlice = createSlice({
     addFilterPets(state, action) {
       state.pets = action.payload;
     },
+    addFilterGuests(state, action) {
+      state.guests = action.payload;
+    },
   },
 });
 
@@ -31,5 +35,6 @@ export const {
   addFilterParking,
   addFilterBreakfast,
   addFilterPets,
+  addFilterGuests,
 } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

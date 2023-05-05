@@ -5,6 +5,7 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState, useEffect } from "react";
+
 function DateRangePicker({ disabledDatesVenue }) {
   const [venue, setVenue] = useState();
   const [loader, setLoader] = useState(true);
@@ -21,21 +22,27 @@ function DateRangePicker({ disabledDatesVenue }) {
   const handleLog = () => {
     console.log(disabledDatesVenue);
   };
-
+  useEffect(() => {
+    if (disabledDatesVenue) {
+      console.log(disabledDatesVenue);
+    } else {
+      console.log("nice");
+    }
+  }, []);
   return (
-    <RangePickerContainer>
-      <DateRange
-        className="date-picker"
-        editableDateInputs={true}
-        onChange={(item) => setState([item.selection])}
-        moveRangeOnFirstSelection={false}
-        ranges={state}
-        disabledDates={disabledDates}
-      />
-      <PrimaryButton onClick={handleLog}>
-        <p>Book Now</p>
-      </PrimaryButton>
-    </RangePickerContainer>
+    <>
+      <RangePickerContainer>
+        <DateRange
+          className="date-picker"
+          editableDateInputs={true}
+          onChange={(item) => setState([item.selection])}
+          moveRangeOnFirstSelection={false}
+          ranges={state}
+          disabledDates={disabledDates}
+        />
+      </RangePickerContainer>
+      <button onClick={handleLog}>logDisabled</button>
+    </>
   );
 }
 
