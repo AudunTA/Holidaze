@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
-  height: 350px;
+  height: 300px;
+  overflow: hidden;
   .wrapper-hero {
     height: 100%;
     margin: auto;

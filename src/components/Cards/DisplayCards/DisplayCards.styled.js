@@ -12,7 +12,7 @@ const DisplayCard = styled(Card)`
     border: 1px solid var(--border);
 
     background-color: var(--background-color);
-    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--shadow);
   }
 
   .card-heading {

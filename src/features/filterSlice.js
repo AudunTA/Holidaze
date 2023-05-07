@@ -6,6 +6,7 @@ const initialState = {
   breakfast: true,
   pets: true,
   guests: "",
+  search: "",
 };
 
 export const filterSlice = createSlice({

@@ -34,7 +34,6 @@ function Homepage() {
       <HeroSection />
       <SearchBar />
       <MainContainer>
-        <Filters />
         {loader ? <LoadingCards number={4} /> : <DisplayCards />}
       </MainContainer>
     </div>
