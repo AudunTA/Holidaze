@@ -39,5 +39,12 @@ const SubHeading = styled.h3`
   color: var(--text-color-main);
   font-family: NeuweltRegular;
 `;
+const TextMobileNav = styled.p`
+  font-size: 12px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-family: NeuweltRegular;
+  color: var(--text-color-main);
+`;
 
-export { TextWhite, TextGrey, Heading, TextError, SubHeading };
+export { TextWhite, TextGrey, Heading, TextError, SubHeading, TextMobileNav };

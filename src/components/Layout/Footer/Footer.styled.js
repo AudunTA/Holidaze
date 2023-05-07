@@ -7,6 +7,9 @@ const FooterContainer = styled.div`
   width: 100%;
   border-top: 2px solid var(--text-color-highlight);
   margin-top: 50px;
+  @media (max-width: 700px) {
+    display: none;
+  }
   .group-text {
     display: flex;
     .spacing-left {

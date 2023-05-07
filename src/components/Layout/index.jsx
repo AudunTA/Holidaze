@@ -2,13 +2,15 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Index";
 import Footer from "./Footer";
+import MobileBar from "./MobileBar";
 function Layout() {
   return (
-    <div className="TESTTT">
+    <>
       <Header />
+      <MobileBar />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
 

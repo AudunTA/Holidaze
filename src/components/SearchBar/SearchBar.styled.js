@@ -1,9 +1,17 @@
 import styled from "styled-components";
-
-const SearchBarContainer = styled.div`
+const BackGroundSearch = styled.div`
+  width: 100%;
+  background-color: white;
   position: sticky;
-  top: 10px;
+  top: 0px;
   z-index: 2;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  height: 76px;
+  display: flex;
+  align-items: center;
+`;
+const SearchBarContainer = styled.div`
   height: 56px;
   width: 100%;
   max-width: 1200px;
@@ -14,6 +22,7 @@ const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 10px;
 
   #search-icon {
     margin-right: 10px;
@@ -44,4 +53,4 @@ const SearchInput = styled.input`
   }
 `;
 
-export { SearchBarContainer, SearchInput };
+export { SearchBarContainer, SearchInput, BackGroundSearch };

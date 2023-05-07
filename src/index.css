@@ -21,4 +21,5 @@
   --main-border-radius: 0.2rem;
   --secondary-border-radius: 4px;
   --max-width: 1200px;
+  --small-screen: 700px;
 }

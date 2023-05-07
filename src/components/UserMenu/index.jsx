@@ -6,9 +6,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import NoteIcon from "@mui/icons-material/Note";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-
-//auth signout
 import { useSignOut } from "react-auth-kit";
+//auth signout
 //router-dom
 import { useNavigate } from "react-router-dom";
 function UserMenu() {
@@ -16,7 +15,7 @@ function UserMenu() {
   const navigate = useNavigate();
   const handleLogOut = () => {
     signOut();
-    navigate("/Signup");
+    navigate("/SignUp");
   };
   return (
     <UserMenuModal>
