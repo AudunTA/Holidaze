@@ -6,11 +6,17 @@ import {
   SearchInput,
   BackGroundSearch,
 } from "./SearchBar.styled";
+import { useDispatch } from "react-redux";
+import { addSearch } from "../../features/filterSlice";
 function SearchBar() {
+  const dispatch = useDispatch();
   return (
     <BackGroundSearch>
       <SearchBarContainer>
-        <SearchInput placeholder="Search for a venue" />
+        <SearchInput
+          placeholder="Search venues.."
+          onChange={(e) => dispatch(addSearch(e.target.value))}
+        />
         <SearchIcon id="search-icon" />
       </SearchBarContainer>
     </BackGroundSearch>

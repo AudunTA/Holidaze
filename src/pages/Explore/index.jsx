@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { venueApi } from "../../components/API/venue";
 import { useQueryParam, NumberParam } from "use-query-params";
+import SearchBar from "../../components/SearchBar";
 function Explore() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
@@ -23,10 +24,13 @@ function Explore() {
     }
   }, [state]);
   return (
-    <ExploreContainer>
-      <Filters />
-      {loader ? <LoadingCards number={4} /> : <DisplayCards />}
-    </ExploreContainer>
+    <>
+      <SearchBar />
+      <ExploreContainer>
+        <Filters />
+        {loader ? <LoadingCards number={4} /> : <DisplayCards />}
+      </ExploreContainer>
+    </>
   );
 }
 

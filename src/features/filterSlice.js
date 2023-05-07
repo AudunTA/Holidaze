@@ -28,6 +28,9 @@ export const filterSlice = createSlice({
     addFilterGuests(state, action) {
       state.guests = action.payload;
     },
+    addSearch(state, action) {
+      state.search = action.payload;
+    },
   },
 });
 
@@ -37,5 +40,6 @@ export const {
   addFilterBreakfast,
   addFilterPets,
   addFilterGuests,
+  addSearch,
 } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;
