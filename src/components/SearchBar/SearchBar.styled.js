@@ -5,6 +5,7 @@ const BackGroundSearch = styled.div`
   position: sticky;
   top: 0px;
   z-index: 2;
+
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow);
   height: 76px;
