@@ -6,6 +6,8 @@ const initialState = {
   breakfast: true,
   pets: true,
   guests: "",
+  minPrice: 100,
+  maxPrice: 3000,
   search: "",
 };
 
@@ -31,6 +33,12 @@ export const filterSlice = createSlice({
     addSearch(state, action) {
       state.search = action.payload;
     },
+    addMinPrice(state, action) {
+      state.minPrice = action.payload;
+    },
+    addMaxPrice(state, action) {
+      state.maxPrice = action.payload;
+    },
   },
 });
 
@@ -41,5 +49,7 @@ export const {
   addFilterPets,
   addFilterGuests,
   addSearch,
+  addMinPrice,
+  addMaxPrice,
 } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

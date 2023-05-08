@@ -17,8 +17,6 @@ import { parseISO } from "date-fns";
 function Venue() {
   let params = useParams();
   const [venue, setVenue] = useState();
-  const [loader, setLoader] = useState(true);
-  const [bookings, setBookings] = useState([]);
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -26,34 +24,15 @@ function Venue() {
       key: "selection",
     },
   ]);
-  const [disabledDates, setDisabledDates] = useState([]);
-  const getDatesBetween = (dateFrom, dateTo) => {
-    const startDate = dayjs(dateFrom);
-    const endDate = dayjs(dateTo);
 
-    const diffDays = endDate.diff(startDate, "day");
-    console.log(diffDays);
-    for (let i = 0; i <= diffDays; i++) {
-      const date = startDate.add(i, "day");
-      setDisabledDates([...disabledDates, date.format("YYYY-MM-DD")]);
-    }
-  };
   useEffect(() => {
     const fetchVenue = async () => {
       const response = await singleVenue(params.id);
       setVenue(response);
-      response.bookings.map((booking) => {
-        //getDatesBetween(parseISO(booking.dateFrom), parseISO(booking.dateTo));
-      }, []);
     };
 
     fetchVenue();
   }, [params.id]);
-
-  const handleLog = () => {
-    console.log(disabledDates);
-  };
-
   return (
     <>
       <CenterContainer>
@@ -65,18 +44,7 @@ function Venue() {
             <InfoSection>
               <p>{venue.description}</p>
 
-              <DateRange
-                className="date-picker"
-                editableDateInputs={true}
-                onChange={(item) => setState([item.selection])}
-                moveRangeOnFirstSelection={false}
-                ranges={state}
-                disabledDates={disabledDates}
-              />
-              <PrimaryButton onClick={handleLog}>
-                <p>Book Now</p>
-              </PrimaryButton>
-              <DateRangePicker disabledDatesVenue={disabledDates} />
+              <DateRangePicker bookings={venue.bookings} />
             </InfoSection>
           </VenueLayOut>
         ) : (

@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Stack, Typography, Slider, TextField } from "@mui/material";
 import { FilterMarginContainer } from "../Filters.styled";
+import { useSelector, useDispatch } from "react-redux";
+import { addMaxPrice, addMinPrice } from "../../../features/filterSlice";
 export default function App() {
-  const [minNum, setMinNum] = useState(0);
-  const [maxNum, setMaxNum] = useState(1000);
-  const minmin = 100;
+  //redux
+  const dispatch = useDispatch();
+  const minNum = useSelector((state) => state.filter.minPrice);
+  const maxNum = useSelector((state) => state.filter.maxPrice);
+  const minmin = 300;
   const maxmax = 3000;
-  const [priceRangeValue, setPriceRangeValue] = useState([0, 1000]);
-
+  console.log(minNum, maxNum);
+  const [priceRangeValue, setPriceRangeValue] = useState([0, 4000]);
+  console.log(priceRangeValue);
   const handlePriceRangeChange = (event, newValue) => {
-    setMinNum(newValue[0]);
-    setMaxNum(newValue[1]);
+    console.log("TEST: ", newValue);
+    dispatch(addMinPrice(newValue[0]));
+    dispatch(addMaxPrice(newValue[1]));
     setPriceRangeValue(newValue);
   };
-
-  console.log(priceRangeValue);
 
   return (
     <FilterMarginContainer>
@@ -33,10 +37,6 @@ export default function App() {
           InputLabelProps={{ shrink: true }}
           sx={{ width: "90px" }}
           value={minNum}
-          onChange={(e) => {
-            setMinNum(Number(e.target.value));
-            setPriceRangeValue([Number(e.target.value), priceRangeValue[1]]);
-          }}
         />
         <Typography>-</Typography>
         <TextField
@@ -46,10 +46,6 @@ export default function App() {
           InputLabelProps={{ shrink: true }}
           sx={{ width: "90px" }}
           value={maxNum}
-          onChange={(e) => {
-            setMaxNum(Number(e.target.value));
-            setPriceRangeValue([priceRangeValue[0], Number(e.target.value)]);
-          }}
         />
       </Stack>
     </FilterMarginContainer>

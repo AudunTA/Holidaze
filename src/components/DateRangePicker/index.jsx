@@ -5,11 +5,9 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState, useEffect } from "react";
-
-function DateRangePicker({ disabledDatesVenue }) {
-  const [venue, setVenue] = useState();
-  const [loader, setLoader] = useState(true);
-  const [bookings, setBookings] = useState([]);
+import dayjs from "dayjs";
+function DateRangePicker({ bookings }) {
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -18,17 +16,30 @@ function DateRangePicker({ disabledDatesVenue }) {
     },
   ]);
   const [disabledDates, setDisabledDates] = useState([]);
-
   const handleLog = () => {
-    console.log(disabledDatesVenue);
+    console.log(disabledDates);
   };
   useEffect(() => {
-    if (disabledDatesVenue) {
-      console.log(disabledDatesVenue);
+    if (bookings) {
+      bookings.map((ele) => {
+        console.log(ele.dateFrom, ele.dateTo);
+        findDaysBetween(ele.dateFrom, ele.dateTo);
+      });
     } else {
-      console.log("nice");
+      console.log("no bookings");
     }
-  }, []);
+  }, [bookings]);
+  const findDaysBetween = (dateFrom, dateTo) => {
+    let datesToDisable = [];
+    let currentDate = dayjs(dateFrom);
+    const endDate = dayjs(dateTo);
+    while (currentDate.isBefore(endDate)) {
+      console.log("TRUE");
+      datesToDisable.push(currentDate.toDate());
+      currentDate = currentDate.add(1, "day");
+    }
+    setDisabledDates([...disabledDates, ...datesToDisable]);
+  };
   return (
     <>
       <RangePickerContainer>
@@ -38,6 +49,7 @@ function DateRangePicker({ disabledDatesVenue }) {
           onChange={(item) => setState([item.selection])}
           moveRangeOnFirstSelection={false}
           ranges={state}
+          minDate={currentDate}
           disabledDates={disabledDates}
         />
       </RangePickerContainer>
