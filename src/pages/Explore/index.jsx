@@ -15,11 +15,11 @@ function Explore() {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    venueApi(dispatch);
+    venueApi(dispatch, 100);
   }, []);
 
   useEffect(() => {
-    if (state.venues.length > 1) {
+    if (state.venues) {
       setLoader(false);
     }
   }, [state]);

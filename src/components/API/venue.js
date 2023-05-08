@@ -1,9 +1,8 @@
 // venue.js
 import { baseURL } from "./baseURL";
 import { addVenues } from "../../features/venueSlice";
-
-export async function venueApi(dispatch) {
-  const endpoint = "/venues?sort=created&limit=50&_owner=true&_bookings=true";
+export async function venueApi(dispatch, num) {
+  const endpoint = `/venues?sort=created&limit=${num}&_owner=true&_bookings=true&offset=5`;
   try {
     console.log(baseURL + endpoint);
     const response = await fetch(baseURL + endpoint);
@@ -17,7 +16,7 @@ export async function venueApi(dispatch) {
 }
 
 export async function singleVenue(id) {
-  const endpoint = `/venues/${id}?_bookings=true`;
+  const endpoint = `/venues/${id}?_bookings=true&_owner=true`;
   try {
     const response = await fetch(baseURL + endpoint);
     const json = await response.json();

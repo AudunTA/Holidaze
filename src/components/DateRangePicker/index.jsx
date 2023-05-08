@@ -19,27 +19,27 @@ function DateRangePicker({ bookings }) {
   const handleLog = () => {
     console.log(disabledDates);
   };
-  useEffect(() => {
-    if (bookings) {
-      bookings.map((ele) => {
-        console.log(ele.dateFrom, ele.dateTo);
-        findDaysBetween(ele.dateFrom, ele.dateTo);
-      });
-    } else {
-      console.log("no bookings");
-    }
-  }, [bookings]);
   const findDaysBetween = (dateFrom, dateTo) => {
     let datesToDisable = [];
     let currentDate = dayjs(dateFrom);
     const endDate = dayjs(dateTo);
     while (currentDate.isBefore(endDate)) {
-      console.log("TRUE");
       datesToDisable.push(currentDate.toDate());
       currentDate = currentDate.add(1, "day");
     }
-    setDisabledDates([...disabledDates, ...datesToDisable]);
+    return datesToDisable;
   };
+
+  useEffect(() => {
+    if (bookings) {
+      let allDisabledDates = [];
+      bookings.forEach((ele) => {
+        const datesToDisable = findDaysBetween(ele.dateFrom, ele.dateTo);
+        allDisabledDates = [...allDisabledDates, ...datesToDisable];
+      });
+      setDisabledDates(allDisabledDates);
+    }
+  }, [bookings]);
   return (
     <>
       <RangePickerContainer>
@@ -53,7 +53,8 @@ function DateRangePicker({ bookings }) {
           disabledDates={disabledDates}
         />
       </RangePickerContainer>
-      <button onClick={handleLog}>logDisabled</button>
+      {bookings ? <PrimaryButton>Make a reservation</PrimaryButton> : ""}
+      <button onClick={() => console.log(disabledDates)}>log dates</button>
     </>
   );
 }

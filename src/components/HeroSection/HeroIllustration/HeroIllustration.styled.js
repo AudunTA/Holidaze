@@ -11,10 +11,10 @@ const IllustrationContainer = styled.div`
   .illustration-horizontal {
     position: absolute;
     background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 17.97%,
-      rgba(255, 255, 255, 0.1) 17.98%,
-      rgba(0, 0, 0, 0.1) 64.54%,
+      to left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 10%,
+      rgba(0, 0, 0, 0.1) 90%,
       rgba(0, 0, 0, 0) 100%
     );
   }
@@ -23,49 +23,49 @@ const IllustrationContainer = styled.div`
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.1) 24.67%,
-      rgba(0, 0, 0, 0.1) 70.22%,
+      rgba(0, 0, 0, 0.1) 10%,
+      rgba(0, 0, 0, 0.1) 90%,
       rgba(0, 0, 0, 0) 100%
     );
   }
   .layer-one {
-    left: -100px;
+    left: -50px;
     top: -1px;
     right: 0;
     height: var(--pixel-border);
-    width: 400px;
+    width: 300px;
   }
   .layer-two {
-    left: -100px;
+    left: -50px;
     bottom: -1px;
     right: 0;
     height: var(--pixel-border);
-    width: 400px;
+    width: 300px;
   }
   .layer-three {
-    left: -0px;
-    bottom: -100px;
+    left: -1px;
+    bottom: -50px;
     right: 0;
-    height: 400px;
+    height: 300px;
     width: var(--pixel-border);
   }
   .layer-four {
-    bottom: -100px;
+    bottom: -50px;
     right: -1px;
-    height: 400px;
+    height: 300px;
     width: var(--pixel-border);
   }
   .layer-five {
-    bottom: -100px;
+    bottom: -50px;
     right: -15px;
-    height: 400px;
+    height: 300px;
     width: var(--pixel-border);
   }
   .layer-six {
     left: -15px;
-    bottom: -100px;
+    bottom: -50px;
     right: 0;
-    height: 400px;
+    height: 300px;
     width: var(--pixel-border);
   }
   .layer-seven {

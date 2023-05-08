@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-auth-kit": "^2.12.2",

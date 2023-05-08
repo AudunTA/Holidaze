@@ -79,8 +79,9 @@ function Header() {
         <Link to="/Explore">
           <p className="nav-item">Explore</p>
         </Link>
-
-        <p className="nav-item">Contact</p>
+        <Link to="/Contact">
+          <p className="nav-item">Contact</p>
+        </Link>
         {isUserLoggedIn ? (
           <>
             <PrimaryButton onClick={handleUserMenuStatus}>

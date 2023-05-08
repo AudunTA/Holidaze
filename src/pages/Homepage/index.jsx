@@ -18,13 +18,13 @@ function Homepage() {
   const state = useSelector((state) => state.venues);
 
   useEffect(() => {
-    venueApi(dispatch);
+    venueApi(dispatch, 8);
   }, []);
 
   useEffect(() => {
     //console.log("state ", state.venues);
     //console.log(loader);
-    if (state.venues.length > 1) {
+    if (state.venues) {
       setLoader(false);
     }
   }, [state]);

@@ -7,7 +7,7 @@ import Profile from "../pages/Profile";
 import SignUp from "../pages/SignUp";
 import Explore from "../pages/Explore";
 import Venue from "../pages/Venue";
-
+import Contact from "../pages/Contact";
 import { RequireAuth } from "react-auth-kit";
 
 import { QueryParamProvider } from "use-query-params";
@@ -30,6 +30,7 @@ function Router() {
               }
             ></Route>
             <Route path="/Signup" element={<SignUp />}></Route>
+            <Route path="/Contact" element={<Contact />}></Route>
             <Route path="/Explore" element={<Explore />}></Route>
             <Route path="/Venue/:id" element={<Venue />}></Route>
           </Route>

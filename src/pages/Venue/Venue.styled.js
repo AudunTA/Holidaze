@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const VenueLayOut = styled.div`
   display: flex;
+  .date-picker-venue {
+    margin: 10px;
+  }
   .rdrDateDisplayWrapper {
     background-color: transparent;
     .rdrDateInput {
@@ -59,10 +62,59 @@ const ImageSection = styled.div`
   flex: 1;
   img {
     width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--main-border-radius);
   }
 `;
-const InfoSection = styled.div`
-  width: 400px;
-  border: 1px solid black;
+const BookingSection = styled.div`
+  min-width: 300px;
+  max-width: 400px;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  margin-left: 10px;
 `;
-export { VenueLayOut, ImageSection, InfoSection };
+const InfoSection = styled.div`
+  .top {
+    h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .rating-venue {
+      display: flex;
+      align-items: center;
+      .star-icon {
+        color: #f3b200;
+        font-size: 17px;
+      }
+    }
+  }
+  .desc {
+    margin-top: 5px;
+  }
+  .amenities {
+    margin-top: 10px;
+    .group-amenities-icon {
+      display: flex;
+      .group-text-icon {
+        margin-top: 10px;
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: var(--main-border-radius);
+
+        padding: 5px;
+        .icon-amenities {
+          color: var(--text-color-main);
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+`;
+export { VenueLayOut, ImageSection, InfoSection, BookingSection };
