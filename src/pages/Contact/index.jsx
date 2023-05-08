@@ -1,19 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import _ from "lodash";
 function Contact() {
-  const [input, setInput] = useState("");
-  const [verdi, nyVerdi] = useState([]);
-  return (
-    <>
-      <input
-        placeholder="ny verdi"
-        value={input}
-        onChange={() => setInput(event.target.value)}
-      ></input>
-      <button onClick={() => nyVerdi([...verdi, input])}>add verdi</button>
-      <button onClick={() => console.log(verdi)}>log verdi</button>
-    </>
-  );
+  const state = useSelector((state) => state.venues);
+  console.log(state);
+  const filteredData = _.filter(state, {
+    name: "Cozy Ski Chalet",
+  });
+  console.log(filteredData);
+  return <></>;
 }
 
 export default Contact;

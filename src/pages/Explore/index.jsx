@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { venueApi } from "../../components/API/venue";
 import { useQueryParam, NumberParam } from "use-query-params";
 import SearchBar from "../../components/SearchBar";
+//lodash
+import _ from "lodash";
 function Explore() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
@@ -21,6 +23,18 @@ function Explore() {
   useEffect(() => {
     if (state.venues) {
       setLoader(false);
+
+      const filteredData = _.filter(state.venues, (item) => {
+        return (
+          item.maxGuests >= 3 &&
+          item.name.includes("Shelter") &&
+          item.meta.wifi === false &&
+          item.meta.parking === false &&
+          item.meta.breakfast === false &&
+          item.meta.pets === false
+        );
+      });
+      console.log(filteredData);
     }
   }, [state]);
   return (
