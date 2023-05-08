@@ -10,6 +10,8 @@ import Amenities from "./Amenities";
 import Dates from "./Dates";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import * as S from "../../styles/Text.styled";
+import { filterLogic } from "./utils/filterLogic.js";
+import { filter } from "lodash";
 function Filters() {
   //Expand states
   const [expandPrice, setExpandPrice] = useState(false);
@@ -17,7 +19,6 @@ function Filters() {
   const [expandAmenities, setExpandAmenities] = useState(false);
   const [expandDate, setExpandDate] = useState(false);
 
-  const [applyFilter, setApplyFilter] = useState(false);
   //expand functions
   const handleExpandPrice = () => {
     setExpandPrice(!expandPrice);
@@ -49,7 +50,7 @@ function Filters() {
       heading: "Amenities",
       action: handleExpandAmenities,
       show: expandAmenities,
-      component: <Amenities filterStatus={applyFilter} />,
+      component: <Amenities />,
     },
     {
       heading: "Guests",
@@ -79,10 +80,7 @@ function Filters() {
             </Filter>
           );
         })}
-        <PrimaryButton
-          className="btn-filter"
-          onClick={() => setApplyFilter(true)}
-        >
+        <PrimaryButton className="btn-filter" onClick={() => filterLogic()}>
           <p>Apply Filters</p>
         </PrimaryButton>
       </div>

@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+  venues: [],
+  filteredVenues: [],
+};
 
 export const venueSlice = createSlice({
   name: "venues",
