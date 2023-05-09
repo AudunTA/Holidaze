@@ -84,6 +84,7 @@ const InfoSection = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .rating-venue {
       display: flex;
       align-items: center;
@@ -113,6 +114,25 @@ const InfoSection = styled.div`
           color: var(--text-color-main);
           margin-right: 5px;
         }
+      }
+    }
+  }
+  .host-section {
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    .venue-host-avatar {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 66.7%;
+      border: 1px solid var(--border);
+    }
+    .name {
+      height: 42px;
+      p {
+        margin-left: 10px;
+        line-height: 16px;
       }
     }
   }

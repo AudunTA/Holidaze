@@ -99,6 +99,18 @@ function Venue() {
                       )}
                     </div>
                   </div>
+                  <div className="host-section">
+                    <div className="venue-host-info">
+                      <img
+                        className="venue-host-avatar"
+                        src={venue.owner.avatar}
+                      ></img>
+                    </div>
+                    <div className="name">
+                      <S.TextGrey>{venue.owner.name}</S.TextGrey>
+                      <S.TextWhite>Host</S.TextWhite>
+                    </div>
+                  </div>
                 </InfoSection>
               </ImageSection>
               <BookingSection>
