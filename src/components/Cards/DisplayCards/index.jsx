@@ -14,8 +14,12 @@ function DisplayCards() {
   const state = useSelector((state) => state.venues);
   const [currentVenues, setCurrentVenues] = useState([]);
   useEffect(() => {
-    console.log(state.filteredVenues);
-    setCurrentVenues(state.filteredVenues);
+    if (!state.filteredVenues.length == 0) {
+      console.log(state.filteredVenues);
+      setCurrentVenues(state.filteredVenues);
+    } else {
+      setCurrentVenues(state.venues);
+    }
   }, [state]);
 
   return (

@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import _ from "lodash";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const initialState = {
   venues: [],
   filteredVenues: [],
@@ -52,8 +54,8 @@ export const venueSlice = createSlice({
     },
     applyFilter(state) {
       state.filteredVenues = _.filter(state.venues, (item) => {
-        console.log("test1: ", item.meta.wifi);
-        console.log("test2: ", state.filter.wifi);
+        // console.log("test1: ", item.meta.wifi);
+        // console.log("test2: ", state.filter.wifi);
         return (
           item.maxGuests >= state.filter.guests &&
           item.meta.wifi === state.filter.wifi &&
@@ -62,6 +64,9 @@ export const venueSlice = createSlice({
           item.meta.pets === state.filter.pets
         );
       });
+      if (state.filteredVenues.length == 0) {
+        toast("the filters did not match any venues:");
+      }
     },
   },
 });

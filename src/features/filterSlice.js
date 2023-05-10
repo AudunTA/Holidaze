@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   wifi: false,
   parking: false,
-  breakfast: true,
-  pets: true,
+  breakfast: false,
+  pets: false,
   guests: "",
   minPrice: 100,
   maxPrice: 3000,

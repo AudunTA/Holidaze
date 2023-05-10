@@ -15,7 +15,6 @@ const Card = styled.div`
 
 const CardContainer = styled.div`
   flex: 1;
-
   margin-left: 15px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

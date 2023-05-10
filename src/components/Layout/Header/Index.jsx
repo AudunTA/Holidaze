@@ -19,6 +19,7 @@ import UserMenu from "../../UserMenu/index.jsx";
 import { Link } from "react-router-dom";
 //auth-kit
 import { useAuthUser, withAuthHeader } from "react-auth-kit";
+import { ToastContainer } from "react-toastify";
 function Header() {
   //show modal states
   //default is true so if user is not logged in the signup modal will be shown as default
@@ -99,6 +100,7 @@ function Header() {
                 <p>Sign Up</p>
               </PrimaryButton>
             </Link>
+            <ToastContainer autoClose={2000} />
           </>
         )}
       </NavContainer>
