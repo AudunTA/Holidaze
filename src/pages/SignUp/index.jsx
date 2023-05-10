@@ -8,6 +8,7 @@ import LogInForm from "../../components/Forms/LogInForm";
 import SingUpForm from "../../components/Forms/SignUpForm";
 import { MarginWrapper } from "../../styles/Layout.styled";
 import background from "../../assets/images/tile_background.png";
+import { MarginTopContainer } from "../../styles/Layout.styled";
 function SignUp() {
   const [active, setActive] = useState(false);
   const handleLogInTabClick = () => {
@@ -17,7 +18,7 @@ function SignUp() {
     setActive(false);
   };
   return (
-    <>
+    <MarginTopContainer>
       <SignUpContainer active={active}>
         <MarginWrapper>
           <div className="illustration-horizontal layer-one"></div>
@@ -39,10 +40,9 @@ function SignUp() {
           <div className="content-modal">
             {!active ? <SingUpForm /> : <LogInForm />}
           </div>
-          <Link to="/"></Link>
         </MarginWrapper>
       </SignUpContainer>
-    </>
+    </MarginTopContainer>
   );
 }
 

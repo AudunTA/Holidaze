@@ -18,6 +18,9 @@ const FormLogIn = styled.form`
     margin-block-start: 0em;
     margin-block-end: 1em;
   }
+  .btn_login {
+    margin-top: 10px;
+  }
 `;
 
 export { FormLogIn };

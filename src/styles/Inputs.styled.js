@@ -7,20 +7,17 @@ const UserInput = styled.input`
   width: 100%;
   outline: none;
   border: 2px solid var(--text-color-main);
-  color: var(--main-text-color);
+
   background-color: var(--text-color-highlight);
   border-radius: var(--main-border-radius);
   transition: 0.15s;
   padding-left: 15px;
   :focus {
     border: 2px solid var(--btn-color-primary);
-    color: white;
   }
   ::placeholder {
-    color: white;
   }
   ::select {
-    color: white;
   }
 `;
 const UserTextArea = styled.textarea`

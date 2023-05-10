@@ -19,7 +19,6 @@ import UserMenu from "../../UserMenu/index.jsx";
 import { Link } from "react-router-dom";
 //auth-kit
 import { useAuthUser, withAuthHeader } from "react-auth-kit";
-
 function Header() {
   //show modal states
   //default is true so if user is not logged in the signup modal will be shown as default
@@ -34,10 +33,9 @@ function Header() {
   const auth = useAuthUser();
   const authHeader = withAuthHeader();
   //Development log states
+  const state = useSelector((state) => state.venues.filteredVenues);
   const logStore = () => {
-    console.log("auth: ", auth().username);
-    console.log("auth header: ", authHeader());
-    console.log(isUserLoggedIn);
+    console.log(state);
   };
   const handleUserMenuStatus = () => {
     setShowUserMenu(!showUserMenu);

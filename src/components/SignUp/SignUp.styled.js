@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
 const SignUpModal = styled.div`
-  position: absolute;
-  z-index: 3;
-
-  right: 0;
-  top: 50px;
   border: 1px solid #e2e8f0;
   border-color: hsla(0, 0%, 100%, 0.1);
   background-color: rgb(41, 41, 41);

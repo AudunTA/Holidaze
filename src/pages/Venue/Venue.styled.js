@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const VenueLayOut = styled.div`
   display: flex;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
   .date-picker-venue {
     margin: 10px;
   }
@@ -62,6 +65,9 @@ const ImageSection = styled.div`
   flex: 1;
   img {
     width: 100%;
+    height: 100%;
+    max-height: 424px;
+    object-fit: cover;
     border: 1px solid var(--border);
     border-radius: var(--main-border-radius);
   }
@@ -119,8 +125,7 @@ const InfoSection = styled.div`
   }
   .host-section {
     display: flex;
-    justify-content: end;
-    margin-top: 10px;
+    margin-top: 20px;
     .venue-host-avatar {
       width: 42px;
       height: 42px;

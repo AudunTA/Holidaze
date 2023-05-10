@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Stack, Typography, Slider, TextField } from "@mui/material";
 import { FilterMarginContainer } from "../Filters.styled";
 import { useSelector, useDispatch } from "react-redux";
-import { addMaxPrice, addMinPrice } from "../../../features/filterSlice";
+import { addMaxPrice, addMinPrice } from "../../../features/venueSlice";
 export default function App() {
   //redux
   const dispatch = useDispatch();
-  const minNum = useSelector((state) => state.filter.minPrice);
-  const maxNum = useSelector((state) => state.filter.maxPrice);
+  const minNum = useSelector((state) => state.venues.filter.minPrice);
+  const maxNum = useSelector((state) => state.venues.filter.maxPrice);
   const minmin = 300;
   const maxmax = 3000;
   console.log(minNum, maxNum);

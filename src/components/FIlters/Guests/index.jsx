@@ -7,10 +7,10 @@ import { Checkbox } from "@mui/material";
 import { useState } from "react";
 //For redux state handling
 import { useDispatch, useSelector } from "react-redux";
-import { addFilterGuests } from "../../../features/filterSlice";
+import { addFilterGuests } from "../../../features/venueSlice";
 function Guests() {
   const dispatch = useDispatch();
-  const filterState = useSelector((state) => state.filter);
+  const filterState = useSelector((state) => state.venues.filter);
 
   const handleChange = (e) => {
     dispatch(addFilterGuests(e.target.value));

@@ -23,7 +23,14 @@ const TextGrey = styled.p`
   margin-block-end: 0em;
   color: var(--text-color-light);
 `;
-
+const TextBlue = styled.p`
+  font-family: NeuweltRegular;
+  font-size: 16px;
+  line-height: 20px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  color: var(--btn-color-secondary);
+`;
 const TextError = styled.p`
   font-size: 13px;
   color: var(--text-color-error);
@@ -47,4 +54,12 @@ const TextMobileNav = styled.p`
   color: var(--text-color-main);
 `;
 
-export { TextWhite, TextGrey, Heading, TextError, SubHeading, TextMobileNav };
+export {
+  TextWhite,
+  TextGrey,
+  Heading,
+  TextError,
+  SubHeading,
+  TextMobileNav,
+  TextBlue,
+};

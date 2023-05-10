@@ -15,10 +15,6 @@ p {
 }
 input {
   font-family: NeuweltLight;
-  color: black !important;
-  :placeholder {
-    color: black !important;
-  }
 }
 h1 {
   font-family: NeuweltBold;

@@ -15,8 +15,8 @@ const FormSignUp = styled.form`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid var(--border);
-    border-color: var(--border-color);
+    border: 2px solid var(--border);
+
     background-color: var(--background-color);
     backdrop-filter: var(--backdrop-filter);
     color: var(--text-color-main);
@@ -41,6 +41,9 @@ const FormSignUp = styled.form`
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
+  .btn_signup {
+    margin-top: 10px;
+  }
 `;
 
 const FormInput = styled.input`
@@ -54,8 +57,5 @@ const FormInput = styled.input`
   background-color: transparent;
   color: var(--text-color-main);
   border-bottom: 1px solid var(--text-color-main);
-  ::placeholder {
-    color: var(--text-color-light);
-  }
 `;
 export { FormSignUp, FormInput };

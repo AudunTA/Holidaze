@@ -15,10 +15,10 @@ import {
   addFilterParking,
   addFilterBreakfast,
   addFilterPets,
-} from "../../../features/filterSlice";
+} from "../../../features/venueSlice";
 function Amenities() {
   const dispatch = useDispatch();
-  const filterState = useSelector((state) => state.filter);
+  const filterState = useSelector((state) => state.venues.filter);
 
   // const myFiltersParam = withDefault(ObjectParam, {});
   //  const [filters, setFilters] = useQueryParam("filters", myFiltersParam);

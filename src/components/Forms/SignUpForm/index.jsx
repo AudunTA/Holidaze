@@ -134,7 +134,10 @@ function SingUpForm() {
           onChange={handleManagerChange}
         />
       </div>
-      <PrimaryButton onClick={handleRegister}> Sign Up </PrimaryButton>
+      <PrimaryButton onClick={handleRegister} className="btn_signup">
+        {" "}
+        Sign Up{" "}
+      </PrimaryButton>
     </FormSignUp>
   );
 }

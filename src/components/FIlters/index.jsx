@@ -10,7 +10,8 @@ import Amenities from "./Amenities";
 import Dates from "./Dates";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import * as S from "../../styles/Text.styled";
-import { filterLogic } from "./utils/filterLogic.js";
+import { useDispatch } from "react-redux";
+import { applyFilter } from "../../features/venueSlice";
 import { filter } from "lodash";
 function Filters() {
   //Expand states
@@ -32,6 +33,8 @@ function Filters() {
   const handleExpandDate = () => {
     setExpandDate(!expandDate);
   };
+  //usedispatch
+  const dispatch = useDispatch();
   //filters set in an array so i only have to map it and not rewrite the code multiple times.
   const filters = [
     {
@@ -80,7 +83,10 @@ function Filters() {
             </Filter>
           );
         })}
-        <PrimaryButton className="btn-filter" onClick={() => filterLogic()}>
+        <PrimaryButton
+          className="btn-filter"
+          onClick={() => dispatch(applyFilter())}
+        >
           <p>Apply Filters</p>
         </PrimaryButton>
       </div>

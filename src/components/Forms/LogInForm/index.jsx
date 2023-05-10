@@ -35,7 +35,7 @@ function LogInForm() {
         ></UserInput>
       </div>
       {responseLogIn ? <p className="error-success">{responseLogIn}</p> : ""}
-      <PrimaryButton onClick={handleLogIn}>
+      <PrimaryButton onClick={handleLogIn} className="btn_login">
         <p>Log In</p>
       </PrimaryButton>
     </FormLogIn>
