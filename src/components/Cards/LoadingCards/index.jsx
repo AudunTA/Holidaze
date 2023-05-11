@@ -12,29 +12,29 @@ function LoadingCards({ number }) {
         <div className="card-left">
           <Skeleton
             style={{ width: "auto" }}
-            baseColor="var(--background-color)"
-            highlightColor="hsla(0, 0%, 100%, 0.1)"
+            baseColor="var(--text-color-light)"
+            highlightColor="var(--text-color-highlight)"
             className="skeleton-loading-image"
           ></Skeleton>
         </div>
         <div className="card-right">
           <Skeleton
             style={{ width: "auto" }}
-            baseColor="var(--background-color)"
-            highlightColor="hsla(0, 0%, 100%, 0.1)"
+            baseColor="var(--text-color-light)"
+            highlightColor="var(--text-color-highlight)"
             className="skeleton-loading-heading"
           ></Skeleton>
           <Skeleton
             style={{ width: "auto" }}
-            baseColor="var(--background-color)"
-            highlightColor="hsla(0, 0%, 100%, 0.1)"
+            baseColor="var(--text-color-light)"
+            highlightColor="var(--text-color-highlight)"
             className="skeleton-loading-text"
           ></Skeleton>
         </div>
       </LoadingCard>
     );
   }
-  return <CardContainer>{cards}</CardContainer>;
+  return <>{cards}</>;
 }
 
 export default LoadingCards;

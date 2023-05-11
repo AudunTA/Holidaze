@@ -15,6 +15,10 @@ const FilterContainer = styled.div`
     margin: 15px;
     font-size: 13px;
   }
+  .btn-clear {
+    margin: 15px;
+    font-size: 13px;
+  }
 `;
 const Filter = styled.div`
   padding: 15px;

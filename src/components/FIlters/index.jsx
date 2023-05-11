@@ -8,11 +8,11 @@ import Price from "./Price";
 import Guests from "./Guests";
 import Amenities from "./Amenities";
 import Dates from "./Dates";
-import { PrimaryButton } from "../../styles/Buttons.styled";
+import { PrimaryButton, ClearButton } from "../../styles/Buttons.styled";
 import * as S from "../../styles/Text.styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { applyFilter } from "../../features/venueSlice";
-import { filter } from "lodash";
+import { clearFilter } from "../../features/venueSlice";
 function Filters() {
   //Expand states
   const [expandPrice, setExpandPrice] = useState(false);
@@ -33,8 +33,14 @@ function Filters() {
   const handleExpandDate = () => {
     setExpandDate(!expandDate);
   };
-  //usedispatch
+  //redux
+  const state = useSelector((state) => state.venues);
   const dispatch = useDispatch();
+
+  //Handeling the clearing of filters.
+  const handleClearFilters = () => {
+    dispatch(clearFilter());
+  };
   //filters set in an array so i only have to map it and not rewrite the code multiple times.
   const filters = [
     {
@@ -87,8 +93,15 @@ function Filters() {
           className="btn-filter"
           onClick={() => dispatch(applyFilter())}
         >
-          <p>Apply Filters</p>
+          Apply Filters
         </PrimaryButton>
+        {state.filteredVenues.length > 1 ? (
+          <ClearButton className="btn-clear" onClick={handleClearFilters}>
+            {state.filteredVenues.length} results
+          </ClearButton>
+        ) : (
+          ""
+        )}
       </div>
     </FilterContainer>
   );

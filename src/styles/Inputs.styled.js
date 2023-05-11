@@ -6,11 +6,10 @@ const UserInput = styled.input`
   height: 34px;
   width: 100%;
   outline: none;
-  border: 2px solid var(--text-color-main);
-
-  background-color: var(--text-color-highlight);
+  border: 1px solid var(--border);
+  background-color: white;
   border-radius: var(--main-border-radius);
-  transition: 0.15s;
+  transition: 0.05s;
   padding-left: 15px;
   :focus {
     border: 2px solid var(--btn-color-primary);
@@ -28,16 +27,15 @@ const UserTextArea = styled.textarea`
   height: 68px;
   width: 100%;
   outline: none;
-  border: 2px solid var(--text-color-main);
+  border: 1px solid var(--border);
   color: var(--main-text-color);
-  background-color: var(--text-color-highlight);
+  background-color: white;
   border-radius: var(--main-border-radius);
-  transition: 0.15s;
+  transition: 0.05s;
   padding-left: 15px;
   padding-top: 5px;
   :focus {
     border: 2px solid var(--btn-color-primary);
-    color: white;
   }
   ::placeholder {
     color: white;

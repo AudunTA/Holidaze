@@ -9,7 +9,8 @@ const LoadingCard = styled(Card)`
     display: flex;
   }
   .skeleton-loading-heading {
-    margin: 0 15px;
+    margin: 10px 15px;
+    margin-bottom: 0;
     height: 30px;
     display: flex;
   }

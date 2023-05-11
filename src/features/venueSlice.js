@@ -54,19 +54,31 @@ export const venueSlice = createSlice({
     },
     applyFilter(state) {
       state.filteredVenues = _.filter(state.venues, (item) => {
-        // console.log("test1: ", item.meta.wifi);
-        // console.log("test2: ", state.filter.wifi);
         return (
-          item.maxGuests >= state.filter.guests &&
-          item.meta.wifi === state.filter.wifi &&
-          item.meta.parking === state.filter.parking &&
-          item.meta.breakfast === state.filter.breakfast &&
-          item.meta.pets === state.filter.pets
+          item.price > state.filter.minPrice &&
+          item.price < state.filter.maxPrice &&
+          item.maxGuests >= 0 &&
+          ((item.meta.wifi && state.filter.wifi) || !state.filter.wifi) &&
+          ((item.meta.parking && state.filter.parking) ||
+            !state.filter.parking) &&
+          ((item.meta.breakfast && state.filter.breakfast) ||
+            !state.filter.breakfast) &&
+          ((item.meta.pets && state.filter.pets) || !state.filter.pets)
         );
       });
+
       if (state.filteredVenues.length == 0) {
         toast("the filters did not match any venues:");
       }
+    },
+    clearFilter(state) {
+      state.filteredVenues = [];
+      (state.filter.wifi = false),
+        (state.filter.parking = false),
+        (state.filter.guests = ""),
+        (state.filter.minPrice = 100),
+        (state.filter.maxPrice = 3000),
+        (state.search = "");
     },
   },
 });
@@ -82,5 +94,6 @@ export const {
   addMinPrice,
   addMaxPrice,
   applyFilter,
+  clearFilter,
 } = venueSlice.actions;
 export const venuesReducer = venueSlice.reducer;
