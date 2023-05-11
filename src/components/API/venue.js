@@ -40,7 +40,6 @@ export async function createVenueApi(method, accessToken, bodyObj) {
       Authorization: `Bearer ${accessToken}`,
     },
   };
-  console.log(options);
   try {
     console.log(options);
     const response = await fetch(baseURL + endpoint, options);

@@ -47,4 +47,5 @@ const DisplayCard = styled(Card)`
     }
   }
 `;
+
 export { DisplayCard };

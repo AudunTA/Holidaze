@@ -25,43 +25,45 @@ function DisplayCards() {
   }, [state]);
 
   return (
-    <CardContainer>
-      {currentVenues.length > 0 ? (
-        currentVenues.map((ele) => {
-          return (
-            <Link to={`/Venue/${ele.id}`} key={ele.id}>
-              <DisplayCard>
-                <div className="card-left">
-                  <img src={ele.media[0]} className="card-image"></img>
-                </div>
-                <div className="card-right">
-                  <div className="info">
-                    <div className="info-top">
-                      <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
-                      <div className="star-rating">
-                        <StarRateIcon className="icon-star" />
-                        <S.TextWhite>{ele.rating}.0</S.TextWhite>
+    <>
+      <CardContainer>
+        {currentVenues.length > 0 ? (
+          currentVenues.map((ele) => {
+            return (
+              <Link to={`/Venue/${ele.id}`} key={ele.id}>
+                <DisplayCard>
+                  <div className="card-left">
+                    <img src={ele.media[0]} className="card-image"></img>
+                  </div>
+                  <div className="card-right">
+                    <div className="info">
+                      <div className="info-top">
+                        <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
+                        <div className="star-rating">
+                          <StarRateIcon className="icon-star" />
+                          <S.TextWhite>{ele.rating}.0</S.TextWhite>
+                        </div>
                       </div>
+
+                      <S.TextGrey>
+                        {ele.location.city !== "Unknown"
+                          ? ele.location.city.slice(0, 30)
+                          : ele.description.slice(0, 30)}{" "}
+                      </S.TextGrey>
                     </div>
 
-                    <S.TextGrey>
-                      {ele.location.city !== "Unknown"
-                        ? ele.location.city.slice(0, 30)
-                        : ele.description.slice(0, 30)}{" "}
-                    </S.TextGrey>
+                    <S.TextBlue>${ele.price} per night</S.TextBlue>
                   </div>
-
-                  <S.TextBlue>${ele.price} per night</S.TextBlue>
-                </div>
-              </DisplayCard>
-            </Link>
-          );
-        })
-      ) : (
-        <LoadingCards number={10} />
-      )}
-      {}
-    </CardContainer>
+                </DisplayCard>
+              </Link>
+            );
+          })
+        ) : (
+          <LoadingCards number={10} />
+        )}
+        {}
+      </CardContainer>
+    </>
   );
 }
 

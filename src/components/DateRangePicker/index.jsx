@@ -6,7 +6,14 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
-function DateRangePicker({ bookings }) {
+import { createBooking } from "../API/booking";
+import { useAuthUser } from "react-auth-kit";
+function DateRangePicker({ bookings, venueId }) {
+  const auth = useAuthUser();
+  let token;
+  if (auth()) {
+    token = auth().token;
+  }
   const [currentDate, setCurrentDate] = useState(new Date());
   const [state, setState] = useState([
     {
@@ -16,6 +23,7 @@ function DateRangePicker({ bookings }) {
     },
   ]);
   const [disabledDates, setDisabledDates] = useState([]);
+  const [guests, setGuests] = useState();
   const handleLog = () => {
     console.log(disabledDates);
   };
@@ -40,6 +48,15 @@ function DateRangePicker({ bookings }) {
       setDisabledDates(allDisabledDates);
     }
   }, [bookings]);
+  const handleCreateBooking = () => {
+    const bodyObj = {
+      dateFrom: state[0].startDate,
+      dateTo: state[0].endDate,
+      guests: 1,
+      venueId: venueId,
+    };
+    createBooking(bodyObj, token);
+  };
   return (
     <>
       <RangePickerContainer>
@@ -53,8 +70,14 @@ function DateRangePicker({ bookings }) {
           disabledDates={disabledDates}
         />
       </RangePickerContainer>
-      {bookings ? <PrimaryButton>Make a reservation</PrimaryButton> : ""}
-      <button onClick={() => console.log(disabledDates)}>log dates</button>
+      {bookings ? (
+        <PrimaryButton onClick={handleCreateBooking}>
+          Make a reservation
+        </PrimaryButton>
+      ) : (
+        ""
+      )}
+      <button onClick={() => console.log(state)}>log dates</button>
     </>
   );
 }

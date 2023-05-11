@@ -13,6 +13,9 @@ import * as S from "../../styles/Text.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { applyFilter } from "../../features/venueSlice";
 import { clearFilter } from "../../features/venueSlice";
+
+//icons
+import ClearIcon from "@mui/icons-material/Clear";
 function Filters() {
   //Expand states
   const [expandPrice, setExpandPrice] = useState(false);
@@ -97,7 +100,8 @@ function Filters() {
         </PrimaryButton>
         {state.filteredVenues.length > 1 ? (
           <ClearButton className="btn-clear" onClick={handleClearFilters}>
-            {state.filteredVenues.length} results
+            <p>Clear filter</p>
+            <ClearIcon className="icon-clear" />
           </ClearButton>
         ) : (
           ""

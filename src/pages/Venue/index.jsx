@@ -27,14 +27,6 @@ import LocalParkingIcon from "@mui/icons-material/LocalParking";
 function Venue() {
   let params = useParams();
   const [venue, setVenue] = useState();
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-
   useEffect(() => {
     const fetchVenue = async () => {
       const response = await singleVenue(params.id);
@@ -114,7 +106,7 @@ function Venue() {
                 </InfoSection>
               </ImageSection>
               <BookingSection>
-                <DateRangePicker bookings={venue.bookings} />
+                <DateRangePicker bookings={venue.bookings} venueId={venue.id} />
               </BookingSection>
             </VenueLayOut>
           </>

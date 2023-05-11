@@ -32,15 +32,20 @@ const ClearButton = styled.div`
   justify-content: center;
   border-radius: var(--secondary-border-radius);
   border: 1px solid var(--btn-color-secondary);
-  font-size: 15px;
+
   color: var(--btn-color-secondary);
   text-align: center;
-  font-family: NeuweltLight;
   cursor: pointer;
   P {
+    font-size: 15px;
+    line-height: 15px;
     margin-block-start: 0em;
     margin-block-end: 0em;
-    font-family: NeuweltLight;
+    font-family: NeuweltRegular;
+  }
+  .icon-clear {
+    color: var(--text-color-error);
+    font-size: 18px;
   }
 `;
 
