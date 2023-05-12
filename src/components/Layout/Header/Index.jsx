@@ -73,9 +73,6 @@ function Header() {
         <img src={ze} className="ze"></img>
       </LogoContainer>
       <NavContainer>
-        <PrimaryButton className="nav-item" onClick={logStore}>
-          <p>Log store</p>
-        </PrimaryButton>
         <Link to="/Explore">
           <p className="nav-item">Explore</p>
         </Link>

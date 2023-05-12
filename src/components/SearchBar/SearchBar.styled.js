@@ -1,16 +1,21 @@
 import styled from "styled-components";
 const BackGroundSearch = styled.div`
+  margin-top: -36px;
   width: 100%;
-  background-color: white;
   position: sticky;
   top: 0px;
+  height: 56px;
   z-index: 2;
-
+  background-color: white;
   border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  height: 76px;
+  border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
+  transition: 0.05s;
+  :focus-within {
+    outline: 2px solid var(--text-color-purple);
+    font-size: 16px;
+  }
 `;
 const SearchBarContainer = styled.div`
   height: 56px;
@@ -19,14 +24,11 @@ const SearchBarContainer = styled.div`
   border-radius: var(--main-border-radius);
   margin: auto;
   background-color: white;
-  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
 
   #search-icon {
-    margin-right: 10px;
     font-size: 20px;
     padding: 8px;
     color: var(--background-color);
@@ -41,16 +43,13 @@ const SearchInput = styled.input`
   margin-right: 10px;
   outline: none;
   border: none;
-  border-right: 1px solid var(--border);
   flex: 1;
   height: 54px;
   transition: 0.15s;
-  padding-left: 15px;
   box-shadow: var(--shadow);
 
   :focus {
-    outline: 2px solid var(--text-color-purple);
-    font-size: 16px;
+    font-size: 15px;
   }
 `;
 

@@ -76,11 +76,11 @@ const IllustrationContainer = styled.div`
     width: 200vw;
   }
   .layer-eight {
-    left: -100vw;
+    left: -50px;
     bottom: -15px;
     right: 0;
     height: var(--pixel-border);
-    width: 200vw;
+    width: 300px;
   }
   .logo-container {
     width: 100%;
