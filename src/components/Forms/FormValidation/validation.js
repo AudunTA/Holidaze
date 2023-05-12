@@ -15,3 +15,8 @@ export const validationSignUp = Yup.object({
     .min(8, "Password must be more than 8 characters."),
   avatar: Yup.string(),
 });
+
+export const validationLogIn = Yup.object({
+  email: Yup.string().required("please enter your email"),
+  password: Yup.string().required("please enter your password"),
+});

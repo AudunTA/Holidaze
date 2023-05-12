@@ -39,7 +39,6 @@ function SingUpForm() {
   //form
   return (
     <>
-      <ToastContainer autoClose={1000} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSignUp}
@@ -52,6 +51,11 @@ function SingUpForm() {
             <>
               <FormSignUp onSubmit={handleSubmit}>
                 <FormRow>
+                  {errorApi ? (
+                    <span className="error margin-error">{errorApi}</span>
+                  ) : (
+                    ""
+                  )}
                   <UserInput
                     placeholder="Email"
                     type="email"
@@ -99,6 +103,7 @@ function SingUpForm() {
                     <span className="error">{errors.avatar}</span>
                   )}
                 </FormRow>
+
                 <div className="manager-account">
                   <S.SubHeading className="manager-margin">
                     Manager Account
@@ -115,7 +120,6 @@ function SingUpForm() {
                     onChange={() => setCheckedManager(!checkedManager)}
                   />
                 </div>
-                {errorApi ? <S.TextError>{errorApi}</S.TextError> : ""}
                 <button type="submit">Sign In</button>
               </FormSignUp>
             </>

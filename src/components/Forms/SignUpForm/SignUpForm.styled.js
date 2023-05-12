@@ -27,12 +27,9 @@ const FormSignUp = styled.form`
     font-family: NeuweltLight;
     line-height: 25px;
   }
-  .success-message {
-    font-size: 15px;
-    font-family: NeuweltRegular;
-    color: var(--text-color-sucess);
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+  .margin-error {
+    display: flex;
+    justify-content: center;
   }
   button {
     cursor: pointer;
@@ -50,9 +47,6 @@ const FormSignUp = styled.form`
     color: white;
     text-align: center;
     font-family: NeuweltLight;
-  }
-  .disabled-btn {
-    background-color: var(--text-color-light);
   }
 `;
 

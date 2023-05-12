@@ -5,39 +5,80 @@ import { PrimaryButton } from "../../../styles/Buttons.styled";
 import { UserInput } from "../../../styles/Inputs.styled";
 import { useLogInUser } from "../../API/auth/login";
 import { useDispatch } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { validationLogIn } from "../FormValidation/validation";
+import { FormRow } from "../SignUpForm/SignUpForm.styled";
+import { ToastContainer } from "react-toastify";
+import * as S from "../../../styles/Text.styled";
+import "react-toastify/dist/ReactToastify.css";
 function LogInForm() {
   const logInUser = useLogInUser();
-
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [responseLogIn, setResponseLogIn] = useState("");
-  const onEmailChange = (event) => {
-    setEmail(event.target.value);
+  //state management for api error
+  const [errorApi, setErrorApi] = useState("");
+  //initial form values
+  const initialValues = {
+    email: "",
+    password: "",
   };
-  const onPasswordChange = (event) => {
-    setPassword(event.target.value);
+  const submitForm = (values) => {
+    logInUser(values.email, values.password, apiErrors);
   };
-  const handleResponseLogIn = (msg) => {
-    setResponseLogIn(msg);
+  //api error that is sent as a prop to the api method.
+  const apiErrors = (error) => {
+    setErrorApi(error);
   };
-  const handleLogIn = () => {
-    logInUser(email, password, handleResponseLogIn, dispatch);
-  };
+  //form
   return (
-    <FormLogIn>
-      <div className="logIn-inputs">
-        <UserInput placeholder="Email" onChange={onEmailChange}></UserInput>
-        <UserInput
-          placeholder="Password"
-          onChange={onPasswordChange}
-        ></UserInput>
-      </div>
-      {responseLogIn ? <p className="error-success">{responseLogIn}</p> : ""}
-      <PrimaryButton onClick={handleLogIn} className="btn_login">
-        <p>Log In</p>
-      </PrimaryButton>
-    </FormLogIn>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationLogIn}
+        onSubmit={submitForm}
+      >
+        {(formik) => {
+          const { values, handleChange, handleSubmit, errors, touched } =
+            formik;
+          return (
+            <>
+              <FormLogIn onSubmit={handleSubmit}>
+                <FormRow>
+                  {errorApi ? (
+                    <span className="error margin-error">{errorApi}</span>
+                  ) : (
+                    ""
+                  )}
+                  <UserInput
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                  />
+                  {errors.email && touched.email && (
+                    <span className="error">{errors.email}</span>
+                  )}
+                </FormRow>
+
+                <FormRow>
+                  <UserInput
+                    placeholder="Password"
+                    type="password"
+                    name="password"
+                    value={values.password}
+                    onChange={handleChange}
+                  />
+                  {errors.password && touched.password && (
+                    <span className="error">{errors.password}</span>
+                  )}
+                </FormRow>
+
+                <button type="submit">Sign In</button>
+              </FormLogIn>
+            </>
+          );
+        }}
+      </Formik>
+    </>
   );
 }
 

@@ -16,7 +16,7 @@ const SearchBarContainer = styled.div`
   height: 56px;
   width: 100%;
   max-width: 1200px;
-  border-radius: 28px;
+  border-radius: var(--main-border-radius);
   margin: auto;
   background-color: white;
   border: 1px solid var(--border);
@@ -36,8 +36,8 @@ const SearchBarContainer = styled.div`
   }
 `;
 const SearchInput = styled.input`
-  border-top-left-radius: 28px;
-  border-bottom-left-radius: 28px;
+  border-top-left-radius: var(--main-border-radius);
+  border-bottom-left-radius: var(--main-border-radius);
   margin-right: 10px;
   outline: none;
   border: none;
@@ -50,7 +50,7 @@ const SearchInput = styled.input`
 
   :focus {
     outline: 2px solid var(--text-color-purple);
-    color: white;
+    font-size: 16px;
   }
 `;
 

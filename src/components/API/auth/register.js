@@ -32,7 +32,7 @@ export async function registerUser(
   if (!request.ok) {
     for (let i = 0; i < json.errors.length; i++) {
       msgApi(json.errors[i].message);
-      toast.error(`json.errors[i].message`);
+      toast.error(`${json.errors[i].message}`);
     }
   } else {
     toast.success("User Successfully created");
