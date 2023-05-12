@@ -98,10 +98,9 @@ function Filters() {
         >
           Apply Filters
         </PrimaryButton>
-        {state.filteredVenues.length > 1 ? (
+        {state.filteredVenues.length > 0 ? (
           <ClearButton className="btn-clear" onClick={handleClearFilters}>
-            <p>Clear filter</p>
-            <ClearIcon className="icon-clear" />
+            <p>Clear filters ({state.filteredVenues.length} results) </p>
           </ClearButton>
         ) : (
           ""

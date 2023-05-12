@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { FormLogIn } from "./LogInForm.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
-import { FormInput } from "../SignUpForm/SignUpForm.styled";
 import { UserInput } from "../../../styles/Inputs.styled";
 import { useLogInUser } from "../../API/auth/login";
 import { useDispatch } from "react-redux";

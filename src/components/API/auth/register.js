@@ -1,4 +1,6 @@
 import { baseURL } from "../baseURL";
+import { toast } from "react-toastify";
+
 const endpoint = "/auth/register";
 export async function registerUser(
   email,
@@ -30,8 +32,9 @@ export async function registerUser(
   if (!request.ok) {
     for (let i = 0; i < json.errors.length; i++) {
       msgApi(json.errors[i].message);
+      toast.error(`json.errors[i].message`);
     }
   } else {
-    msgApi("User Successfully created");
+    toast.success("User Successfully created");
   }
 }

@@ -12,10 +12,10 @@ const SignUpContainer = styled.div`
   .illustration-horizontal {
     position: absolute;
     background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 17.97%,
-      rgba(255, 255, 255, 0.1) 17.98%,
-      rgba(0, 0, 0, 0.1) 64.54%,
+      to left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 10%,
+      rgba(0, 0, 0, 0.1) 90%,
       rgba(0, 0, 0, 0) 100%
     );
   }
@@ -23,73 +23,67 @@ const SignUpContainer = styled.div`
     position: absolute;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0) 17.97%,
-      rgba(0, 0, 0, 0.1) 24.67%,
-      rgba(0, 0, 0, 0.1) 91.22%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 10%,
+      rgba(0, 0, 0, 0.1) 90%,
       rgba(0, 0, 0, 0) 100%
     );
   }
   .layer-one {
-    left: -200px;
+    left: -25%;
     top: -1px;
     right: 0;
     height: var(--pixel-border);
-    width: 800px;
+    width: 150%;
   }
   .layer-two {
-    left: -200px;
+    left: -25%;
     bottom: -1px;
     right: 0;
     height: var(--pixel-border);
-    width: 800px;
+    width: 150%;
   }
   .layer-three {
     left: -1px;
-    bottom: -200px;
+    bottom: -25%;
     right: 0;
-    height: 800px;
+    height: 150%;
     width: var(--pixel-border);
   }
   .layer-four {
-    bottom: -200px;
+    bottom: -25%;
     right: -1px;
-    height: 800px;
+    height: 150%;
     width: var(--pixel-border);
   }
   .layer-five {
-    bottom: -100px;
+    bottom: -25%;
     right: -15px;
-    height: 600px;
+    height: 150%;
     width: var(--pixel-border);
   }
   .layer-six {
     left: -15px;
-    bottom: -100px;
+    bottom: -25%;
     right: 0;
-    height: 600px;
+    height: 150%;
     width: var(--pixel-border);
   }
   .layer-seven {
-    left: -100vw;
+    left: -25%;
     top: -15px;
     right: 0;
     height: var(--pixel-border);
-    width: 200vw;
+    width: 150%;
   }
   .layer-eight {
-    left: -100vw;
+    left: -25%;
     bottom: -15px;
     right: 0;
     height: var(--pixel-border);
-    width: 200vw;
+    width: 150%;
   }
-  .logo-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   .options-container {
     display: flex;
     padding: 5px;

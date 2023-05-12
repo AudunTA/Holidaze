@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 //auth-kit
 import { useAuthUser, withAuthHeader } from "react-auth-kit";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Header() {
   //show modal states
   //default is true so if user is not logged in the signup modal will be shown as default

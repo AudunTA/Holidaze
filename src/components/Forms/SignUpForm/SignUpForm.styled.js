@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
 const FormSignUp = styled.form`
-  width: 100%;
-  .signUp-inputs {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
   .manager-account {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -15,9 +8,9 @@ const FormSignUp = styled.form`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid var(--border);
-
-    background-color: var(--background-color);
+    border: 1px solid var(--border);
+    border-radius: var(--main-border-radius);
+    background-color: var(--text-color-highlight);
     backdrop-filter: var(--backdrop-filter);
     color: var(--text-color-main);
 
@@ -28,11 +21,11 @@ const FormSignUp = styled.form`
       margin-left: 10px;
     }
   }
-  .error-message {
-    font-size: 13px;
+  .error {
+    font-size: 15px;
     color: var(--text-color-error);
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+    font-family: NeuweltLight;
+    line-height: 25px;
   }
   .success-message {
     font-size: 15px;
@@ -41,21 +34,27 @@ const FormSignUp = styled.form`
     margin-block-start: 0em;
     margin-block-end: 0em;
   }
-  .btn_signup {
-    margin-top: 10px;
+  button {
+    cursor: pointer;
+    background-color: var(--btn-color-primary);
+    width: 100%;
+    height: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--secondary-border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    font-family: NeuweltLight;
+  }
+  .disabled-btn {
+    background-color: var(--text-color-light);
   }
 `;
 
-const FormInput = styled.input`
-  display: flex;
-  flex: 1;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  color: var(--text-color-main);
-  border-bottom: 1px solid var(--text-color-main);
-`;
-export { FormSignUp, FormInput };
+const FormRow = styled.div``;
+export { FormSignUp, FormRow };
