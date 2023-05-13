@@ -1,10 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { FormLogIn } from "./LogInForm.styled";
-import { PrimaryButton } from "../../../styles/Buttons.styled";
 import { UserInput } from "../../../styles/Inputs.styled";
 import { useLogInUser } from "../../API/auth/login";
-import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { validationLogIn } from "../FormValidation/validation";
 import { FormRow } from "../SignUpForm/SignUpForm.styled";

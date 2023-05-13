@@ -4,7 +4,7 @@ import VenueForm from "../../Forms/VenueForm";
 function CreateVenue() {
   return (
     <SettingContainer>
-      <VenueForm venueName="per" formType="create" />
+      <VenueForm />
     </SettingContainer>
   );
 }

@@ -14,8 +14,7 @@ const UserInput = styled.input`
   :focus {
     border: 2px solid var(--btn-color-primary);
   }
-  ::placeholder {
-  }
+
   ::select {
   }
 `;
@@ -37,9 +36,7 @@ const UserTextArea = styled.textarea`
   :focus {
     border: 2px solid var(--btn-color-primary);
   }
-  ::placeholder {
-    color: white;
-  }
+
   ::select {
     color: white;
   }
