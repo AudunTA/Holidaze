@@ -20,3 +20,17 @@ export const validationLogIn = Yup.object({
   email: Yup.string().required("please enter your email"),
   password: Yup.string().required("please enter your password"),
 });
+
+export const validationCreateVenue = Yup.object({
+  name: Yup.string().required("please enter a venue name"),
+  description: Yup.string().required("please enter a description"),
+  media: Yup.string(),
+  price: Yup.string().required("please enter a price"),
+  maxGuests: Yup.string().required("please enter max guests"),
+  rating: Yup.string(),
+  wifi: Yup.string(),
+  parking: Yup.string(),
+  breakfast: Yup.string(),
+  pets: Yup.string(),
+  city: Yup.string(),
+});
