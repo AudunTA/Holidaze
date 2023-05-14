@@ -18,4 +18,16 @@ const GroupedInputs = styled.div`
     margin-left: 5px;
   }
 `;
-export { VenuesForm, FormLabel, GroupedInputs };
+const FormGroupRow = styled.div`
+  display: flex;
+  .first-half {
+    margin-right: 5px;
+  }
+  .second-half {
+    margin-left: 5px;
+  }
+`;
+const FromRowHalf = styled.div`
+  flex: 1;
+`;
+export { VenuesForm, FormLabel, GroupedInputs, FormGroupRow, FromRowHalf };

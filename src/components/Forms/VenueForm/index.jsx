@@ -7,6 +7,7 @@ import { useState } from "react";
 import { createVenueApi } from "../../API/venue";
 import { useAuthUser } from "react-auth-kit";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FormGroupRow, FromRowHalf } from "./VenueForm.styled";
 import { FormRow } from "../SignUpForm/SignUpForm.styled";
 import { UserInput, UserTextArea } from "../../../styles/Inputs.styled";
 function VenueForm() {
@@ -90,30 +91,32 @@ function VenueForm() {
                     <span className="error">{errors.description}</span>
                   )}
                 </FormRow>
-                <FormRow>
-                  <UserInput
-                    placeholder="price"
-                    type="price"
-                    name="price"
-                    value={values.price}
-                    onChange={handleChange}
-                  />
-                  {errors.price && touched.price && (
-                    <span className="error">{errors.price}</span>
-                  )}
-                </FormRow>
-                <FormRow>
-                  <UserInput
-                    placeholder="maxGuests"
-                    type="maxGuests"
-                    name="maxGuests"
-                    value={values.maxGuests}
-                    onChange={handleChange}
-                  />
-                  {errors.maxGuests && touched.maxGuests && (
-                    <span className="error">{errors.maxGuests}</span>
-                  )}
-                </FormRow>
+                <FormGroupRow>
+                  <FromRowHalf className="first-half">
+                    <UserInput
+                      placeholder="price"
+                      type="price"
+                      name="price"
+                      value={values.price}
+                      onChange={handleChange}
+                    />
+                    {errors.price && touched.price && (
+                      <span className="error">{errors.price}</span>
+                    )}
+                  </FromRowHalf>
+                  <FromRowHalf className="second-half">
+                    <UserInput
+                      placeholder="maxGuests"
+                      type="maxGuests"
+                      name="maxGuests"
+                      value={values.maxGuests}
+                      onChange={handleChange}
+                    />
+                    {errors.maxGuests && touched.maxGuests && (
+                      <span className="error">{errors.maxGuests}</span>
+                    )}
+                  </FromRowHalf>
+                </FormGroupRow>
                 <button type="submit">Sign In</button>
               </VenuesForm>
             </>
