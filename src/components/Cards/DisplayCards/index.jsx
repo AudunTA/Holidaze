@@ -1,13 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DisplayCard } from "./DisplayCards.styled";
+import { DisplayCard, DisplayCardWrapper } from "./DisplayCards.styled";
 import { CardContainer } from "../Cards.styled";
-import { PrimaryButton } from "../../../styles/Buttons.styled";
+import { ButtonInverted, PrimaryButton } from "../../../styles/Buttons.styled";
 import * as S from "../../../styles/Text.styled";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 //icons
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
 import LoadingCards from "../LoadingCards";
@@ -15,6 +14,7 @@ function DisplayCards() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
   const [currentVenues, setCurrentVenues] = useState([]);
+  const [visableVenues, setVisableVenues] = useState(6);
   useEffect(() => {
     if (!state.filteredVenues.length == 0) {
       console.log(state.filteredVenues);
@@ -23,12 +23,14 @@ function DisplayCards() {
       setCurrentVenues(state.venues);
     }
   }, [state]);
-
+  const handleShowMore = () => {
+    setVisableVenues(visableVenues + 6);
+  };
   return (
-    <>
+    <DisplayCardWrapper>
       <CardContainer>
         {currentVenues.length > 0 ? (
-          currentVenues.map((ele) => {
+          currentVenues.slice(0, visableVenues).map((ele) => {
             return (
               <Link to={`/Venue/${ele.id}`} key={ele.id}>
                 <DisplayCard>
@@ -41,17 +43,15 @@ function DisplayCards() {
                         <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
                         <div className="star-rating">
                           <StarRateIcon className="icon-star" />
-                          <S.TextWhite>{ele.rating}.0</S.TextWhite>
+                          <S.TextWhite>{ele.rating}</S.TextWhite>
                         </div>
                       </div>
-
                       <S.TextGrey>
                         {ele.location.city !== "Unknown"
                           ? ele.location.city.slice(0, 30)
-                          : ele.description.slice(0, 30)}{" "}
+                          : ele.description.slice(0, 30)}
                       </S.TextGrey>
                     </div>
-
                     <S.TextBlue>${ele.price} per night</S.TextBlue>
                   </div>
                 </DisplayCard>
@@ -59,11 +59,17 @@ function DisplayCards() {
             );
           })
         ) : (
-          <LoadingCards number={10} />
+          <LoadingCards number={6} />
         )}
-        {}
       </CardContainer>
-    </>
+      {currentVenues.length > visableVenues ? (
+        <ButtonInverted className="btn_showMore" onClick={handleShowMore}>
+          <p>Show more</p>
+        </ButtonInverted>
+      ) : (
+        ""
+      )}
+    </DisplayCardWrapper>
   );
 }
 

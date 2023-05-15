@@ -1,5 +1,11 @@
 import { Card } from "../Cards.styled";
 import styled from "styled-components";
+const DisplayCardWrapper = styled.div`
+  .btn_showMore {
+    width: 80px;
+    margin: 20px auto;
+  }
+`;
 const DisplayCard = styled(Card)`
   height: 100%;
   .card-image {
@@ -48,4 +54,4 @@ const DisplayCard = styled(Card)`
   }
 `;
 
-export { DisplayCard };
+export { DisplayCard, DisplayCardWrapper };

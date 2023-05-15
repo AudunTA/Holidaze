@@ -22,7 +22,7 @@ const PrimaryButton = styled.div`
   }
 `;
 
-const ClearButton = styled.div`
+const ButtonInverted = styled.div`
   background-color: white;
   height: 32px;
   padding-left: 15px;
@@ -32,10 +32,10 @@ const ClearButton = styled.div`
   justify-content: center;
   border-radius: var(--secondary-border-radius);
   border: 1px solid var(--btn-color-secondary);
-
   color: var(--btn-color-secondary);
   text-align: center;
   cursor: pointer;
+  transition: 0.15s;
   P {
     font-size: 15px;
     line-height: 15px;
@@ -46,6 +46,12 @@ const ClearButton = styled.div`
   .icon-clear {
     color: var(--text-color-error);
     font-size: 18px;
+  }
+  :hover {
+    background-color: var(--btn-color-secondary);
+    p {
+      color: white;
+    }
   }
 `;
 const EditButton = styled.button`
@@ -74,4 +80,4 @@ const RemoveButton = styled.button`
   font-family: NeuweltLight;
   cursor: pointer;
 `;
-export { PrimaryButton, ClearButton, EditButton, RemoveButton };
+export { PrimaryButton, ButtonInverted, EditButton, RemoveButton };

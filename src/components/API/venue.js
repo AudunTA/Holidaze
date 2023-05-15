@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { deleteMyVenue } from "../../features/profileSlice";
 import "react-toastify/dist/ReactToastify.css";
 export async function venueApi(dispatch, num) {
-  const endpoint = `/venues?sort=created&limit=${num}&_owner=true&_bookings=true&offset=5`;
+  const endpoint = `/venues?sort=created&limit=${num}&_owner=true&_bookings=true&_offset=5`;
   try {
     console.log(baseURL + endpoint);
     const response = await fetch(baseURL + endpoint);

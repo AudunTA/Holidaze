@@ -8,7 +8,7 @@ import Price from "./Price";
 import Guests from "./Guests";
 import Amenities from "./Amenities";
 import Dates from "./Dates";
-import { PrimaryButton, ClearButton } from "../../styles/Buttons.styled";
+import { PrimaryButton, ButtonInverted } from "../../styles/Buttons.styled";
 import * as S from "../../styles/Text.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { applyFilter } from "../../features/venueSlice";
@@ -99,9 +99,9 @@ function Filters() {
           Apply Filters
         </PrimaryButton>
         {state.filteredVenues.length > 0 ? (
-          <ClearButton className="btn-clear" onClick={handleClearFilters}>
+          <ButtonInverted className="btn-clear" onClick={handleClearFilters}>
             <p>Clear filters ({state.filteredVenues.length} results) </p>
-          </ClearButton>
+          </ButtonInverted>
         ) : (
           ""
         )}

@@ -11,14 +11,10 @@ const VenuesForm = styled.form`
     font-size: 13px;
     color: var(--text-color-main);
     font-family: NeuweltRegular;
-    line-height: 25px;
+    line-height: 15px;
   }
 `;
 
-const FormLabel = styled.label`
-  font-family: NeuweltLight;
-  color: var(--text-color-main);
-`;
 const GroupedInputs = styled.div`
   display: flex;
   .group {
@@ -43,4 +39,4 @@ const FormGroupRow = styled.div`
 const FromRowHalf = styled.div`
   flex: 1;
 `;
-export { VenuesForm, FormLabel, GroupedInputs, FormGroupRow, FromRowHalf };
+export { VenuesForm, GroupedInputs, FormGroupRow, FromRowHalf };

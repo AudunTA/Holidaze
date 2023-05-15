@@ -5,6 +5,9 @@ const Heading = styled.h1`
   line-height: 40px;
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
+  @media only screen and (max-width: 800px) {
+    font-size: 20px;
+  }
 `;
 
 const TextWhite = styled.p`

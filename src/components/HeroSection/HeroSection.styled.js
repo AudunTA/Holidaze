@@ -3,6 +3,9 @@ import styled from "styled-components";
 const HeroContainer = styled.div`
   height: 300px;
   overflow: hidden;
+  @media only screen and (max-width: 800px) {
+    height: auto;
+  }
   .wrapper-hero {
     height: 100%;
     margin: auto;
@@ -10,6 +13,10 @@ const HeroContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media only screen and (max-width: 800px) {
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
   }
   .hero-description {
     .top-hero {
@@ -26,6 +33,9 @@ const HeroContainer = styled.div`
       margin-right: 16px;
       color: var(--text-color-light);
       cursor: pointer;
+    }
+    @media only screen and (max-width: 800px) {
+      padding: 50px 0;
     }
   }
   @media only screen and (max-width: 1250px) {

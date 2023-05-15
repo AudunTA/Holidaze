@@ -1,6 +1,5 @@
 import styled from "styled-components";
 const BackGroundSearch = styled.div`
-  margin-top: -36px;
   width: 100%;
   position: sticky;
   top: 0px;

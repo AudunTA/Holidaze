@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { VenuesForm, GroupedInputs, FormLabel } from "./VenueForm.styled";
+import { VenuesForm, GroupedInputs } from "./VenueForm.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
 import * as I from "../../../styles/Inputs.styled";
 import { validationCreateVenue } from "../FormValidation/validation";
