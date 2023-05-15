@@ -24,13 +24,18 @@ export const validationLogIn = Yup.object({
 export const validationCreateVenue = Yup.object({
   name: Yup.string().required("please enter a venue name"),
   description: Yup.string().required("please enter a description"),
-  media: Yup.string(),
-  price: Yup.string().required("please enter a price"),
+  media: Yup.string().required("please add a image url"),
+  price: Yup.number()
+    .typeError("must be a number")
+    .required("please enter a price"),
   maxGuests: Yup.string().required("please enter max guests"),
-  rating: Yup.string(),
+  rating: Yup.number()
+    .typeError("must be a number")
+    .min(0, "must be between 0-5")
+    .max(5, "must be between 0-5"),
   wifi: Yup.string(),
   parking: Yup.string(),
   breakfast: Yup.string(),
   pets: Yup.string(),
-  city: Yup.string(),
+  city: Yup.string().required("city is required"),
 });

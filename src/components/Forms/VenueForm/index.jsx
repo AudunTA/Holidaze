@@ -21,15 +21,18 @@ function VenueForm() {
     description: "",
     price: "",
     maxGuests: "",
+    city: "",
+    rating: "",
+    media: "",
   };
   const submitForm = (values) => {
     const bodyObj = {
       name: values.name,
       description: values.description,
-      media: [image],
-      price: Number(price),
-      maxGuests: Number(guests),
-      rating: Number(rating),
+      media: [values.media],
+      price: Number(values.price),
+      maxGuests: Number(values.maxGuests),
+      rating: Number(values.rating),
       meta: {
         wifi: true,
         parking: true,
@@ -38,7 +41,7 @@ function VenueForm() {
       },
       location: {
         address: "string",
-        city: city,
+        city: values.city,
         zip: "string",
         country: "string",
         continent: "string",
@@ -117,6 +120,44 @@ function VenueForm() {
                     )}
                   </FromRowHalf>
                 </FormGroupRow>
+                <FormGroupRow>
+                  <FromRowHalf className="first-half">
+                    <UserInput
+                      placeholder="city"
+                      type="city"
+                      name="city"
+                      value={values.city}
+                      onChange={handleChange}
+                    />
+                    {errors.city && touched.city && (
+                      <span className="error">{errors.city}</span>
+                    )}
+                  </FromRowHalf>
+                  <FromRowHalf className="second-half">
+                    <UserInput
+                      placeholder="rating"
+                      type="rating"
+                      name="rating"
+                      value={values.rating}
+                      onChange={handleChange}
+                    />
+                    {errors.rating && touched.rating && (
+                      <span className="error">{errors.rating}</span>
+                    )}
+                  </FromRowHalf>
+                </FormGroupRow>
+                <FormRow>
+                  <UserInput
+                    placeholder="image"
+                    type="text"
+                    name="media"
+                    value={values.media}
+                    onChange={handleChange}
+                  />
+                  {errors.media && touched.media && (
+                    <span className="error">{errors.media}</span>
+                  )}
+                </FormRow>
                 <button type="submit">Sign In</button>
               </VenuesForm>
             </>

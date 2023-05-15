@@ -48,5 +48,30 @@ const ClearButton = styled.div`
     font-size: 18px;
   }
 `;
-
-export { PrimaryButton, ClearButton };
+const EditButton = styled.button`
+  background-color: var(--btn-color-primary);
+  height: 32px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: var(--secondary-border-radius);
+  border: 1px solid var(--border-color);
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  font-family: NeuweltLight;
+  cursor: pointer;
+`;
+const RemoveButton = styled.button`
+  background-color: var(--text-color-error);
+  height: 32px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: var(--secondary-border-radius);
+  border: 1px solid var(--border-color);
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  font-family: NeuweltLight;
+  cursor: pointer;
+`;
+export { PrimaryButton, ClearButton, EditButton, RemoveButton };

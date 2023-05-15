@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-const VenuesForm = styled.form``;
+const VenuesForm = styled.form`
+  .error {
+    font-size: 15px;
+    color: var(--text-color-error);
+    font-family: NeuweltLight;
+    line-height: 25px;
+  }
+`;
 
 const FormLabel = styled.label`
   font-family: NeuweltLight;

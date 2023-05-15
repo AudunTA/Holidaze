@@ -66,43 +66,46 @@ function Header() {
   //if user is logged in I retrive data from local storage and set it into the states
 
   return (
-    <HeaderContainer>
-      <LogoContainer>
-        <img src={holi}></img>
-        <Logo className="logo-a" />
-        <img src={ze} className="ze"></img>
-      </LogoContainer>
-      <NavContainer>
-        <Link to="/Explore">
-          <p className="nav-item">Explore</p>
-        </Link>
-        <Link to="/Contact">
-          <p className="nav-item">Contact</p>
-        </Link>
-        {isUserLoggedIn ? (
-          <>
-            <PrimaryButton onClick={handleUserMenuStatus}>
-              <img
-                src={avatar !== null ? avatar : avatar}
-                className="avatar-img"
-              ></img>
-              <p>{usrName}</p>
-              <ArrowRightIcon className="arrow-icon" />
-            </PrimaryButton>
-            {showUserMenu ? <UserMenu /> : ""}
-          </>
-        ) : (
-          <>
-            <Link to="/Signup">
-              <PrimaryButton>
-                <p>Sign Up</p>
+    <>
+      {" "}
+      <ToastContainer autoClose={2000} />
+      <HeaderContainer>
+        <LogoContainer>
+          <img src={holi}></img>
+          <Logo className="logo-a" />
+          <img src={ze} className="ze"></img>
+        </LogoContainer>
+        <NavContainer>
+          <Link to="/Explore">
+            <p className="nav-item">Explore</p>
+          </Link>
+          <Link to="/Contact">
+            <p className="nav-item">Contact</p>
+          </Link>
+          {isUserLoggedIn ? (
+            <>
+              <PrimaryButton onClick={handleUserMenuStatus}>
+                <img
+                  src={avatar !== null ? avatar : avatar}
+                  className="avatar-img"
+                ></img>
+                <p>{usrName}</p>
+                <ArrowRightIcon className="arrow-icon" />
               </PrimaryButton>
-            </Link>
-            <ToastContainer autoClose={2000} />
-          </>
-        )}
-      </NavContainer>
-    </HeaderContainer>
+              {showUserMenu ? <UserMenu /> : ""}
+            </>
+          ) : (
+            <>
+              <Link to="/Signup">
+                <PrimaryButton>
+                  <p>Sign Up</p>
+                </PrimaryButton>
+              </Link>
+            </>
+          )}
+        </NavContainer>
+      </HeaderContainer>
+    </>
   );
 }
 

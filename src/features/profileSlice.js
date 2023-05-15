@@ -15,8 +15,14 @@ export const profileSlice = createSlice({
     logState(state) {
       console.log(state);
     },
+    deleteMyVenue(state, action) {
+      const venueIdToDelete = action.payload;
+      state.profile.venues = state.profile.venues.filter(
+        (venues) => venues.id !== venueIdToDelete
+      );
+    },
   },
 });
 
-export const { addProfile } = profileSlice.actions;
+export const { addProfile, deleteMyVenue } = profileSlice.actions;
 export const profileReducer = profileSlice.reducer;
