@@ -33,32 +33,35 @@ function MyBookings() {
 
   return (
     <SettingContainer>
-      <button onClick={() => console.log(rows)}>log rows</button>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Venue</TableCell>
-              <TableCell align="right">date from</TableCell>
-              <TableCell align="right">date to</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row, index) => (
-              <TableRow
-                key={index}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.venue}
-                </TableCell>
-                <TableCell align="right">{row.dateFrom}</TableCell>
-                <TableCell align="right">{row.dateTo}</TableCell>
+      {bookings.length > 0 ? (
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Venue</TableCell>
+                <TableCell align="right">date from</TableCell>
+                <TableCell align="right">date to</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {rows.map((row, index) => (
+                <TableRow
+                  key={index}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.venue}
+                  </TableCell>
+                  <TableCell align="right">{row.dateFrom}</TableCell>
+                  <TableCell align="right">{row.dateTo}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <S.TextGrey>You dont have any bookings yet</S.TextGrey>
+      )}
     </SettingContainer>
   );
 }

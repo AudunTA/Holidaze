@@ -21,8 +21,12 @@ export const profileSlice = createSlice({
         (venues) => venues.id !== venueIdToDelete
       );
     },
+    updateAvatar(state, action) {
+      const newAvatar = action.payload;
+      state.profile.avatar = newAvatar;
+    },
   },
 });
 
-export const { addProfile, deleteMyVenue } = profileSlice.actions;
+export const { addProfile, deleteMyVenue, updateAvatar } = profileSlice.actions;
 export const profileReducer = profileSlice.reducer;

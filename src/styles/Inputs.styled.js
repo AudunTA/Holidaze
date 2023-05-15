@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const UserInput = styled.input`
   box-sizing: border-box;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   height: 34px;
   width: 100%;
   outline: none;
@@ -22,7 +23,8 @@ const UserTextArea = styled.textarea`
   box-sizing: border-box;
   resize: none;
   font-family: NeuweltLight;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   height: 68px;
   width: 100%;
   outline: none;

@@ -71,8 +71,9 @@ function VenueForm() {
                   ) : (
                     ""
                   )}
+                  <label htmlFor="name">Venue name</label>
                   <UserInput
-                    placeholder="name"
+                    placeholder="what should you venue be called?"
                     type="name"
                     name="name"
                     value={values.name}
@@ -83,8 +84,9 @@ function VenueForm() {
                   )}
                 </FormRow>
                 <FormRow>
+                  <label htmlFor="description">Venue Description</label>
                   <UserTextArea
-                    placeholder="description"
+                    placeholder="description giving the customer more info about your venue"
                     type="text"
                     name="description"
                     value={values.description}
@@ -96,8 +98,9 @@ function VenueForm() {
                 </FormRow>
                 <FormGroupRow>
                   <FromRowHalf className="first-half">
+                    <label htmlFor="price">Price</label>
                     <UserInput
-                      placeholder="price"
+                      placeholder="price per night"
                       type="price"
                       name="price"
                       value={values.price}
@@ -108,6 +111,7 @@ function VenueForm() {
                     )}
                   </FromRowHalf>
                   <FromRowHalf className="second-half">
+                    <label htmlFor="maxGuests">Max guests</label>
                     <UserInput
                       placeholder="maxGuests"
                       type="maxGuests"
@@ -122,8 +126,9 @@ function VenueForm() {
                 </FormGroupRow>
                 <FormGroupRow>
                   <FromRowHalf className="first-half">
+                    <label htmlFor="city">City</label>
                     <UserInput
-                      placeholder="city"
+                      placeholder="venue location"
                       type="city"
                       name="city"
                       value={values.city}
@@ -134,8 +139,9 @@ function VenueForm() {
                     )}
                   </FromRowHalf>
                   <FromRowHalf className="second-half">
+                    <label htmlFor="rating">Rating</label>
                     <UserInput
-                      placeholder="rating"
+                      placeholder="venue rating"
                       type="rating"
                       name="rating"
                       value={values.rating}
@@ -147,8 +153,9 @@ function VenueForm() {
                   </FromRowHalf>
                 </FormGroupRow>
                 <FormRow>
+                  <label htmlFor="image">Image</label>
                   <UserInput
-                    placeholder="image"
+                    placeholder="image url"
                     type="text"
                     name="media"
                     value={values.media}

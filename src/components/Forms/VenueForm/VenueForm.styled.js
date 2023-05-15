@@ -7,6 +7,12 @@ const VenuesForm = styled.form`
     font-family: NeuweltLight;
     line-height: 25px;
   }
+  label {
+    font-size: 13px;
+    color: var(--text-color-main);
+    font-family: NeuweltRegular;
+    line-height: 25px;
+  }
 `;
 
 const FormLabel = styled.label`

@@ -13,6 +13,7 @@ import Paper from "@mui/material/Paper";
 import { EditButton, RemoveButton } from "../../../styles/Buttons.styled";
 import { deleteVenue } from "../../API/venue";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 function createData(venue, edit, remove) {
   return { venue, edit, remove };
 }
@@ -30,7 +31,7 @@ function MyVenues() {
   useEffect(() => {
     const newRows = venues.map((venue) =>
       createData(
-        venue.name,
+        <Link to={`/Venue/${venue.id}`}>{venue.name}</Link>,
         <EditButton>Edit</EditButton>,
         <RemoveButton onClick={() => dltVenue(venue.id)}>Delete</RemoveButton>
       )
@@ -40,32 +41,35 @@ function MyVenues() {
 
   return (
     <SettingContainer>
-      <button onClick={() => console.log(rows)}>log rows</button>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Venue</TableCell>
-              <TableCell align="right">Edit</TableCell>
-              <TableCell align="right">Delete</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row, index) => (
-              <TableRow
-                key={index}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.venue}
-                </TableCell>
-                <TableCell align="right">{row.edit}</TableCell>
-                <TableCell align="right">{row.remove}</TableCell>
+      {venues.length > 0 ? (
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Venue</TableCell>
+                <TableCell align="right">Edit</TableCell>
+                <TableCell align="right">Delete</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {rows.map((row, index) => (
+                <TableRow
+                  key={index}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.venue}
+                  </TableCell>
+                  <TableCell align="right">{row.edit}</TableCell>
+                  <TableCell align="right">{row.remove}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <S.TextGrey>You dont have any venues yet</S.TextGrey>
+      )}
     </SettingContainer>
   );
 }
