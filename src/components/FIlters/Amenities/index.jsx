@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Checkbox } from "@mui/material";
 import { AmenitiesContainer } from "./Amenities.styled";
+import * as S from "../../../styles/Text.styled";
 import {
   useQueryParam,
   NumberParam,
@@ -28,8 +29,11 @@ function Amenities() {
 
   return (
     <>
-      <button onClick={handleLogTest}>LOG FILTERS</button>
       <AmenitiesContainer>
+        <S.TextGrey className="small-info-text">
+          leaving unchecked will ignore this filter and return venues with and
+          without the filter
+        </S.TextGrey>
         <div className="group-content">
           <Checkbox
             className="check-box"

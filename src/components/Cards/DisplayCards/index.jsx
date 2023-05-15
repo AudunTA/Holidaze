@@ -13,6 +13,7 @@ import LoadingCards from "../LoadingCards";
 function DisplayCards() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.venues);
+  const [showMoreLoader, setShowMoreLoader] = useState(false);
   const [currentVenues, setCurrentVenues] = useState([]);
   const [visableVenues, setVisableVenues] = useState(6);
   useEffect(() => {
@@ -24,7 +25,11 @@ function DisplayCards() {
     }
   }, [state]);
   const handleShowMore = () => {
-    setVisableVenues(visableVenues + 6);
+    setShowMoreLoader(true);
+    setTimeout(() => {
+      setVisableVenues(visableVenues + 6);
+      setShowMoreLoader(false);
+    }, 500);
   };
   return (
     <DisplayCardWrapper>
@@ -61,6 +66,7 @@ function DisplayCards() {
         ) : (
           <LoadingCards number={6} />
         )}
+        {showMoreLoader ? <LoadingCards number={6} /> : ""}
       </CardContainer>
       {currentVenues.length > visableVenues ? (
         <ButtonInverted className="btn_showMore" onClick={handleShowMore}>

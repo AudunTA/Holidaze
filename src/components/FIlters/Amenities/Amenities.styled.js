@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const AmenitiesContainer = styled.div`
+  .small-info-text {
+    font-size: 12px;
+  }
   .group-content {
     display: flex;
     align-items: center;

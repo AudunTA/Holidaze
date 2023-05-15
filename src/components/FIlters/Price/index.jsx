@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Stack, Typography, Slider, TextField } from "@mui/material";
+import { Stack, Slider, TextField } from "@mui/material";
 import { FilterMarginContainer } from "../Filters.styled";
 import { useSelector, useDispatch } from "react-redux";
 import { addMaxPrice, addMinPrice } from "../../../features/venueSlice";
+import { UserInput } from "../../../styles/Inputs.styled";
+import { GroupedInputs } from "../../Forms/VenueForm/VenueForm.styled";
 export default function App() {
   //redux
   const dispatch = useDispatch();
@@ -29,25 +31,16 @@ export default function App() {
         min={minmin}
         max={maxmax}
       />
-      <Stack direction="row" justifyContent="space-evenly" alignItems="center">
-        <TextField
-          label="min"
-          type="number"
-          variant="outlined"
-          InputLabelProps={{ shrink: true }}
-          sx={{ width: "90px" }}
-          value={minNum}
-        />
-        <Typography>-</Typography>
-        <TextField
-          label="max"
-          type="number"
-          variant="outlined"
-          InputLabelProps={{ shrink: true }}
-          sx={{ width: "90px" }}
-          value={maxNum}
-        />
-      </Stack>
+      <GroupedInputs>
+        <div className="group-left">
+          <label htmlFor="max">Min price</label>
+          <UserInput value={minNum} />
+        </div>
+        <div className="group-right">
+          <label htmlFor="max">Max price</label>
+          <UserInput value={maxNum} />
+        </div>
+      </GroupedInputs>
     </FilterMarginContainer>
   );
 }

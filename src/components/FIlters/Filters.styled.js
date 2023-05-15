@@ -19,6 +19,12 @@ const FilterContainer = styled.div`
     margin: 15px;
     font-size: 13px;
   }
+  label {
+    font-size: 13px;
+    color: var(--text-color-main);
+    font-family: NeuweltRegular;
+    line-height: 15px;
+  }
 `;
 const Filter = styled.div`
   padding: 15px;
@@ -51,6 +57,12 @@ const Filter = styled.div`
 `;
 const FilterMarginContainer = styled.div`
   margin: 10px;
+  .group-left {
+    margin-right: 5px;
+  }
+  .group-right {
+    margin-left: 5px;
+  }
 `;
 
 export { FilterContainer, Filter, FilterMarginContainer };
