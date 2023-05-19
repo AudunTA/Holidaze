@@ -35,7 +35,6 @@ function Guests() {
           <MenuItem value={5}>5+</MenuItem>
         </Select>
       </FormControl>
-      <button onClick={() => console.log(filterState.guests)}>LOG value</button>
     </>
   );
 }
