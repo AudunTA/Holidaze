@@ -13,6 +13,7 @@ function Guests() {
   const filterState = useSelector((state) => state.venues.filter);
 
   const handleChange = (e) => {
+    console.log(e.target.value);
     dispatch(addFilterGuests(e.target.value));
   };
   return (

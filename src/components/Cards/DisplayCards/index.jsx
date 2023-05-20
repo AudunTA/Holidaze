@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DisplayCard, DisplayCardWrapper } from "./DisplayCards.styled";
+import {
+  DisplayCard,
+  DisplayCardWrapper,
+  FilterMessage,
+} from "./DisplayCards.styled";
 import { CardContainer } from "../Cards.styled";
 import { ButtonInverted, PrimaryButton } from "../../../styles/Buttons.styled";
 import * as S from "../../../styles/Text.styled";
@@ -33,6 +37,13 @@ function DisplayCards() {
   };
   return (
     <DisplayCardWrapper>
+      {state.filterMessage ? (
+        <FilterMessage>
+          <S.SubHeading>{state.filterMessage}</S.SubHeading>
+        </FilterMessage>
+      ) : (
+        ""
+      )}
       <CardContainer>
         {currentVenues.length > 0 ? (
           currentVenues.slice(0, visableVenues).map((ele) => {

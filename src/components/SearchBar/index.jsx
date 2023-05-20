@@ -9,6 +9,9 @@ import {
 import { useDispatch } from "react-redux";
 import { addSearch } from "../../features/filterSlice";
 function SearchBar() {
+  const handleSearch = () => {
+    console.log("test");
+  };
   const dispatch = useDispatch();
   return (
     <BackGroundSearch>
@@ -17,7 +20,7 @@ function SearchBar() {
           placeholder="Search venues.."
           onChange={(e) => dispatch(addSearch(e.target.value))}
         />
-        <SearchIcon id="search-icon" />
+        <SearchIcon id="search-icon" onClick={handleSearch} />
       </SearchBarContainer>
     </BackGroundSearch>
   );

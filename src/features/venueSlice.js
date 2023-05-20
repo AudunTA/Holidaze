@@ -10,11 +10,12 @@ const initialState = {
     parking: false,
     breakfast: false,
     pets: false,
-    guests: "",
+    guests: null,
     minPrice: 100,
     maxPrice: 3000,
     search: "",
   },
+  filterMessage: "",
 };
 
 export const venueSlice = createSlice({
@@ -52,12 +53,17 @@ export const venueSlice = createSlice({
     addMaxPrice(state, action) {
       state.filter.maxPrice = action.payload;
     },
+    applySearch(state, action) {
+      state.filteredVenues = _.filter(state.venues, (item) => {
+        return item.name.toLowerCase() === action.payload.toLowerCase();
+      });
+    },
     applyFilter(state) {
       state.filteredVenues = _.filter(state.venues, (item) => {
         return (
           item.price > state.filter.minPrice &&
           item.price < state.filter.maxPrice &&
-          item.maxGuests >= 0 &&
+          item.maxGuests >= state.filter.guests &&
           ((item.meta.wifi && state.filter.wifi) || !state.filter.wifi) &&
           ((item.meta.parking && state.filter.parking) ||
             !state.filter.parking) &&
@@ -68,7 +74,10 @@ export const venueSlice = createSlice({
       });
 
       if (state.filteredVenues.length == 0) {
-        toast("the filters did not match any venues:");
+        state.filterMessage = "the filters did not match any results";
+      } else {
+        //checks if filters are active
+        state.filterMessage = `note: filters are active`;
       }
     },
     clearFilter(state) {
@@ -79,6 +88,7 @@ export const venueSlice = createSlice({
         (state.filter.minPrice = 100),
         (state.filter.maxPrice = 3000),
         (state.search = "");
+      state.filterMessage = "";
     },
   },
 });
@@ -95,5 +105,6 @@ export const {
   addMaxPrice,
   applyFilter,
   clearFilter,
+  applySearch,
 } = venueSlice.actions;
 export const venuesReducer = venueSlice.reducer;

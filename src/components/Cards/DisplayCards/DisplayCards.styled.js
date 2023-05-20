@@ -54,4 +54,16 @@ const DisplayCard = styled(Card)`
   }
 `;
 
-export { DisplayCard, DisplayCardWrapper };
+const FilterMessage = styled.div`
+  margin-left: 15px;
+  margin-bottom: 10px;
+  border: 1px solid var(--btn-color-secondary);
+  background-color: var(--text-color-highlight);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  h3 {
+    padding-left: 15px;
+  }
+`;
+
+export { DisplayCard, DisplayCardWrapper, FilterMessage };
