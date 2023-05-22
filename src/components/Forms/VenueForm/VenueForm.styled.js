@@ -13,6 +13,24 @@ const VenuesForm = styled.form`
     font-family: NeuweltRegular;
     line-height: 15px;
   }
+  .group-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .checkbox-flex {
+    margin-right: 10px;
+    display: flex;
+    font-size: 13px;
+    color: var(--text-color-main);
+    font-family: NeuweltRegular;
+    line-height: 15px;
+  }
+  .amenities-label {
+    font-size: 13px;
+    color: var(--text-color-main);
+    font-family: NeuweltRegular;
+    line-height: 15px;
+  }
 `;
 
 const GroupedInputs = styled.div`

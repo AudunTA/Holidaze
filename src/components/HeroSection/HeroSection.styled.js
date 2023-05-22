@@ -36,6 +36,9 @@ const HeroContainer = styled.div`
     }
     @media only screen and (max-width: 800px) {
       padding: 50px 0;
+      .top-hero {
+        display: none;
+      }
     }
   }
   @media only screen and (max-width: 1250px) {

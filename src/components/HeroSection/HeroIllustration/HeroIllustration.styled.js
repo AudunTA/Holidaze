@@ -5,7 +5,7 @@ const IllustrationContainer = styled.div`
   height: 200px;
   margin-right: 150px;
   @media only screen and (max-width: 800px) {
-    margin-right: 0px;
+    display: none;
   }
   background-color: var(--text-color-highlight);
   border: 1px solid var(--border);

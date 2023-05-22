@@ -10,11 +10,17 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FormGroupRow, FromRowHalf } from "./VenueForm.styled";
 import { FormRow } from "../SignUpForm/SignUpForm.styled";
 import { UserInput, UserTextArea } from "../../../styles/Inputs.styled";
+import { EditButton } from "../../../styles/Buttons.styled";
+import { Checkbox } from "@mui/material";
 function VenueForm() {
   //auth I need this to send token in body object
   const auth = useAuthUser();
   //state management for api error
   const [errorApi, setErrorApi] = useState("");
+  const [wifi, setWifi] = useState(false);
+  const [parking, setParking] = useState(false);
+  const [breakfast, setBreakfast] = useState(false);
+  const [pets, setPets] = useState(false);
   //initial form values
   const initialValues = {
     name: "",
@@ -34,10 +40,10 @@ function VenueForm() {
       maxGuests: Number(values.maxGuests),
       rating: Number(values.rating),
       meta: {
-        wifi: true,
-        parking: true,
-        breakfast: true,
-        pets: true,
+        wifi: wifi,
+        parking: parking,
+        breakfast: breakfast,
+        pets: pets,
       },
       location: {
         address: "string",
@@ -165,7 +171,43 @@ function VenueForm() {
                     <span className="error">{errors.media}</span>
                   )}
                 </FormRow>
-                <button type="submit">Sign In</button>
+                <p className="amenities-label">Amenities</p>
+                <div className="group-checkboxes">
+                  <div className="checkbox-flex">
+                    <Checkbox
+                      className="check-box"
+                      checked={wifi}
+                      onChange={() => setWifi(!wifi)}
+                    ></Checkbox>
+                    <p>Wifi</p>
+                  </div>
+
+                  <div className="checkbox-flex">
+                    <Checkbox
+                      className="check-box"
+                      checked={parking}
+                      onChange={() => setParking(!parking)}
+                    ></Checkbox>
+                    <p>Parking</p>
+                  </div>
+                  <div className="checkbox-flex">
+                    <Checkbox
+                      className="check-box"
+                      checked={breakfast}
+                      onChange={() => setBreakfast(!breakfast)}
+                    ></Checkbox>
+                    <p>Breakfast</p>
+                  </div>
+                  <div className="checkbox-flex">
+                    <Checkbox
+                      className="check-box"
+                      checked={pets}
+                      onChange={() => setPets(!pets)}
+                    ></Checkbox>
+                    <p>Pets</p>
+                  </div>
+                </div>
+                <EditButton type="submit">Sign In</EditButton>
               </VenuesForm>
             </>
           );
