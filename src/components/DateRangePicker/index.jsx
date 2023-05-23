@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import { createBooking } from "../API/booking";
 import { useAuthUser } from "react-auth-kit";
-function DateRangePicker({ bookings, venueId }) {
+import { UserInput } from "../../styles/Inputs.styled";
+import * as S from "../../styles/Text.styled";
+function DateRangePicker({ bookings, venueId, maxGuests }) {
   const auth = useAuthUser();
   let token;
   if (auth()) {
@@ -23,13 +25,38 @@ function DateRangePicker({ bookings, venueId }) {
     },
   ]);
   const [disabledDates, setDisabledDates] = useState([]);
-  const [guests, setGuests] = useState();
-  const handleLog = () => {
-    console.log(disabledDates);
+  const [guests, setGuests] = useState(null);
+  const [errorReservation, setErrorReservation] = useState("");
+  const [isValidated, setIsValidated] = useState(false);
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
+  //short validation to make sure guests are picked correctly
+  const handleGuestsValidation = (e) => {
+    console.log(e.target.value);
+    if (isNaN(Number(e.target.value))) {
+      setErrorReservation("must be a number");
+      setIsValidated(false);
+    } else {
+      setErrorReservation("");
+      if (Number(e.target.value) > maxGuests) {
+        setErrorReservation(`Too many guests`);
+        setIsValidated(false);
+      } else {
+        setErrorReservation("");
+        setIsValidated(true);
+        setGuests(e.target.value);
+      }
+    }
+    if (!e.target.value) {
+      setIsValidated(false);
+    }
   };
   const findDaysBetween = (dateFrom, dateTo) => {
     let datesToDisable = [];
     let currentDate = dayjs(dateFrom);
+    console.log(currentDate.toDate());
+    datesToDisable.push(currentDate.toDate());
     const endDate = dayjs(dateTo);
     while (currentDate.isBefore(endDate)) {
       datesToDisable.push(currentDate.toDate());
@@ -43,6 +70,11 @@ function DateRangePicker({ bookings, venueId }) {
       let allDisabledDates = [];
       bookings.forEach((ele) => {
         const datesToDisable = findDaysBetween(ele.dateFrom, ele.dateTo);
+        console.log("original date: ", ele.dateFrom);
+        console.log("first test: ", dayjs(ele.dateFrom).format("MM/DD/YYYY"));
+        console.log("second test: ", dayjs(ele.dateFrom).toDate());
+        console.log(ele.dateTo);
+        console.log("disabled dates:", disabledDates);
         allDisabledDates = [...allDisabledDates, ...datesToDisable];
       });
       setDisabledDates(allDisabledDates);
@@ -52,7 +84,7 @@ function DateRangePicker({ bookings, venueId }) {
     const bodyObj = {
       dateFrom: state[0].startDate,
       dateTo: state[0].endDate,
-      guests: 1,
+      guests: Number(guests),
       venueId: venueId,
     };
     createBooking(bodyObj, token);
@@ -70,14 +102,22 @@ function DateRangePicker({ bookings, venueId }) {
           disabledDates={disabledDates}
         />
       </RangePickerContainer>
-      {bookings ? (
-        <PrimaryButton onClick={handleCreateBooking}>
-          Make a reservation
-        </PrimaryButton>
+      {bookings && auth() ? (
+        <>
+          <label htmlFor="rating">number of guest (max {maxGuests})</label>
+          <UserInput onChange={handleGuestsValidation}></UserInput>
+          {errorReservation ? (
+            <S.TextError>{errorReservation}</S.TextError>
+          ) : (
+            ""
+          )}
+          <PrimaryButton onClick={handleCreateBooking} disabled={!isValidated}>
+            Make a reservation
+          </PrimaryButton>
+        </>
       ) : (
-        ""
+        <S.TextWhite> please log in to make a booking</S.TextWhite>
       )}
-      <button onClick={() => console.log(state)}>log dates</button>
     </>
   );
 }

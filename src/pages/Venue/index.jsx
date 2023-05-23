@@ -106,7 +106,11 @@ function Venue() {
                 </InfoSection>
               </ImageSection>
               <BookingSection>
-                <DateRangePicker bookings={venue.bookings} venueId={venue.id} />
+                <DateRangePicker
+                  bookings={venue.bookings}
+                  venueId={venue.id}
+                  maxGuests={venue.maxGuests}
+                />
               </BookingSection>
             </VenueLayOut>
           </>

@@ -23,9 +23,6 @@ function Amenities() {
 
   // const myFiltersParam = withDefault(ObjectParam, {});
   //  const [filters, setFilters] = useQueryParam("filters", myFiltersParam);
-  const handleLogTest = () => {
-    console.log(filterState);
-  };
 
   return (
     <>

@@ -63,6 +63,12 @@ const FilterMarginContainer = styled.div`
   .group-right {
     margin-left: 5px;
   }
+  .small-info-text {
+    font-size: 12px;
+  }
+  .select-form {
+    margin-top: 10px;
+  }
 `;
 
 export { FilterContainer, Filter, FilterMarginContainer };

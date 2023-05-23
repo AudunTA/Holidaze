@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-const PrimaryButton = styled.div`
-  background-color: var(--btn-color-primary);
+const PrimaryButton = styled.button`
+  background-color: ${(props) =>
+    props.disabled ? "var(--border)" : "var(--btn-color-secondary)"};
   height: 32px;
   padding-left: 15px;
   padding-right: 15px;

@@ -5,9 +5,11 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Checkbox } from "@mui/material";
 import { useState } from "react";
+import { FilterMarginContainer } from "../Filters.styled";
 //For redux state handling
 import { useDispatch, useSelector } from "react-redux";
 import { addFilterGuests } from "../../../features/venueSlice";
+import * as S from "../../../styles/Text.styled";
 function Guests() {
   const dispatch = useDispatch();
   const filterState = useSelector((state) => state.venues.filter);
@@ -17,14 +19,17 @@ function Guests() {
     dispatch(addFilterGuests(e.target.value));
   };
   return (
-    <>
-      <FormControl fullWidth>
-        <InputLabel id="guests-label">Number of guests</InputLabel>
+    <FilterMarginContainer>
+      <S.TextGrey className="small-info-text">
+        this filter will return only venues that has room for more guests than
+        you select.
+      </S.TextGrey>
+      <FormControl fullWidth className="select-form">
+        <InputLabel>Number of guests</InputLabel>
         <Select
-          labelId="guests-label"
           value={filterState.guests}
-          label="Age"
           onChange={handleChange}
+          label="Number guests"
         >
           <MenuItem value="">
             <em>unselect</em>
@@ -36,7 +41,7 @@ function Guests() {
           <MenuItem value={5}>5+</MenuItem>
         </Select>
       </FormControl>
-    </>
+    </FilterMarginContainer>
   );
 }
 

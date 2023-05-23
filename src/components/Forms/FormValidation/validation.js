@@ -29,6 +29,7 @@ export const validationCreateVenue = Yup.object({
     .typeError("must be a number")
     .required("please enter a price"),
   maxGuests: Yup.number()
+    .required()
     .typeError("must be a number")
     .min(1, "must be between 1-100")
     .max(100, "must be between 1-100"),
