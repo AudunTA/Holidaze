@@ -1,5 +1,6 @@
 import styled from "styled-components";
 const CenterContainer = styled.div`
+  padding: 50px auto;
   margin: 50px auto;
   max-width: var(--max-width);
 `;
