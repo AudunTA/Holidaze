@@ -1,5 +1,5 @@
 import React from "react";
-import { RangePickerContainer } from "./DateRangePicker.styled";
+import { RangePickerContainer, WrapperButton } from "./DateRangePicker.styled";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
@@ -111,9 +111,15 @@ function DateRangePicker({ bookings, venueId, maxGuests }) {
           ) : (
             ""
           )}
-          <PrimaryButton onClick={handleCreateBooking} disabled={!isValidated}>
-            Make a reservation
-          </PrimaryButton>
+          <WrapperButton>
+            <PrimaryButton
+              onClick={handleCreateBooking}
+              disabled={!isValidated}
+              className="btn_reservation"
+            >
+              Make a reservation
+            </PrimaryButton>
+          </WrapperButton>
         </>
       ) : (
         <S.TextWhite> please log in to make a booking</S.TextWhite>

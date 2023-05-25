@@ -4,21 +4,25 @@ const HeaderContainer = styled.div`
   display: flex;
   margin: auto;
   justify-content: space-between;
+  @media (max-width: 700px) {
+    justify-content: center;
+  }
   max-width: var(--max-width);
   padding-top: 10px;
+  padding-bottom: 10px;
+  @media (max-width: 1250px) {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   .logo-a {
-    margin-left: 3px;
-    width: 14px;
-    height: 14px;
-  }
-  .ze {
-    margin-bottom: 1px;
-    margin-left: 3px;
+    width: 22px;
+    height: 22px;
+    margin-right: 3px;
   }
 `;
 const NavContainer = styled.div`

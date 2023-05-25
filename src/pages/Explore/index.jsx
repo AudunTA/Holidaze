@@ -6,8 +6,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { venueApi } from "../../components/API/venue";
 import SearchBar from "../../components/SearchBar";
-//lodash
-import _ from "lodash";
+
 function Explore() {
   const dispatch = useDispatch();
   useEffect(() => {

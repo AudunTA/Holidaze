@@ -6,21 +6,26 @@ import {
   SearchInput,
   BackGroundSearch,
 } from "./SearchBar.styled";
-import { useDispatch } from "react-redux";
-import { addSearch } from "../../features/filterSlice";
+import { addSearch, applyFilter } from "../../features/venueSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 function SearchBar() {
-  const handleSearch = () => {
-    console.log("test");
-  };
+  const searchState = useSelector((state) => state.venues.filter.search);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const handleSearch = (e) => {
+    dispatch(addSearch(e.target.value));
+  };
+  const handleApplySearch = () => {
+    dispatch(applyFilter());
+    navigate(`/Explore?seach=${searchState}`);
+  };
   return (
     <BackGroundSearch>
       <SearchBarContainer>
-        <SearchInput
-          placeholder="Search venues.."
-          onChange={(e) => dispatch(addSearch(e.target.value))}
-        />
-        <SearchIcon id="search-icon" onClick={handleSearch} />
+        <SearchInput placeholder="Search venues.." onChange={handleSearch} />
+        <SearchIcon id="search-icon" onClick={handleApplySearch} />
       </SearchBarContainer>
     </BackGroundSearch>
   );

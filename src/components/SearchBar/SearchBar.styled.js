@@ -28,6 +28,9 @@ const SearchBarContainer = styled.div`
   justify-content: space-between;
 
   #search-icon {
+    @media only screen and (max-width: 1250px) {
+      margin-right: 10px;
+    }
     font-size: 20px;
     padding: 8px;
     color: var(--background-color);
@@ -37,6 +40,9 @@ const SearchBarContainer = styled.div`
   }
 `;
 const SearchInput = styled.input`
+  @media only screen and (max-width: 1250px) {
+    margin-left: 10px;
+  }
   border-top-left-radius: var(--main-border-radius);
   border-bottom-left-radius: var(--main-border-radius);
   margin-right: 10px;

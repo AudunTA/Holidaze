@@ -56,7 +56,14 @@ const TextMobileNav = styled.p`
   font-family: NeuweltRegular;
   color: var(--text-color-main);
 `;
-
+const LogoText = styled.p`
+  font-family: NeuweltLight;
+  font-size: 20px;
+  line-height: 20px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  color: var(--text-color-main);
+`;
 export {
   TextWhite,
   TextGrey,
@@ -65,4 +72,5 @@ export {
   SubHeading,
   TextMobileNav,
   TextBlue,
+  LogoText,
 };

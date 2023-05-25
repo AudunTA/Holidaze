@@ -9,9 +9,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { venueApi } from "../../components/API/venue";
 import DisplayCards from "../../components/Cards/DisplayCards";
-import Header from "../../components/Layout/Header/Index";
-import { TextField } from "@mui/material";
-import Footer from "../../components/Layout/Footer";
+import HomePageCards from "../../components/Cards/HomePageCards";
 function Homepage() {
   const [loader, setLoader] = useState(true);
   const dispatch = useDispatch();
@@ -34,8 +32,7 @@ function Homepage() {
       <HeroSection />
       <SearchBar />
       <MainContainer>
-        <Filters />
-        {loader ? <LoadingCards number={4} /> : <DisplayCards />}
+        <HomePageCards />
       </MainContainer>
     </div>
   );

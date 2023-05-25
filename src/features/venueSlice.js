@@ -45,6 +45,7 @@ export const venueSlice = createSlice({
       state.filter.guests = action.payload;
     },
     addSearch(state, action) {
+      console.log("PAYLOAD: ", action.payload);
       state.filter.search = action.payload;
     },
     addMinPrice(state, action) {
@@ -53,13 +54,16 @@ export const venueSlice = createSlice({
     addMaxPrice(state, action) {
       state.filter.maxPrice = action.payload;
     },
-    applySearch(state, action) {
-      state.filteredVenues = _.filter(state.venues, (item) => {
-        return item.name.toLowerCase() === action.payload.toLowerCase();
-      });
-    },
+
     applyFilter(state) {
       state.filteredVenues = _.filter(state.venues, (item) => {
+        const searchQuery = state.filter.search.toLowerCase();
+        console.log(state.filter.search);
+        const isNameMatch = item.name.toLowerCase().includes(searchQuery);
+        const isLocationMatch = item.location.city
+          .toLowerCase()
+          .includes(searchQuery);
+        console.log(searchQuery, isNameMatch, isLocationMatch);
         return (
           item.price > state.filter.minPrice &&
           item.price < state.filter.maxPrice &&
@@ -69,7 +73,8 @@ export const venueSlice = createSlice({
             !state.filter.parking) &&
           ((item.meta.breakfast && state.filter.breakfast) ||
             !state.filter.breakfast) &&
-          ((item.meta.pets && state.filter.pets) || !state.filter.pets)
+          ((item.meta.pets && state.filter.pets) || !state.filter.pets) &&
+          (isNameMatch || isLocationMatch)
         );
       });
 

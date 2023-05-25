@@ -9,11 +9,7 @@ export const profileSlice = createSlice({
   initialState,
   reducers: {
     addProfile(state, action) {
-      console.log("INNE I ADD PROFILE");
       state.profile = action.payload;
-    },
-    logState(state) {
-      console.log(state);
     },
     deleteMyVenue(state, action) {
       const venueIdToDelete = action.payload;

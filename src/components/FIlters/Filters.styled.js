@@ -11,9 +11,12 @@ const FilterContainer = styled.div`
     border-radius: var(--main-border-radius);
     backdrop-filter: blur(24px);
   }
-  .btn-filter {
+  .wrapper-button {
     margin: 15px;
+  }
+  .btn-filter {
     font-size: 13px;
+    width: 100%;
   }
   .btn-clear {
     margin: 15px;

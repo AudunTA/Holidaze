@@ -35,7 +35,8 @@ const HeroContainer = styled.div`
       cursor: pointer;
     }
     @media only screen and (max-width: 800px) {
-      padding: 50px 0;
+      padding-top: 10px;
+      padding-bottom: 20px;
       .top-hero {
         display: none;
       }

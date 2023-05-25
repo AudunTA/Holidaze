@@ -1,15 +1,14 @@
 import { React, useEffect, useState } from "react";
-
+//styles
 import {
   HeaderContainer,
   LogoContainer,
   NavContainer,
 } from "./Header.styled.js";
+import * as S from "../../../styles/Text.styled.js";
 import { useDispatch, useSelector } from "react-redux";
-//Logo imports
-import holi from "../../../assets/images/HOLID.png";
-import { ReactComponent as Logo } from "../../../assets/images/logo.svg";
-import ze from "../../../assets/images/ZE.png";
+//Logo import
+import { ReactComponent as LogoSolid } from "../../../assets/images/logoSolid.svg";
 //import button style
 import { PrimaryButton } from "../../../styles/Buttons.styled.js";
 //material ui icons
@@ -71,9 +70,8 @@ function Header() {
       <ToastContainer autoClose={2000} />
       <HeaderContainer>
         <LogoContainer>
-          <img src={holi}></img>
-          <Logo className="logo-a" />
-          <img src={ze} className="ze"></img>
+          <LogoSolid className="logo-a" />
+          <S.LogoText>Holidaze</S.LogoText>
         </LogoContainer>
         <NavContainer>
           <Link to="/Explore">

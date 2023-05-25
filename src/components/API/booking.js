@@ -1,4 +1,6 @@
+import { RepeatOneSharp } from "@mui/icons-material";
 import { baseURL } from "./baseURL";
+import { toast } from "react-toastify";
 export async function createBooking(bodyObj, token) {
   const options = {
     method: `POST`,
@@ -8,11 +10,17 @@ export async function createBooking(bodyObj, token) {
     },
     body: JSON.stringify(bodyObj),
   };
-  console.log(bodyObj);
-  console.log(options);
   const endpoint = "/bookings";
   try {
-    const response = fetch(baseURL + endpoint, options);
-    const json = response.json();
+    const response = await fetch(baseURL + endpoint, options);
+    const json = await response.json();
+    console.log(response);
+    if (!response.ok) {
+      toast.error(json.errors[0].message);
+    } else {
+      toast.success(
+        "reservation made! check out your bookings in profile section"
+      );
+    }
   } catch (e) {}
 }

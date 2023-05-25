@@ -78,5 +78,10 @@ const InfoSection = styled.div`
   width: 400px;
   border: 1px solid black;
 `;
-
-export { RangePickerContainer };
+const WrapperButton = styled.div`
+  margin-top: 5px;
+  .btn_reservation {
+    width: 100%;
+  }
+`;
+export { RangePickerContainer, WrapperButton };
