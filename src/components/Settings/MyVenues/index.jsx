@@ -14,6 +14,7 @@ import { EditButton, RemoveButton } from "../../../styles/Buttons.styled";
 import { deleteVenue } from "../../API/venue";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import ModalEditVenue from "../../ModalEditVenue";
 function createData(venue, edit, remove) {
   return { venue, edit, remove };
 }
@@ -27,12 +28,17 @@ function MyVenues() {
   const venues = useSelector((state) => state.profile.profile.venues);
   console.log(venues);
   const [rows, setRows] = useState([]);
-
+  const [showModal, setShowModal] = useState(false);
+  const [editVenueId, setEditVenueId] = useState();
+  const handleShowModal = (venueID) => {
+    setEditVenueId(venueID);
+    setShowModal(true);
+  };
   useEffect(() => {
     const newRows = venues.map((venue) =>
       createData(
         <Link to={`/Venue/${venue.id}`}>{venue.name}</Link>,
-        <EditButton>Edit</EditButton>,
+        <EditButton onClick={() => handleShowModal(venue.id)}>Edit</EditButton>,
         <RemoveButton onClick={() => dltVenue(venue.id)}>Delete</RemoveButton>
       )
     );
@@ -40,37 +46,69 @@ function MyVenues() {
   }, [venues]);
 
   return (
-    <SettingContainer>
-      {venues.length > 0 ? (
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Venue</TableCell>
-                <TableCell align="right">Edit</TableCell>
-                <TableCell align="right">Delete</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.venue}
-                  </TableCell>
-                  <TableCell align="right">{row.edit}</TableCell>
-                  <TableCell align="right">{row.remove}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+    <>
+      {showModal ? (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            zIndex: 9999,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <div
+              style={{ maxWidth: "100%", maxHeight: "100%", overflow: "auto" }}
+            >
+              <ModalEditVenue edit={editVenueId} />
+            </div>
+          </div>
+        </div>
       ) : (
-        <S.TextGrey>You dont have any venues yet</S.TextGrey>
+        ""
       )}
-    </SettingContainer>
+      <SettingContainer>
+        {venues.length > 0 ? (
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Venue</TableCell>
+                  <TableCell align="right">Edit</TableCell>
+                  <TableCell align="right">Delete</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row, index) => (
+                  <TableRow
+                    key={index}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.venue}
+                    </TableCell>
+                    <TableCell align="right">{row.edit}</TableCell>
+                    <TableCell align="right">{row.remove}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        ) : (
+          <S.TextGrey>You dont have any venues yet</S.TextGrey>
+        )}
+      </SettingContainer>
+    </>
   );
 }
 
