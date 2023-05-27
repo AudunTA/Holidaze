@@ -13,7 +13,7 @@ function HeroSection() {
         <div className="wrapper-hero">
           <div className="hero-description">
             <div className="top-hero">
-              <S.TextGrey>292 Venues</S.TextGrey>
+              <S.TextGrey>1000+ Venues</S.TextGrey>
               <S.TextGrey>200+ Verified managers</S.TextGrey>
               <S.TextGrey>100% Satisfaction guarantee</S.TextGrey>
             </div>

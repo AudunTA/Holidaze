@@ -12,6 +12,7 @@ import { RequireAuth } from "react-auth-kit";
 
 import { QueryParamProvider } from "use-query-params";
 import { ReactRouter6Adapter } from "use-query-params/adapters/react-router-6";
+import ErrorPage from "../pages/ErrorPage";
 
 function Router() {
   console.log(Layout);
@@ -33,6 +34,7 @@ function Router() {
             <Route path="/Contact" element={<Contact />}></Route>
             <Route path="/Explore" element={<Explore />}></Route>
             <Route path="/Venue/:id" element={<Venue />}></Route>
+            <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
       </QueryParamProvider>

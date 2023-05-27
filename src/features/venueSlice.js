@@ -11,7 +11,7 @@ const initialState = {
     breakfast: false,
     pets: false,
     guests: null,
-    minPrice: 100,
+    minPrice: 1,
     maxPrice: 3000,
     search: "",
   },
@@ -90,7 +90,7 @@ export const venueSlice = createSlice({
       (state.filter.wifi = false),
         (state.filter.parking = false),
         (state.filter.guests = ""),
-        (state.filter.minPrice = 100),
+        (state.filter.minPrice = 1),
         (state.filter.maxPrice = 3000),
         (state.search = "");
       state.filterMessage = "";
