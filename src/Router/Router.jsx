@@ -18,6 +18,7 @@ function Router() {
   console.log(Layout);
   return (
     <>
+      <title>Holidaze</title>
       <QueryParamProvider adapter={ReactRouter6Adapter}>
         <Routes basename="Holidaze">
           <Route path="/" element={<Layout />}>
