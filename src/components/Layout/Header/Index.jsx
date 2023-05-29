@@ -19,6 +19,8 @@ import { useAuthUser, withAuthHeader } from "react-auth-kit";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+//default profile picture
+import defaultprofile from "../../../assets/images/defaultprofile.jpg";
 function Header() {
   //logged in state
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -78,7 +80,11 @@ function Header() {
             <>
               <PrimaryButton onClick={() => navigate("/Profile")}>
                 <img
-                  src={avatar !== null ? avatar : avatar}
+                  src={avatar ? avatar : defaultprofile}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = defaultprofile;
+                  }}
                   className="avatar-img"
                 ></img>
                 <p>{usrName}</p>

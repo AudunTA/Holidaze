@@ -6,6 +6,8 @@ import {
   AvatarImage,
   ButtonSettings,
 } from "./Profile.styled";
+//styles and icons
+import defaultprofile from "../../assets/images/defaultprofile.jpg";
 import * as S from "../../styles/Text.styled";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
@@ -95,7 +97,15 @@ function Profile() {
         <MarginWrapper>
           <div className="top-section-profile">
             <div className="wrapper-profile-info">
-              <AvatarImage src={state.profile.avatar}></AvatarImage>
+              <AvatarImage
+                src={
+                  state.profile.avatar ? state.profile.avatar : defaultprofile
+                }
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = defaultprofile;
+                }}
+              ></AvatarImage>
               <div className="margin-left">
                 <S.TextWhite>{state.profile.name}</S.TextWhite>
                 <S.TextGrey>{state.profile.email}</S.TextGrey>
