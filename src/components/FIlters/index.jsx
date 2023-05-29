@@ -7,7 +7,6 @@ import { useState } from "react";
 import Price from "./Price";
 import Guests from "./Guests";
 import Amenities from "./Amenities";
-import Dates from "./Dates";
 import { PrimaryButton, ButtonInverted } from "../../styles/Buttons.styled";
 import * as S from "../../styles/Text.styled";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,12 +47,6 @@ function Filters() {
       action: handleExpandPrice,
       show: expandPrice,
       component: <Price />,
-    },
-    {
-      heading: "Dates",
-      action: handleExpandDate,
-      show: expandDate,
-      component: <Dates />,
     },
     {
       heading: "Amenities",

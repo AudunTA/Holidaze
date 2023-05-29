@@ -83,6 +83,9 @@ export const venueSlice = createSlice({
       } else {
         //checks if filters are active
         state.filterMessage = `note: filters are active`;
+        if (state.filter.search) {
+          state.filterMessage = `note: filter and search are active`;
+        }
       }
     },
     clearFilter(state) {

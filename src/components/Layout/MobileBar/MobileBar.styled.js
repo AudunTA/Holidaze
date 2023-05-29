@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const MobileBarContainer = styled.div`
   position: fixed;
+  z-index: 99;
   height: 56px;
   background-color: white;
   width: 100%;
@@ -36,6 +37,7 @@ const WrapperNavOptions = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export { MobileBarContainer, WrapperNavOptions };

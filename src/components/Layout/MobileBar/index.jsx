@@ -6,7 +6,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import * as S from "../../../styles/Text.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
 import { useState, useEffect } from "react";
-
+import defaultProfile from "../../../assets/images/defaultprofile.jpg";
 import { Link } from "react-router-dom";
 //auth-kit
 import { useAuthUser, withAuthHeader } from "react-auth-kit";
@@ -43,27 +43,34 @@ function MobileBar() {
   return (
     <MobileBarContainer>
       <div className="flex-icons">
-        <WrapperNavOptions>
-          <MapsHomeWorkIcon className="icon-mobile-nav" />
-          <S.TextMobileNav>Explore</S.TextMobileNav>
-        </WrapperNavOptions>
-        <WrapperNavOptions>
-          <RecentActorsIcon className="icon-mobile-nav" />
-          <S.TextMobileNav>Contact</S.TextMobileNav>
-        </WrapperNavOptions>
+        <Link to={"/Explore"}>
+          <WrapperNavOptions>
+            <MapsHomeWorkIcon className="icon-mobile-nav" />
+            <S.TextMobileNav>Explore</S.TextMobileNav>
+          </WrapperNavOptions>
+        </Link>
+
         {isUserLoggedIn ? (
-          <WrapperNavOptions>
-            <img
-              src={avatar !== null ? avatar : avatar}
-              className="avatar-mobile-nav"
-            ></img>
-            <S.TextMobileNav>{usrName}</S.TextMobileNav>
-          </WrapperNavOptions>
+          <Link to={"/Profile"}>
+            <WrapperNavOptions>
+              <img
+                src={avatar ? avatar : defaultProfile}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = defaultProfile;
+                }}
+                className="avatar-mobile-nav"
+              ></img>
+              <S.TextMobileNav>{usrName}</S.TextMobileNav>
+            </WrapperNavOptions>
+          </Link>
         ) : (
-          <WrapperNavOptions>
-            <AccountCircleIcon className="icon-mobile-nav" />
-            <S.TextMobileNav>Log In</S.TextMobileNav>
-          </WrapperNavOptions>
+          <Link to={"/SignUp"}>
+            <WrapperNavOptions>
+              <AccountCircleIcon className="icon-mobile-nav" />
+              <S.TextMobileNav>Log In</S.TextMobileNav>
+            </WrapperNavOptions>
+          </Link>
         )}
       </div>
     </MobileBarContainer>

@@ -21,6 +21,7 @@ function DisplayCards() {
   const [showMoreLoader, setShowMoreLoader] = useState(false);
   const [currentVenues, setCurrentVenues] = useState([]);
   const [visableVenues, setVisableVenues] = useState(6);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (!state.filteredVenues.length == 0) {
       console.log(state.filteredVenues);
