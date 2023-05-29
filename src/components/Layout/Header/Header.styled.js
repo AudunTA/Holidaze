@@ -19,6 +19,7 @@ const HeaderContainer = styled.div`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
   .logo-a {
     width: 22px;
     height: 22px;
@@ -37,6 +38,7 @@ const NavContainer = styled.div`
     color: var(--text-color-main);
     font-size: 13px;
     font-family: NeuweltLight;
+    cursor: pointer;
   }
   .avatar-img {
     width: 23px;
@@ -48,4 +50,5 @@ const NavContainer = styled.div`
     font-size: 18px;
   }
 `;
+
 export { HeaderContainer, LogoContainer, NavContainer };

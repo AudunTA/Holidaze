@@ -13,26 +13,22 @@ import { ReactComponent as LogoSolid } from "../../../assets/images/logoSolid.sv
 import { PrimaryButton } from "../../../styles/Buttons.styled.js";
 //material ui icons
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-//User menu import
-import UserMenu from "../../UserMenu/index.jsx";
 import { Link } from "react-router-dom";
 //auth-kit
 import { useAuthUser, withAuthHeader } from "react-auth-kit";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 function Header() {
-  //show modal states
-  //default is true so if user is not logged in the signup modal will be shown as default
-  const [showUserMenu, setShowUserMenu] = useState(false);
   //logged in state
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   //for manageing logged in user information
-
   const [avatar, setAvatar] = useState();
   const [usrName, setUsrName] = useState();
 
   const auth = useAuthUser();
   const authHeader = withAuthHeader();
+  const navigate = useNavigate();
   //Development log states
   const state = useSelector((state) => state.venues.filteredVenues);
   const logStore = () => {
@@ -69,7 +65,7 @@ function Header() {
       {" "}
       <ToastContainer autoClose={2000} />
       <HeaderContainer>
-        <LogoContainer>
+        <LogoContainer onClick={() => navigate("/")}>
           <LogoSolid className="logo-a" />
           <S.LogoText>Holidaze</S.LogoText>
         </LogoContainer>
@@ -77,12 +73,10 @@ function Header() {
           <Link to="/Explore">
             <p className="nav-item">Explore</p>
           </Link>
-          <Link to="/Contact">
-            <p className="nav-item">Contact</p>
-          </Link>
+
           {isUserLoggedIn ? (
             <>
-              <PrimaryButton onClick={handleUserMenuStatus}>
+              <PrimaryButton onClick={() => navigate("/Profile")}>
                 <img
                   src={avatar !== null ? avatar : avatar}
                   className="avatar-img"
@@ -90,7 +84,6 @@ function Header() {
                 <p>{usrName}</p>
                 <ArrowRightIcon className="arrow-icon" />
               </PrimaryButton>
-              {showUserMenu ? <UserMenu /> : ""}
             </>
           ) : (
             <>

@@ -20,21 +20,27 @@ import MyBookings from "../../components/Settings/MyBookings";
 import CreateVenue from "../../components/Settings/CreateVenue";
 import { profileApi } from "../../components/API/profile";
 import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 //auth-kit
-import { useAuthUser } from "react-auth-kit";
+import { useAuthUser, useSignOut } from "react-auth-kit";
 
 function Profile() {
   const auth = useAuthUser();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.profile);
+  const navigate = useNavigate();
   console.log(state);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [showMyBookings, setShowMyBookings] = useState(false);
   const [showMyVenues, setShowMyVenues] = useState(false);
   const [showCreateVenue, setShowCreateVenue] = useState(false);
   const [isManager, setIsManager] = useState(false);
+  //handling logout
 
+  const handleLogOut = () => {
+    localStorage.clear();
+    window.location.reload(false);
+  };
   useEffect(() => {
     if (auth()) {
       console.log(auth().username);
@@ -95,7 +101,7 @@ function Profile() {
                 <S.TextGrey>{state.profile.email}</S.TextGrey>
               </div>
             </div>
-            <PrimaryButton>
+            <PrimaryButton onClick={handleLogOut}>
               <p>Log out</p>
             </PrimaryButton>
           </div>
@@ -124,34 +130,32 @@ function Profile() {
             </div>
           );
         })}
-        {isManager ? (
-          adminSettings.map((ele) => {
-            return (
-              <div key={ele.name}>
-                {" "}
-                <ButtonSettings
-                  active={ele.show}
-                  key={ele.name}
-                  onClick={() => {
-                    ele.setShow(!ele.show);
-                  }}
-                >
-                  <S.TextWhite>{ele.name}</S.TextWhite>
-                  {ele.show ? (
-                    <ArrowDropUpIcon className="arrow-icon" />
-                  ) : (
-                    <ArrowRightIcon className="arrow-icon" />
-                  )}
-                </ButtonSettings>
-                <SmoothCollapse expanded={ele.show}>
-                  {ele.component}
-                </SmoothCollapse>
-              </div>
-            );
-          })
-        ) : (
-          <div>Non-manager content</div>
-        )}
+        {isManager
+          ? adminSettings.map((ele) => {
+              return (
+                <div key={ele.name}>
+                  {" "}
+                  <ButtonSettings
+                    active={ele.show}
+                    key={ele.name}
+                    onClick={() => {
+                      ele.setShow(!ele.show);
+                    }}
+                  >
+                    <S.TextWhite>{ele.name}</S.TextWhite>
+                    {ele.show ? (
+                      <ArrowDropUpIcon className="arrow-icon" />
+                    ) : (
+                      <ArrowRightIcon className="arrow-icon" />
+                    )}
+                  </ButtonSettings>
+                  <SmoothCollapse expanded={ele.show}>
+                    {ele.component}
+                  </SmoothCollapse>
+                </div>
+              );
+            })
+          : ""}
       </ProfileContainer>
     </>
   );

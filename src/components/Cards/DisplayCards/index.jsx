@@ -12,7 +12,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 //icons
 import StarRateIcon from "@mui/icons-material/StarRate";
-
+//error image
+import noImage from "../../../assets/images/noImage.png";
 import LoadingCards from "../LoadingCards";
 function DisplayCards() {
   const dispatch = useDispatch();
@@ -51,7 +52,14 @@ function DisplayCards() {
               <Link to={`/Venue/${ele.id}`} key={ele.id}>
                 <DisplayCard>
                   <div className="card-left">
-                    <img src={ele.media[0]} className="card-image"></img>
+                    <img
+                      src={ele.media[0] ? ele.media[0] : noImage}
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = noImage;
+                      }}
+                      className="card-image"
+                    ></img>
                   </div>
                   <div className="card-right">
                     <div className="info">

@@ -64,6 +64,7 @@ const LogoText = styled.p`
   margin-block-end: 0em;
   color: var(--text-color-main);
 `;
+
 export {
   TextWhite,
   TextGrey,

@@ -23,7 +23,8 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import PetsIcon from "@mui/icons-material/Pets";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
-
+//error image
+import noImage from "../../assets/images/noImage.png";
 function Venue() {
   let params = useParams();
   const [venue, setVenue] = useState();
@@ -42,7 +43,13 @@ function Venue() {
           <>
             <VenueLayOut>
               <ImageSection>
-                <img src={venue.media[0]}></img>
+                <img
+                  src={venue.media[0] ? venue.media[0] : noImage}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = noImage;
+                  }}
+                ></img>
                 <InfoSection>
                   <div className="top">
                     <S.Heading>{venue.name}</S.Heading>

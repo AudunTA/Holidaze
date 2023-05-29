@@ -81,4 +81,22 @@ const RemoveButton = styled.button`
   font-family: NeuweltLight;
   cursor: pointer;
 `;
-export { PrimaryButton, ButtonInverted, EditButton, RemoveButton };
+
+const PurpleButton = styled.button`
+  background-color: var(--text-color-purple);
+  padding: 10px 15px;
+  border-radius: var(--secondary-border-radius);
+  border: 1px solid var(--border);
+  font-size: 17px;
+  color: white;
+  text-align: center;
+  font-family: NeuweltLight;
+  cursor: pointer;
+`;
+export {
+  PrimaryButton,
+  ButtonInverted,
+  EditButton,
+  RemoveButton,
+  PurpleButton,
+};

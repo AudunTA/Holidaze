@@ -7,7 +7,6 @@ import * as S from "../../styles/Text.styled";
 import LogInForm from "../../components/Forms/LogInForm";
 import SingUpForm from "../../components/Forms/SignUpForm";
 import { MarginWrapper } from "../../styles/Layout.styled";
-import background from "../../assets/images/tile_background.png";
 import { MarginTopContainer } from "../../styles/Layout.styled";
 function SignUp() {
   const [active, setActive] = useState(false);

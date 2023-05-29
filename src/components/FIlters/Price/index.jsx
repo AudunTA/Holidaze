@@ -10,10 +10,10 @@ export default function App() {
   const dispatch = useDispatch();
   const minNum = useSelector((state) => state.venues.filter.minPrice);
   const maxNum = useSelector((state) => state.venues.filter.maxPrice);
-  const minmin = 300;
+  const minmin = 0;
   const maxmax = 3000;
   console.log(minNum, maxNum);
-  const [priceRangeValue, setPriceRangeValue] = useState([0, 4000]);
+  const [priceRangeValue, setPriceRangeValue] = useState([0, 3000]);
   console.log(priceRangeValue);
   const handlePriceRangeChange = (event, newValue) => {
     console.log("TEST: ", newValue);
