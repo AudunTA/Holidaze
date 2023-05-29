@@ -7,10 +7,8 @@
     "test": "jest",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
-  },
-  "opts": {
-    "destination": "docs"
+    "preview": "vite preview",
+    "docs": "jsdoc -c ./jsdoc.json"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as ColorBorder } from "../../assets/images/colorBorder.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   SearchBarContainer,
@@ -14,12 +13,22 @@ function SearchBar() {
   const searchState = useSelector((state) => state.venues.filter.search);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  /**
+   * Handles the search input change.
+   *
+   * @param {string} e - The event object.
+   */
   const handleSearch = (e) => {
     dispatch(addSearch(e.target.value));
   };
+
+  /**
+   * Applies the search filter and navigates to the explore page with the search query.
+   */
   const handleApplySearch = () => {
     dispatch(applyFilter());
-    navigate(`/Explore?seach=${searchState}`);
+    navigate(`/Explore?search=${searchState}`);
   };
   return (
     <BackGroundSearch>

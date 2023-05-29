@@ -26,6 +26,12 @@ import { useNavigate } from "react-router-dom";
 //auth-kit
 import { useAuthUser, useSignOut } from "react-auth-kit";
 
+/**
+ * Profile component for displaying user profile information.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Profile component with user options and information.
+ */
 function Profile() {
   const auth = useAuthUser();
   const dispatch = useDispatch();
@@ -37,12 +43,15 @@ function Profile() {
   const [showMyVenues, setShowMyVenues] = useState(false);
   const [showCreateVenue, setShowCreateVenue] = useState(false);
   const [isManager, setIsManager] = useState(false);
-  //handling logout
 
+  /**
+   * Handles the logout functionality by clearing the local storage and reloading the page.
+   */
   const handleLogOut = () => {
     localStorage.clear();
     window.location.reload(false);
   };
+
   useEffect(() => {
     if (auth()) {
       console.log(auth().username);
