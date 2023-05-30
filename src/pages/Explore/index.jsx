@@ -7,6 +7,12 @@ import { useDispatch } from "react-redux";
 import { venueApi } from "../../components/API/venue";
 import SearchBar from "../../components/SearchBar";
 
+/**
+ * Explore component .
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Explore component with its child-components.
+ */
 function Explore() {
   const dispatch = useDispatch();
   useEffect(() => {

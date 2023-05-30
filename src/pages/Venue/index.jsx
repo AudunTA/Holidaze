@@ -27,6 +27,13 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 //error image
 import noImage from "../../assets/images/noImage.png";
+
+/**
+ * Venue component .
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Venue component with its content for a single venue.
+ */
 function Venue() {
   let params = useParams();
   const [venue, setVenue] = useState();

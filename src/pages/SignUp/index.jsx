@@ -8,6 +8,12 @@ import LogInForm from "../../components/Forms/LogInForm";
 import SingUpForm from "../../components/Forms/SignUpForm";
 import { MarginWrapper } from "../../styles/Layout.styled";
 import { MarginTopContainer } from "../../styles/Layout.styled";
+/**
+ * SignUp component for displaying user profile information.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered SignUp component with options for login / signup.
+ */
 function SignUp() {
   const [active, setActive] = useState(false);
   const handleLogInTabClick = () => {

@@ -3,6 +3,12 @@ import { ErrorContainer } from "./ErrorPage.styled";
 import * as S from "../../styles/Text.styled";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import { useNavigate } from "react-router-dom";
+/**
+ * Error component .
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Error component with option to go back and a error message.
+ */
 function ErrorPage() {
   const navigate = useNavigate();
   return (
