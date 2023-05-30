@@ -14,7 +14,6 @@ import { EditButton, RemoveButton } from "../../../styles/Buttons.styled";
 import { deleteVenue } from "../../API/venue";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import ModalEditVenue from "../../ModalEditVenue";
 function createData(venue, edit, remove) {
   return { venue, edit, remove };
 }
@@ -32,7 +31,6 @@ function MyVenues() {
   };
   const venues = useSelector((state) => state.profile.profile.venues);
   const [rows, setRows] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const [editVenueId, setEditVenueId] = useState();
   const handleShowModal = (venueID) => {
     setEditVenueId(venueID);
@@ -44,7 +42,7 @@ function MyVenues() {
         <Link to={`/Venue/${venue.id}`} className="pointer">
           {venue.name}
         </Link>,
-        <EditButton onClick={() => handleShowModal(venue.id)}>Edit</EditButton>,
+        <EditButton>Edit</EditButton>,
         <RemoveButton onClick={() => dltVenue(venue.id)}>Delete</RemoveButton>
       )
     );
@@ -53,37 +51,6 @@ function MyVenues() {
 
   return (
     <>
-      {showModal ? (
-        //some inline-style
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            zIndex: 9999,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <div
-              style={{ maxWidth: "100%", maxHeight: "100%", overflow: "auto" }}
-            >
-              <ModalEditVenue edit={editVenueId} />
-            </div>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
       <SettingContainer>
         {venues.length > 0 ? (
           <TableContainer component={Paper}>
