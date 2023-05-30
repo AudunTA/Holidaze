@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const RangePickerContainer = styled.div`
   display: flex;
-
   .rdrCalendarWrapper {
     width: 100%;
   }
@@ -85,4 +84,12 @@ const WrapperButton = styled.div`
     width: 100%;
   }
 `;
-export { RangePickerContainer, WrapperButton };
+const InputLabel = styled.div`
+  font-family: NeuweltLight;
+  font-size: 16px;
+  line-height: 20px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  color: var(--text-color-main);
+`;
+export { RangePickerContainer, WrapperButton, InputLabel };

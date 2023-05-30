@@ -15,7 +15,7 @@ function Homepage() {
   const state = useSelector((state) => state.venues);
 
   useEffect(() => {
-    venueApi(dispatch, 8);
+    venueApi(dispatch);
   }, []);
 
   useEffect(() => {

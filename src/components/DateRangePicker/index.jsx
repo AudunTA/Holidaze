@@ -1,5 +1,9 @@
 import React from "react";
-import { RangePickerContainer, WrapperButton } from "./DateRangePicker.styled";
+import {
+  RangePickerContainer,
+  WrapperButton,
+  InputLabel,
+} from "./DateRangePicker.styled";
 import { PrimaryButton } from "../../styles/Buttons.styled";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
@@ -24,14 +28,19 @@ function DateRangePicker({ bookings, venueId, maxGuests }) {
       key: "selection",
     },
   ]);
+  //use states
   const [disabledDates, setDisabledDates] = useState([]);
   const [guests, setGuests] = useState(null);
   const [errorReservation, setErrorReservation] = useState("");
+  //validation state for booking.
   const [isValidated, setIsValidated] = useState(false);
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-  //short validation to make sure guests are picked correctly
+
+  //short validation to make sure guests are a valid number.
+  /**
+   * Handle guests validation and update the state accordingly.
+   *
+   * @param {Event} e - The event object.
+   */
   const handleGuestsValidation = (e) => {
     console.log(e.target.value);
     if (isNaN(Number(e.target.value))) {
@@ -52,12 +61,19 @@ function DateRangePicker({ bookings, venueId, maxGuests }) {
       setIsValidated(false);
     }
   };
+  /**
+   * Find all the days between two dates, inclusive.
+   *
+   * @param {string} dateFrom - The starting date (in string format).
+   * @param {string} dateTo - The ending date (in string format).
+   * @returns {Date[]} - An array of Date objects representing the days between the two dates.
+   */
   const findDaysBetween = (dateFrom, dateTo) => {
     let datesToDisable = [];
     let currentDate = dayjs(dateFrom);
-    console.log(currentDate.toDate());
     datesToDisable.push(currentDate.toDate());
     const endDate = dayjs(dateTo);
+    datesToDisable.push(endDate.toDate());
     while (currentDate.isBefore(endDate)) {
       datesToDisable.push(currentDate.toDate());
       currentDate = currentDate.add(1, "day");
@@ -70,16 +86,12 @@ function DateRangePicker({ bookings, venueId, maxGuests }) {
       let allDisabledDates = [];
       bookings.forEach((ele) => {
         const datesToDisable = findDaysBetween(ele.dateFrom, ele.dateTo);
-        console.log("original date: ", ele.dateFrom);
-        console.log("first test: ", dayjs(ele.dateFrom).format("MM/DD/YYYY"));
-        console.log("second test: ", dayjs(ele.dateFrom).toDate());
-        console.log(ele.dateTo);
-        console.log("disabled dates:", disabledDates);
         allDisabledDates = [...allDisabledDates, ...datesToDisable];
       });
       setDisabledDates(allDisabledDates);
     }
   }, [bookings]);
+
   const handleCreateBooking = () => {
     const bodyObj = {
       dateFrom: state[0].startDate,
@@ -104,7 +116,7 @@ function DateRangePicker({ bookings, venueId, maxGuests }) {
       </RangePickerContainer>
       {bookings && auth() ? (
         <>
-          <label htmlFor="rating">number of guest (max {maxGuests})</label>
+          <InputLabel>number of guest (max {maxGuests})</InputLabel>
           <UserInput onChange={handleGuestsValidation}></UserInput>
           {errorReservation ? (
             <S.TextError>{errorReservation}</S.TextError>

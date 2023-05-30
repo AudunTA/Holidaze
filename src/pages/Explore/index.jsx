@@ -10,7 +10,7 @@ import SearchBar from "../../components/SearchBar";
 function Explore() {
   const dispatch = useDispatch();
   useEffect(() => {
-    venueApi(dispatch, 100);
+    venueApi(dispatch);
   }, []);
 
   return (

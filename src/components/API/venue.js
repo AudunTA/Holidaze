@@ -4,7 +4,7 @@ import { addVenues } from "../../features/venueSlice";
 import { toast } from "react-toastify";
 import { deleteMyVenue } from "../../features/profileSlice";
 import "react-toastify/dist/ReactToastify.css";
-export async function venueApi(dispatch, num) {
+export async function venueApi(dispatch) {
   const endpoint = `/venues?sort=created&limit=100&_owner=true&_bookings=true`;
   try {
     console.log(baseURL + endpoint);
