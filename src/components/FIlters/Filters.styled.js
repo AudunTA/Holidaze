@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const FilterContainer = styled.div`
   width: 250px;
+  min-width: 200px;
   margin-bottom: 15px;
   @media only screen and (max-width: 800px) {
     width: 100%;

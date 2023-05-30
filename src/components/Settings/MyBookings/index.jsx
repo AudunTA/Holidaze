@@ -10,7 +10,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { Link } from "react-router-dom";
 function createData(venue, dateFrom, dateTo) {
   return {
     venue,
@@ -25,7 +25,13 @@ function MyBookings() {
 
   useEffect(() => {
     const newRows = bookings.map((booking) =>
-      createData(booking.venue.name, booking.dateFrom, booking.dateTo)
+      createData(
+        <Link className="pointer" to={`/Venue/${booking.venue.id}`}>
+          {booking.venue.name}
+        </Link>,
+        booking.dateFrom,
+        booking.dateTo
+      )
     );
     setRows(newRows);
   }, [bookings]);

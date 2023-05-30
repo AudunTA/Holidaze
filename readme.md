@@ -42,7 +42,7 @@ Redux toolkit for state-management.
 3.  Running the application:
     npm run dev
 
-##Testing
+## Testing
 
 - npm run test
 
@@ -51,3 +51,6 @@ this script runs the jest tests I made for this project.
 1. api reponse test.
 2. login api test.
 3. single venue fetch test.
+
+- npm run docs
+  creates jsdocs documentation to the docs folder in the repository root.

@@ -21,7 +21,7 @@ const CardContainer = styled.div`
   grid-auto-rows: 1fr;
   grid-gap: 25px;
   @media only screen and (max-width: 1050px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   @media only screen and (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);

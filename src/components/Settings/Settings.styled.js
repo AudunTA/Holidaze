@@ -5,6 +5,13 @@ const SettingContainer = styled.div`
   padding: 15px;
   padding-top: 0px;
   padding-left: 30px;
+  .pointer {
+    cursor: pointer;
+    :hover {
+      text-decoration: underline;
+      color: var(--btn-color-secondary);
+    }
+  }
 `;
 const VenueForm = styled.form``;
 

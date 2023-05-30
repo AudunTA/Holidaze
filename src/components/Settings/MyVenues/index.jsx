@@ -41,7 +41,9 @@ function MyVenues() {
   useEffect(() => {
     const newRows = venues.map((venue) =>
       createData(
-        <Link to={`/Venue/${venue.id}`}>{venue.name}</Link>,
+        <Link to={`/Venue/${venue.id}`} className="pointer">
+          {venue.name}
+        </Link>,
         <EditButton onClick={() => handleShowModal(venue.id)}>Edit</EditButton>,
         <RemoveButton onClick={() => dltVenue(venue.id)}>Delete</RemoveButton>
       )

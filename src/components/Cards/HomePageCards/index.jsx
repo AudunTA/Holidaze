@@ -22,52 +22,69 @@ function HomePageCards() {
   const [showMoreLoader, setShowMoreLoader] = useState(false);
   const [currentVenues, setCurrentVenues] = useState([]);
   const [visableVenues, setVisableVenues] = useState(8);
+  //realised late that the loader card only occupies 1 grid box so they are all in one square, that is not optimal
+  const [loader, setLoader] = useState(true);
   useEffect(() => {}, [state]);
   const handleShowMore = () => {
     navigate("/Explore");
   };
+  useEffect(() => {
+    if (state.length > 0) {
+      setLoader(false);
+    }
+  }, state);
   return (
     <DisplayCardWrapper>
       <S.SubHeading>Recently added venues</S.SubHeading>
       <CardContainer>
-        {state ? (
-          state.slice(0, 8).map((ele) => {
-            return (
-              <Link to={`/Venue/${ele.id}`} key={ele.id}>
-                <DisplayCard>
-                  <div className="card-left">
-                    <img
-                      src={ele.media[0] ? ele.media[0] : noImage}
-                      onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src = noImage;
-                      }}
-                      className="card-image"
-                    ></img>
-                  </div>
-                  <div className="card-right">
-                    <div className="info">
-                      <div className="info-top">
-                        <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
-                        <div className="star-rating">
-                          <StarRateIcon className="icon-star" />
-                          <S.TextWhite>{ele.rating}</S.TextWhite>
-                        </div>
-                      </div>
-                      <S.TextGrey>
-                        {ele.location.city !== "Unknown"
-                          ? ele.location.city.slice(0, 30)
-                          : ele.description.slice(0, 30)}
-                      </S.TextGrey>
+        {state.length > 0
+          ? state.slice(0, 8).map((ele) => {
+              return (
+                <Link to={`/Venue/${ele.id}`} key={ele.id}>
+                  <DisplayCard>
+                    <div className="card-left">
+                      <img
+                        src={ele.media[0] ? ele.media[0] : noImage}
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null;
+                          currentTarget.src = noImage;
+                        }}
+                        className="card-image"
+                      ></img>
                     </div>
-                    <S.TextBlue>${ele.price} per night</S.TextBlue>
-                  </div>
-                </DisplayCard>
-              </Link>
-            );
-          })
+                    <div className="card-right">
+                      <div className="info">
+                        <div className="info-top">
+                          <S.SubHeading>{ele.name.slice(0, 20)}</S.SubHeading>
+                          <div className="star-rating">
+                            <StarRateIcon className="icon-star" />
+                            <S.TextWhite>{ele.rating}</S.TextWhite>
+                          </div>
+                        </div>
+                        <S.TextGrey>
+                          {ele.location.city !== "Unknown"
+                            ? ele.location.city.slice(0, 30)
+                            : ele.description.slice(0, 30)}
+                        </S.TextGrey>
+                      </div>
+                      <S.TextBlue>${ele.price} per night</S.TextBlue>
+                    </div>
+                  </DisplayCard>
+                </Link>
+              );
+            })
+          : ""}
+        {loader ? (
+          <>
+            <LoadingCards />
+            <LoadingCards />
+            <LoadingCards />
+            <LoadingCards />
+            <LoadingCards />
+            <LoadingCards />
+          </>
         ) : (
-          <LoadingCards number={6} />
+          ""
         )}
       </CardContainer>
     </DisplayCardWrapper>

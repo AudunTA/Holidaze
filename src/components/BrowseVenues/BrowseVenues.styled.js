@@ -11,6 +11,7 @@ const BrowseContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   margin-bottom: 100px;
   cursor: pointer;
   @media (max-width: 1050px) {
