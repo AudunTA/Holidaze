@@ -9,12 +9,7 @@ function useLogInUser() {
   const navigate = useNavigate();
   const signIn = useSignIn();
 
-  async function logInUser(
-    email,
-    password,
-    handleResponseLogIn,
-    developmentTesting = false
-  ) {
+  async function logInUser(email, password, handleResponseLogIn) {
     const logInInformation = {
       email: email,
       password: password,
@@ -28,15 +23,10 @@ function useLogInUser() {
     };
     const response = await fetch(baseURL + endpoint, options);
     const json = await response.json();
-    //for jest test return
-    if (developmentTesting) {
-      return response.ok;
-    }
     if (!response.ok) {
       handleResponseLogIn(json.errors[0].message);
       toast.error(`${json.errors[0].message}`);
     } else {
-      console.log(json);
       const username = json.name;
       const email = json.email;
       const avatar = json.avatar;

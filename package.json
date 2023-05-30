@@ -2,13 +2,13 @@
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "jest",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "docs": "jsdoc -c ./jsdoc.json"
+    "docs": "jsdoc -c jsdoc.config.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

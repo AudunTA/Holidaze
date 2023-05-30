@@ -1,21 +1,26 @@
-import { useLogInUser } from "../src/components/API/auth/login";
-
-jest.mock("../src/components/API/auth/login");
+//testing user login, this will fail if demo user is removed, error message will then show up in terminal
+//I wanted to make this test with importing my login function but i had some issues with the react auth kit i used,
+//that would not resolve when importing function, so i had to recreate it.
 
 test("Test API response", async () => {
-  // Define the expected response from the API
-  const expectedResponse = {
-    status: 200,
-    message: "Success",
-    data: { userId: "123", username: "example" },
+  const apiURL = "https://api.noroff.dev/api/v1/holidaze/auth/login";
+
+  const logInInformation = {
+    email: "avatar@noroff.no",
+    password: "12345678",
   };
-
-  // Mock the useLogInUser function and define its return value
-  useLogInUser.mockResolvedValue(expectedResponse);
-
-  // Call the useLogInUser function
-  const response = await useLogInUser("avatar", "12345678");
-
-  // Verify the API response
-  expect(response).toEqual(expectedResponse);
+  const options = {
+    method: "POST",
+    body: JSON.stringify(logInInformation), // Convert body to JSON
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  };
+  const response = await fetch(apiURL, options);
+  const json = await response.json();
+  if (!response.ok) {
+    console.log(json.errors[0].message);
+  }
+  console.log(response.status);
+  expect(response.status).toBe(200);
 });

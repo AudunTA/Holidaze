@@ -47,3 +47,7 @@ Redux toolkit for state-management.
 - npm run test
 
 this script runs the jest tests I made for this project.
+
+1. api reponse test.
+2. login api test.
+3. single venue fetch test.
