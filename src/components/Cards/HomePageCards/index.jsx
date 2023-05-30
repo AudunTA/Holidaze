@@ -32,7 +32,7 @@ function HomePageCards() {
     if (state.length > 0) {
       setLoader(false);
     }
-  }, state);
+  }, [state]);
   return (
     <DisplayCardWrapper>
       <S.SubHeading>Recently added venues</S.SubHeading>
