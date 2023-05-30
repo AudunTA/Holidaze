@@ -1,6 +1,8 @@
 import React from "react";
 import { FooterContainer } from "./Footer.styled";
 import * as S from "../../../styles/Text.styled";
+//icons
+import GitHubIcon from "@mui/icons-material/GitHub";
 function Footer() {
   return (
     <FooterContainer>
@@ -13,8 +15,10 @@ function Footer() {
         <S.TextGrey className="spacing-left">2023 Holidaze</S.TextGrey>
       </div>
       <div className="group-text">
-        <S.TextWhite>Design prototype:</S.TextWhite>
-        <S.TextGrey className="spacing-left">Figma</S.TextGrey>
+        <S.TextWhite>Check out on</S.TextWhite>
+        <a href="https://github.com/AudunTA/Holidaze" target="_blank">
+          <GitHubIcon id="git-Icon" />
+        </a>
       </div>
     </FooterContainer>
   );

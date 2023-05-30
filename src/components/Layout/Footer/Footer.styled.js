@@ -16,6 +16,11 @@ const FooterContainer = styled.div`
       margin-left: 5px;
     }
   }
+  #git-Icon {
+    margin-left: 10px;
+    color: var(--text-color-main);
+    cursor: pointer;
+  }
 `;
 
 export { FooterContainer };
