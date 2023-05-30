@@ -15,7 +15,6 @@ async function profileApi({ username, method, accessToken, dispatch }) {
   try {
     const response = await fetch(baseURL + endpoint, options);
     const json = await response.json();
-    console.log(json);
     if (!response.ok) {
       throw Error;
     } else {
@@ -27,9 +26,7 @@ async function profileApi({ username, method, accessToken, dispatch }) {
 }
 
 async function changeAvatar(username, newAvatar, token, dispatch) {
-  console.log(token);
   const endpoint = `/profiles/${username}/media`;
-  console.log(newAvatar);
   const bodyObj = {
     avatar: newAvatar,
   };

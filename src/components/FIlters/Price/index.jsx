@@ -10,13 +10,12 @@ export default function App() {
   const dispatch = useDispatch();
   const minNum = useSelector((state) => state.venues.filter.minPrice);
   const maxNum = useSelector((state) => state.venues.filter.maxPrice);
-  const minmin = 0;
+  const minmin = 1;
   const maxmax = 3000;
-  console.log(minNum, maxNum);
-  const [priceRangeValue, setPriceRangeValue] = useState([0, 3000]);
-  console.log(priceRangeValue);
+
+  const [priceRangeValue, setPriceRangeValue] = useState([1, 3000]);
+
   const handlePriceRangeChange = (event, newValue) => {
-    console.log("TEST: ", newValue);
     dispatch(addMinPrice(newValue[0]));
     dispatch(addMaxPrice(newValue[1]));
     setPriceRangeValue(newValue);
@@ -34,11 +33,11 @@ export default function App() {
       <GroupedInputs>
         <div className="group-left">
           <label htmlFor="max">Min price</label>
-          <UserInput value={minNum} />
+          <UserInput readOnly value={minNum} />
         </div>
         <div className="group-right">
           <label htmlFor="max">Max price</label>
-          <UserInput value={maxNum} />
+          <UserInput readOnly value={maxNum} />
         </div>
       </GroupedInputs>
     </FilterMarginContainer>

@@ -7,12 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 export async function venueApi(dispatch) {
   const endpoint = `/venues?sort=created&limit=100&_owner=true&_bookings=true`;
   try {
-    console.log(baseURL + endpoint);
     const response = await fetch(baseURL + endpoint);
     const json = await response.json();
     dispatch(addVenues(json));
   } catch (e) {
+    //error handeling
     console.log(e);
+    toast.error(e);
   }
 }
 
@@ -27,7 +28,11 @@ export async function singleVenue(id) {
     } else {
       throw Error;
     }
-  } catch (e) {}
+  } catch (e) {
+    //error handeling
+    console.log(e);
+    toast.error(e);
+  }
 }
 
 export async function createVenueApi(method, accessToken, bodyObj) {
@@ -52,7 +57,11 @@ export async function createVenueApi(method, accessToken, bodyObj) {
         window.location.reload(false);
       }, 1000);
     }
-  } catch (e) {}
+  } catch (e) {
+    //error handeling
+    console.log(e);
+    toast.error(e);
+  }
 }
 
 export async function deleteVenue(venueId, token, dispatch) {

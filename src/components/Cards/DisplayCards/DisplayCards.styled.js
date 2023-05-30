@@ -61,6 +61,9 @@ const FilterMessage = styled.div`
   background-color: var(--text-color-highlight);
   padding-top: 5px;
   padding-bottom: 5px;
+  @media only screen and (max-width: 800px) {
+    margin-left: 0px;
+  }
   h3 {
     padding-left: 15px;
   }

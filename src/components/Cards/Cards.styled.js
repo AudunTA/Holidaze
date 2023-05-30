@@ -25,6 +25,7 @@ const CardContainer = styled.div`
   }
   @media only screen and (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
+    margin-left: 0px;
   }
   @media only screen and (max-width: 475px) {
     grid-template-columns: repeat(1, 1fr);

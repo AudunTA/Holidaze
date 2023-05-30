@@ -22,11 +22,15 @@ function createData(venue, edit, remove) {
 function MyVenues() {
   const auth = useAuthUser();
   const dispatch = useDispatch();
+  /**
+   * Deletes a venue.
+   *
+   * @param {string} venueId - The ID of the venue to be deleted.
+   */
   const dltVenue = (venueId) => {
     deleteVenue(venueId, auth().token, dispatch);
   };
   const venues = useSelector((state) => state.profile.profile.venues);
-  console.log(venues);
   const [rows, setRows] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editVenueId, setEditVenueId] = useState();

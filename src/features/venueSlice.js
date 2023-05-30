@@ -10,7 +10,7 @@ const initialState = {
     parking: false,
     breakfast: false,
     pets: false,
-    guests: null,
+    guests: "",
     minPrice: 1,
     maxPrice: 3000,
     search: "",
@@ -23,9 +23,9 @@ export const venueSlice = createSlice({
   initialState,
   reducers: {
     addVenues(state, action) {
-      console.log("INNE I ADD VENUES");
       state.venues = action.payload;
     },
+    //development log slice
     logState(state) {
       console.log(state.filter.wifi);
     },
@@ -54,16 +54,14 @@ export const venueSlice = createSlice({
     addMaxPrice(state, action) {
       state.filter.maxPrice = action.payload;
     },
-
+    //filter slice, will apply filter and check for search match
     applyFilter(state) {
       state.filteredVenues = _.filter(state.venues, (item) => {
         const searchQuery = state.filter.search.toLowerCase();
-        console.log(state.filter.search);
         const isNameMatch = item.name.toLowerCase().includes(searchQuery);
         const isLocationMatch = item.location.city
           .toLowerCase()
           .includes(searchQuery);
-        console.log(searchQuery, isNameMatch, isLocationMatch);
         return (
           item.price > state.filter.minPrice &&
           item.price < state.filter.maxPrice &&

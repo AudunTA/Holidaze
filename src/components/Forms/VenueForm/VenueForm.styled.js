@@ -31,6 +31,13 @@ const VenuesForm = styled.form`
     font-family: NeuweltRegular;
     line-height: 15px;
   }
+  .btn-container {
+    width: 100%;
+    display: flex;
+  }
+  .btn_createVenue {
+    width: 100%;
+  }
 `;
 
 const GroupedInputs = styled.div`

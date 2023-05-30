@@ -21,7 +21,6 @@ function createData(venue, dateFrom, dateTo) {
 
 function MyBookings() {
   const bookings = useSelector((state) => state.profile.profile.bookings);
-  console.log(bookings);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {

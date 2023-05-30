@@ -25,7 +25,7 @@ import { profileApi } from "../../components/API/profile";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 //auth-kit
-import { useAuthUser, useSignOut } from "react-auth-kit";
+import { useAuthUser } from "react-auth-kit";
 
 /**
  * Profile component for displaying user profile information.
@@ -37,8 +37,7 @@ function Profile() {
   const auth = useAuthUser();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.profile);
-  const navigate = useNavigate();
-  console.log(state);
+
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [showMyBookings, setShowMyBookings] = useState(false);
   const [showMyVenues, setShowMyVenues] = useState(false);
@@ -55,7 +54,6 @@ function Profile() {
 
   useEffect(() => {
     if (auth()) {
-      console.log(auth().username);
       profileApi({
         username: auth().username,
         method: "GET",
@@ -95,7 +93,6 @@ function Profile() {
   ];
 
   useEffect(() => {
-    console.log(state.profile.venueManager);
     if (state.profile.venueManager) {
       setIsManager(true);
     }

@@ -207,7 +207,11 @@ function VenueForm() {
                     <p>Pets</p>
                   </div>
                 </div>
-                <EditButton type="submit">Sign In</EditButton>
+                <div className="btn-container">
+                  <EditButton type="submit" className="btn_createVenue">
+                    Create Venue
+                  </EditButton>
+                </div>
               </VenuesForm>
             </>
           );

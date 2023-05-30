@@ -65,7 +65,6 @@ function Filters() {
     <FilterContainer>
       <div className="border-wrapper">
         {filters.map((ele) => {
-          console.log("INNE");
           return (
             <Filter active={ele.show} key={ele.heading}>
               <div className="filter-top">
