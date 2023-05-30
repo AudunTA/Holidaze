@@ -86,7 +86,7 @@ const PurpleButton = styled.button`
   background-color: var(--text-color-purple);
   padding: 10px 15px;
   border-radius: var(--secondary-border-radius);
-  border: 1px solid var(--border);
+  border: none;
   font-size: 17px;
   color: white;
   text-align: center;

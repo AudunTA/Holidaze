@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const RangePickerContainer = styled.div`
   display: flex;
+
   .rdrCalendarWrapper {
     width: 100%;
   }

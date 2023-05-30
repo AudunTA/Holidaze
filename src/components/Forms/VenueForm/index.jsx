@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { VenuesForm, GroupedInputs } from "./VenueForm.styled";
 import { PrimaryButton } from "../../../styles/Buttons.styled";
-import * as I from "../../../styles/Inputs.styled";
+
 import { validationCreateVenue } from "../FormValidation/validation";
 import { useState } from "react";
 import { createVenueApi } from "../../API/venue";
 import { useAuthUser } from "react-auth-kit";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import { FormGroupRow, FromRowHalf } from "./VenueForm.styled";
 import { FormRow } from "../SignUpForm/SignUpForm.styled";
 import { UserInput, UserTextArea } from "../../../styles/Inputs.styled";

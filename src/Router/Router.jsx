@@ -10,8 +10,6 @@ import Venue from "../pages/Venue";
 import Contact from "../pages/Contact";
 import { RequireAuth } from "react-auth-kit";
 
-import { QueryParamProvider } from "use-query-params";
-import { ReactRouter6Adapter } from "use-query-params/adapters/react-router-6";
 import ErrorPage from "../pages/ErrorPage";
 
 function Router() {
@@ -19,26 +17,25 @@ function Router() {
   return (
     <>
       <title>Holidaze</title>
-      <QueryParamProvider adapter={ReactRouter6Adapter}>
-        <Routes basename="Holidaze">
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Homepage />}></Route>
-            <Route
-              path="/Profile"
-              element={
-                <RequireAuth loginPath="/SignUp">
-                  <Profile />
-                </RequireAuth>
-              }
-            ></Route>
-            <Route path="/Signup" element={<SignUp />}></Route>
-            <Route path="/Contact" element={<Contact />}></Route>
-            <Route path="/Explore" element={<Explore />}></Route>
-            <Route path="/Venue/:id" element={<Venue />}></Route>
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
-        </Routes>
-      </QueryParamProvider>
+
+      <Routes basename="Holidaze">
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Homepage />}></Route>
+          <Route
+            path="/Profile"
+            element={
+              <RequireAuth loginPath="/SignUp">
+                <Profile />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route path="/Signup" element={<SignUp />}></Route>
+          <Route path="/Contact" element={<Contact />}></Route>
+          <Route path="/Explore" element={<Explore />}></Route>
+          <Route path="/Venue/:id" element={<Venue />}></Route>
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
     </>
   );
 }

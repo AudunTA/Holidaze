@@ -28,6 +28,7 @@ function HomePageCards() {
   };
   return (
     <DisplayCardWrapper>
+      <S.SubHeading>Recently added venues</S.SubHeading>
       <CardContainer>
         {state ? (
           state.slice(0, 8).map((ele) => {
@@ -68,12 +69,7 @@ function HomePageCards() {
         ) : (
           <LoadingCards number={6} />
         )}
-        {showMoreLoader ? <LoadingCards number={6} /> : ""}
       </CardContainer>
-
-      <ButtonInverted className="btn_showMore" onClick={handleShowMore}>
-        <p>Show more</p>
-      </ButtonInverted>
     </DisplayCardWrapper>
   );
 }

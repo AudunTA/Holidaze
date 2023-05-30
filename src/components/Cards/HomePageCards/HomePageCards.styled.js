@@ -5,6 +5,10 @@ const DisplayCardWrapper = styled.div`
     width: 80px;
     margin: 20px auto;
   }
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 `;
 const DisplayCard = styled(Card)`
   height: 100%;

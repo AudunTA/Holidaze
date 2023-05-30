@@ -7,6 +7,7 @@ import {
   ButtonSettings,
 } from "./Profile.styled";
 //styles and icons
+import { MarginBottomContainer } from "../../styles/Layout.styled";
 import defaultprofile from "../../assets/images/defaultprofile.jpg";
 import * as S from "../../styles/Text.styled";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -101,7 +102,7 @@ function Profile() {
   }, [state]);
 
   return (
-    <>
+    <MarginBottomContainer>
       <ProfileContainer>
         <MarginWrapper>
           <div className="top-section-profile">
@@ -176,7 +177,7 @@ function Profile() {
             })
           : ""}
       </ProfileContainer>
-    </>
+    </MarginBottomContainer>
   );
 }
 

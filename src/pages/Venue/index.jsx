@@ -1,6 +1,10 @@
 import React from "react";
 import Header from "../../components/Layout/Header/Index";
-import { MarginWrapper, CenterContainer } from "../../styles/Layout.styled";
+//styles
+import {
+  MarginBottomContainer,
+  CenterContainer,
+} from "../../styles/Layout.styled";
 import * as S from "../../styles/Text.styled";
 import { singleVenue } from "../../components/API/venue";
 import { useEffect, useState } from "react";
@@ -12,10 +16,8 @@ import {
   VenueLayOut,
   BookingSection,
 } from "./Venue.styled";
-import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import dayjs from "dayjs";
 import DateRangePicker from "../../components/DateRangePicker";
 //icons
 import StarRateIcon from "@mui/icons-material/StarRate";
@@ -37,7 +39,7 @@ function Venue() {
     fetchVenue();
   }, [params.id]);
   return (
-    <>
+    <MarginBottomContainer>
       <CenterContainer>
         {venue ? (
           <>
@@ -53,11 +55,13 @@ function Venue() {
                 <InfoSection>
                   <div className="top">
                     <S.Heading>{venue.name}</S.Heading>
+
                     <div className="rating-venue">
                       <StarRateIcon className="star-icon" />
                       <S.TextWhite>{venue.rating}</S.TextWhite>
                     </div>
                   </div>
+                  <S.TextBlue>${venue.price} per night</S.TextBlue>
                   <div className="desc">
                     <S.TextGrey>{venue.description}</S.TextGrey>
                   </div>
@@ -98,6 +102,7 @@ function Venue() {
                       )}
                     </div>
                   </div>
+
                   <div className="host-section">
                     <div className="venue-host-info">
                       <img
@@ -122,10 +127,10 @@ function Venue() {
             </VenueLayOut>
           </>
         ) : (
-          "<p>no venue found</p>"
+          "no venue found, check if the url is correct or go back home"
         )}
       </CenterContainer>
-    </>
+    </MarginBottomContainer>
   );
 }
 

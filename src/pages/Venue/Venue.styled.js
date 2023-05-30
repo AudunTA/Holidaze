@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
 const VenueLayOut = styled.div`
+  margin: 15px auto;
+  max-width: var(--max-width);
   display: flex;
+  @media only screen and (max-width: 1250px) {
+    margin: 15px;
+  }
+
   @media only screen and (max-width: 800px) {
     flex-direction: column;
   }
@@ -80,6 +86,9 @@ const BookingSection = styled.div`
   border-radius: var(--main-border-radius);
   padding: 10px;
   margin-left: 10px;
+  @media only screen and (max-width: 800px) {
+    margin: auto;
+  }
 `;
 const InfoSection = styled.div`
   .top {
