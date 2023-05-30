@@ -76,12 +76,7 @@ function HomePageCards() {
           : ""}
         {loader ? (
           <>
-            <LoadingCards />
-            <LoadingCards />
-            <LoadingCards />
-            <LoadingCards />
-            <LoadingCards />
-            <LoadingCards />
+            <LoadingCards number={6} />
           </>
         ) : (
           ""
