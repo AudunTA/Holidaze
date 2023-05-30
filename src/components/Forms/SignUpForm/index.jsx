@@ -29,6 +29,7 @@ function SingUpForm() {
       values.password,
       values.avatar,
       checkedManager,
+      //sends the api error function so i can add errors from api
       apiErrors
     );
   };

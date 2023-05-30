@@ -48,6 +48,7 @@ function MyVenues() {
   return (
     <>
       {showModal ? (
+        //some inline-style
         <div
           style={{
             position: "fixed",

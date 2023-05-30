@@ -44,11 +44,8 @@ export async function createVenueApi(method, accessToken, bodyObj) {
     },
   };
   try {
-    console.log(options);
     const response = await fetch(baseURL + endpoint, options);
     const json = await response.json();
-    console.log(json);
-    console.log(response);
     if (!response.ok) {
       toast.error(`api error: ${json.errors[0].message}`);
     } else {
@@ -61,7 +58,6 @@ export async function createVenueApi(method, accessToken, bodyObj) {
 }
 
 export async function deleteVenue(venueId, token, dispatch) {
-  console.log(venueId, token);
   const options = {
     method: "DELETE",
     headers: {
@@ -71,7 +67,6 @@ export async function deleteVenue(venueId, token, dispatch) {
   const endpoint = `/venues/${venueId}`;
   try {
     const response = await fetch(baseURL + endpoint, options);
-    console.log(response);
     if (!response.ok) {
       console.log("NOT NICE");
       const errorJson = await response.json();
@@ -81,6 +76,7 @@ export async function deleteVenue(venueId, token, dispatch) {
       dispatch(deleteMyVenue(venueId));
     }
   } catch (error) {
+    toast.error(error);
     console.log("Error occurred:", error);
   }
 }

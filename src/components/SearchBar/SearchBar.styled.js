@@ -51,7 +51,6 @@ const SearchInput = styled.input`
   flex: 1;
   height: 54px;
   transition: 0.15s;
-  box-shadow: var(--shadow);
 
   :focus {
     font-size: 15px;
