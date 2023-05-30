@@ -1,5 +1,6 @@
 # Holidaze
 
+![Holidaze feature image](src/assets/images/holidazeDesktop.png)
 This is my exam project for my last semester at Noroff, Kristiansand. The project is called Holidaze, a venue booking application.
 
 ## Table of Contents
